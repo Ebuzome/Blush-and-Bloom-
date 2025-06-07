@@ -94,12 +94,12 @@
     const dropdownMenu = document.querySelector('.dropdown-menu');
     
     menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
+        e.stopPropagation(e);
         dropdownMenu.classList.toggle('show');
     });
     
     // Close menu when clicking outside
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (e) => {
         dropdownMenu.classList.remove('show');
     });
 
