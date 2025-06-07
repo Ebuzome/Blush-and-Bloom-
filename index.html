@@ -88,35 +88,38 @@
 
         /* Dropdown Menu */
         .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            width: 100%;
-            box-shadow: var(--shadow);
-            display: none;
-            z-index: 99;
-        }
+            <script>
+    // Toggle dropdown menu
+    const menuBtn = document.querySelector('.menu-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', () => {
+        dropdownMenu.classList.remove('show');
+    });
 
-        .dropdown-menu.show {
-            display: block;
+    // Toggle night mode
+    const nightModeBtn = document.querySelector('.night-mode');
+    const body = document.body;
+    
+    nightModeBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        // Toggle icon
+        const icon = nightModeBtn.querySelector('i');
+        if (body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
         }
-
-        .dropdown-menu ul {
-            list-style: none;
-        }
-
-        .dropdown-menu li {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .dropdown-menu a {
-            color: var(--velvet-pink);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-        }
+    });
 
         /* Night Mode Toggle */
         .night-mode {
