@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +21,7 @@
         .dark-mode {
             --cream: #1a1a1a;
             --dark-text: #f0f0f0;
+            --velvet-pink: #d47a8a;
         }
 
         /* Base Styles */
@@ -36,7 +36,7 @@
             color: var(--dark-text);
             font-family: 'Montserrat', sans-serif;
             line-height: 1.7;
-            transition: background 0.5s ease;
+            transition: background 0.5s ease, color 0.5s ease;
         }
 
         h1, h2, h3 {
@@ -69,6 +69,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
@@ -84,42 +85,57 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-hint {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         /* Dropdown Menu */
         .dropdown-menu {
-            <script>
-    // Toggle dropdown menu
-    const menuBtn = document.querySelector('.menu-btn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation(e);
-        dropdownMenu.classList.toggle('show');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        dropdownMenu.classList.remove('show');
-    });
-
-    // Toggle night mode
-    const nightModeBtn = document.querySelector('.night-mode');
-    const body = document.body;
-    
-    nightModeBtn.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        
-        // Toggle icon
-        const icon = nightModeBtn.querySelector('i');
-        if (body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 100%;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
         }
-    });
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+        }
+
+        .dropdown-menu li {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu li:hover {
+            background: rgba(170, 51, 106, 0.1);
+        }
+
+        .dropdown-menu a {
+            color: var(--velvet-pink);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+        }
 
         /* Night Mode Toggle */
         .night-mode {
@@ -128,6 +144,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.5rem;
         }
 
         /* Hero Section */
@@ -163,6 +180,11 @@
             padding: 1.2rem;
             background: rgba(170, 51, 106, 0.05);
             border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
         }
 
         .service-icon {
@@ -191,6 +213,11 @@
             padding: 1.8rem;
             border-radius: 8px;
             box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
         }
 
         /* Testimonials */
@@ -244,6 +271,10 @@
         .contact-card {
             display: flex;
             align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
         }
 
         .contact-icon {
@@ -276,6 +307,10 @@
             .hero p {
                 font-size: 1.1rem;
             }
+            
+            .menu-hint {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -285,6 +320,7 @@
         <div class="container nav-container">
             <button class="menu-btn">
                 <i class="fas fa-bars"></i>
+                <span class="menu-hint">Click the menu button to view our services</span>
             </button>
             
             <div class="logo">Blush & Bloom</div>
@@ -332,7 +368,6 @@
                     </div>
                 </div>
                 
-                <!-- 6 more services following the same pattern -->
                 <div class="service-item">
                     <div class="service-icon">
                         <i class="fas fa-cut"></i>
@@ -456,6 +491,61 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="testimonial">
+                <p>"The bridal makeup stayed flawless from morning until the last dance! They even came to my hotel room. Best decision I made for my wedding."</p>
+                <div class="client-info">
+                    <div class="client-avatar">NE</div>
+                    <div>
+                        <strong>Nneka Eze</strong>
+                        <p>Port Harcourt, Bride</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"My natural hair has never looked better since following their haircare routine. The stylists are magic workers!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">AO</div>
+                    <div>
+                        <strong>Amina Okoro</strong>
+                        <p>Abuja, Hair Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"The skincare consultation cleared my acne in 3 weeks. Finally found products that work for Nigerian skin!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">CA</div>
+                    <div>
+                        <strong>Chioma Adeleke</strong>
+                        <p>Lagos, Skincare Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"I get compliments every time I leave Blush and Bloom. Their makeup makes me glow like a Nollywood star!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">EB</div>
+                    <div>
+                        <strong>Ebere Bello</strong>
+                        <p>Enugu, Regular Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Worth every kobo! My traditional wedding makeup was so beautiful I cried (and it didn't smudge)."</p>
+                <div class="client-info">
+                    <div class="client-avatar">FO</div>
+                    <div>
+                        <strong>Funke Okafor</strong>
+                        <p>Ibadan, Bride</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -481,7 +571,17 @@
                     </div>
                     <div>
                         <h3>Call Us</h3>
-                        <p>+234 812 345 6789</p>
+                        <p>07075754823<br>08062774342</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>michaelebuzome4@gmail.com<br>ngozi.zica@gmail.com</p>
                     </div>
                 </div>
                 
@@ -521,10 +621,16 @@
         const menuBtn = document.querySelector('.menu-btn');
         const dropdownMenu = document.querySelector('.dropdown-menu');
         
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
         
+        // Close menu when clicking outside
+        document.addEventListener('click', () => {
+            dropdownMenu.classList.remove('show');
+        });
+
         // Toggle night mode
         const nightModeBtn = document.querySelector('.night-mode');
         const body = document.body;
@@ -540,13 +646,6 @@
             } else {
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!menuBtn.contains(event.target) {
-                dropdownMenu.classList.remove('show');
             }
         });
     </script>
