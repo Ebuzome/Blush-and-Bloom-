@@ -1,307 +1,551 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blush and Bloom | Makeup and Hairdressing Services</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Blush and Bloom | Beauty Services Nigeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Color Variables */
+        :root {
+            --rosy-gold: #D4AF37;
+            --velvet-pink: #AA336A;
+            --cream: #FFF8F0;
+            --dark-text: #333333;
+            --light-text: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Dark Mode Colors */
+        .dark-mode {
+            --cream: #1a1a1a;
+            --dark-text: #f0f0f0;
+        }
+
+        /* Base Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #ff6f61; /* A soft pinkish hue for welcoming warmth */
-            color: white; /* Crisp white text for contrast */
-            text-align: center; /* Centered text for an inviting feel */
-            padding: 20px 0; /* Adequate vertical padding for visual appeal */
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            transition: background 0.5s ease;
         }
-        nav ul {
-            list-style-type: none; /* Removing default bullet points from the navigation list */
-            padding: 0; /* Resetting padding for cleaner look */
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--velvet-pink);
         }
-        nav ul li {
-            display: inline; /* Inline items for horizontal navigation */
-            margin-right: 20px; /* Space between the navigation links */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
         }
+
         section {
-            padding: 20px; /* Unified section padding for consistency */
-            text-align: center; /* Centered text for better readability */
+            padding: 4rem 0;
         }
-        img {
-            max-width: 100%; /* Ensures responsiveness of images across devices */
-            height: auto; /* Maintains aspect ratio of images */
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
         }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Menu Button */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 100%;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+        }
+
+        .dropdown-menu li {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-menu a {
+            color: var(--velvet-pink);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+        }
+
+        /* Night Mode Toggle */
+        .night-mode {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            background: url('https://placehold.co/1200x600/AA336A/FFF8F0?text=Blush+&+Bloom') no-repeat center/cover;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Services Section */
+        .services-list {
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            background: rgba(170, 51, 106, 0.05);
+            border-radius: 8px;
+        }
+
+        .service-icon {
+            background: var(--rosy-gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Why Choose Us */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial:before {
+            content: """;
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: var(--rosy-gold);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--velvet-pink);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icon {
+            background: var(--rosy-gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
         footer {
-            background-color: #333; /* Dark footer for contrast */
-            color: white; /* White text for readability */
-            text-align: center; /* Centered text for visual balance */
-            padding: 10px 0; /* Adequate vertical padding */
-            position: relative; /* Allows footer to be placed neatly at the bottom */
-            width: 100%; /* Full width for footer */
+            background: var(--velvet-pink);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">Blush & Bloom</div>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <!-- Dropdown Menu -->
+        <div class="dropdown-menu">
+            <ul>
+                <li><a href="#">Make up Services</a></li>
+                <li><a href="#">Hairdressing Services</a></li>
+                <li><a href="#">Skin care Consultations</a></li>
+                <li><a href="#">Transformations</a></li>
+                <li><a href="#">Transformations of the Week</a></li>
+                <li><a href="#">Reviews and Confessions</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Support Us</a></li>
+            </ul>
+        </div>
+    </header>
 
-<header>
-    <h1>Welcome to Blush and Bloom</h1>
-    <nav>
-        <ul>
-            <li><a href="#about" style="color: white; text-decoration: none;">About</a></li>
-            <li><a href="#services" style="color: white; text-decoration: none;">Services</a></li>
-            <li><a href="#gallery" style="color: white; text-decoration: none;">Gallery</a></li>
-            <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Where Beauty Blooms</h1>
+            <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry and professional hairdressing services in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
+        </div>
+    </section>
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>At Blush and Bloom, we genuinely believe in the power of beauty and empowerment. Our expert team excels in delivering personalized makeup and hairdressing services tailored specifically for you, ensuring that you look and feel absolutely fabulous for every occasion, whether it be a wedding, a special event, or a casual outing. We pride ourselves on our warm atmosphere and attention to detail, guaranteeing an experience that is as memorable as the look we create together.</p>
-</section>
+    <!-- Services Section -->
+    <section>
+        <div class="container">
+            <h2>Our Exquisite Services</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div>
+                        <h3>Bridal Makeup Packages</h3>
+                        <p>Comprehensive bridal beauty solutions including trials, day-of services, and touch-up kits to ensure you look flawless throughout your special day.</p>
+                    </div>
+                </div>
+                
+                <!-- 6 more services following the same pattern -->
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div>
+                        <h3>Professional Hair Styling</h3>
+                        <p>From precision cuts to intricate braiding, updos, and color treatments performed by certified stylists using premium products.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div>
+                        <h3>Special Occasion Glam</h3>
+                        <p>Red carpet-ready makeup and hairstyling for weddings, birthdays, anniversaries, and corporate events.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h3>Skincare Consultations</h3>
+                        <p>Personalized skincare analysis and treatment plans using clinically-tested products suitable for Nigerian skin types.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div>
+                        <h3>Bridal Party Packages</h3>
+                        <p>Group discounts for bridesmaids, mothers of the bride/groom, and flower girls to create cohesive wedding beauty.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div>
+                        <h3>Makeup Lessons</h3>
+                        <p>Personalized tutorials covering foundation matching, eye techniques, and product selection for everyday Nigerian beauty.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div>
+                        <h3>Traditional Attire Styling</h3>
+                        <p>Specialized makeup and hair services designed to complement Ankara, Aso Ebi, and other traditional Nigerian outfits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="services">
-    <h2>Our Services</h2>
-    <ul>
-        <li>Bridal Makeup - Bringing your dream wedding look to life.</li>
-        <li>Photoshoot Styling - Perfectly curated looks for your special moments.</li>
-        <li>Party & Event Makeup - Stand out and shine at every gathering.</li>
-        <li>Haircuts & Styling - Transform your look with our expert hairstylists.</li>
-        <li>Hair Coloring - Innovative coloring techniques to express your style.</li>
-        <li>Skincare Consultations - Because healthy skin is the canvas for beauty.</li>
-    </ul>
-</section>
+    <!-- Why Choose Us Section -->
+    <section style="background: rgba(212, 175, 55, 0.05);">
+        <div class="container">
+            <h2>Why Choose Blush and Bloom?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Nigerian Beauty Experts</h3>
+                    <p>Our team specializes in working with diverse Nigerian skin tones and hair textures, understanding the unique needs of our clients.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>Premium Products</h3>
+                    <p>We use only high-quality, skin-friendly products from internationally recognized brands suitable for our climate.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>Hygiene First</h3>
+                    <p>Strict sanitation protocols with disposable tools and sterilized equipment for every client appointment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="gallery">
-    <h2>Gallery</h2>
-    <p>Take a moment to view some of our stunning work. Our gallery showcases various styles and looks created by our talented team, highlighting the artistry and passion that goes into every service we provide. Replace the paths below with your actual image URLs to share your best moments with potential clients.</p>
-    <img src="path/to/your/image1.jpg" alt="Makeup Example 1">
-    <img src="path/to/your/image2.jpg" alt="Makeup Example 2">
-    <img src="path/to/your/image3.jpg" alt="Makeup Example 3">
-</section>
+    <!-- Testimonials Section -->
+    <section>
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            
+            <div class="testimonial">
+                <p>"Blush and Bloom transformed me for my wedding! They understood exactly how to make my makeup last through the heat and dancing. Five years later, I still come for their amazing braiding services."</p>
+                <div class="client-info">
+                    <div class="client-avatar">AO</div>
+                    <div>
+                        <strong>Amina Okafor</strong>
+                        <p>Lagos, Bride</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"After years of damaging my hair with chemicals, their hair recovery program restored my natural texture. The team truly cares about hair health, not just styling. Worth every naira!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">CE</div>
+                    <div>
+                        <strong>Chinedu Eze</strong>
+                        <p>Abuja, Regular Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Their skincare consultation changed my life. Finally found products that don't cause breakouts in this humidity! My complexion has never looked better. Thank you Blush and Bloom!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">TK</div>
+                    <div>
+                        <strong>Tolu Kazeem</strong>
+                        <p>Ibadan, Skincare Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="why-us">
-    <h2>Why Choose Us?</h2>
-    <p>1. <strong>Experienced Professionals:</strong> Our team is composed of seasoned makeup artists and hairstylists, each with a unique skill set and a passion for beauty, ready to bring your vision to life.</p>
-    <p>2. <strong>Custom Packages:</strong> We recognize that each client has distinct needs. Therefore, we provide tailored packages that align with your specific desires and budget, ensuring a perfect fit for everyone.</p>
-    <p>3. <strong>Quality Products:</strong> We use only exceptional, high-quality, and safe products to ensure you have the best experience possible and leave feeling radiant.</p>
-    <p>4. <strong>Customer Satisfaction:</strong> Your happiness is our success; we pride ourselves on our attention to customer service, and we are driven by the smiles on our clients' faces.</p>
-    <p>5. <strong>Convenient Location:</strong> Located in the heart of the city, our salon is easily accessible, making it a breeze for our clients to visit us, relax, and indulge in their beauty experience.</p>
-</section>
+    <!-- Contact Section -->
+    <section style="background: rgba(170, 51, 106, 0.05);">
+        <div class="container">
+            <h2>Contact Us</h2>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Our Location</h3>
+                        <p>24 Beauty Avenue, Victoria Island, Lagos, Nigeria</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>+234 812 345 6789</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div>
+                        <h3>Instagram</h3>
+                        <p>@blushandbloom_ng</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Mon-Sat: 9am - 7pm<br>Sunday: By appointment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Do you have questions, need more information, or want to book an appointment? We’re here to help! Please don’t hesitate to reach out through email at <a href="mailto:info@blushandbloom.com">info@blushandbloom.com</a>. Our friendly team is ready to assist you and ensure that you have a wonderful experience with us.</p>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Blush and Bloom | Luxury Beauty Services in Nigeria</p>
+            <p>Where every client blossoms with confidence</p>
+        </div>
+    </footer>
 
-<footer>
-    <p>&copy; 2023 Blush and Bloom. All rights reserved. Thank you for visiting our website!</p>
-</footer>
-
+    <script>
+        // Toggle dropdown menu
+        const menuBtn = document.querySelector('.menu-btn');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        // Toggle night mode
+        const nightModeBtn = document.querySelector('.night-mode');
+        const body = document.body;
+        
+        nightModeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Toggle icon
+            const icon = nightModeBtn.querySelector('i');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!menuBtn.contains(event.target) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
 </body>
-</html>
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blush and Bloom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --blush-pink: #f8cdd6;
-      --rose-gold: #b76e79;
-      --text-dark: #3e3e3e;
-      --background: #fff0f4;
-      --transition: all 0.3s ease-in-out;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background-color: var(--background);
-      color: var(--text-dark);
-    }
-
-    header {
-      background: var(--blush-pink);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .logo <div class="logo">
-  <a href="/">
-    <img src="images/logo.png" alt="Blush and Bloom Logo" style=".logo img {
-  height: 60px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-  transform: scale(1.05);
-}">
-  </a>
-</div>
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--rose-gold);
-      letter-spacing: 1px;
-    }
-
-    nav {
-      position: relative;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: var(--rose-gold);
-    }
-
-    .dropdown {
-      position: absolute;
-      top: 2.5rem;
-      left: 0;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 999;
-    }
-
-    .nav-links li:hover .dropdown {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown li {
-      padding: 0.8rem 1.5rem;
-      white-space: nowrap;
-    }
-
-    .dropdown li a {
-      color: var(--text-dark);
-    }
-
-    .dropdown li a:hover {
-      color: var(--rose-gold);
-    }
-
-    /* Mobile Menu */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: var(--rose-gold);
-      margin: 4px 0;
-      transition: var(--transition);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        display: none;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .dropdown {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        box-shadow: none;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="logo">Blush & Bloom</div>
-    <nav>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li>
-          <a href="#">Menu ▾</a>
-          <ul class="dropdown">
-            <li><a href="#makeup">Makeup</a></li>
-            <li><a href="#hairstyles">Hairstyles</a></li>
-            <li><a href="#style">Style of the Week</a></li>
-            <li><a href="#transformation">Transformation</a></li>
-            <li><a href="#transformation-week">Transformation of the Week</a></li>
-            <li><a href="#reviews">Reviews & Testimonials</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Placeholder Sections -->
-  <section id="makeup" style="padding: 80px 20px;"><h2>Makeup</h2></section>
-  <section id="hairstyles" style="padding: 80px 20px;"><h2>Hairstyles</h2></section>
-  <section id="style" style="padding: 80px 20px;"><h2>Style of the Week</h2></section>
-  <section id="transformation" style="padding: 80px 20px;"><h2>Transformation</h2></section>
-  <section id="transformation-week" style="padding: 80px 20px;"><h2>Transformation of the Week</h2></section>
-  <section id="reviews" style="padding: 80px 20px;"><h2>Reviews & Testimonials</h2></section>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
-    }
-  </script>
-</body>
-</html>
+    </html>
