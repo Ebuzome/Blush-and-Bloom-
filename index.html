@@ -1,136 +1,189 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Blush and Bloom</title>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-          <style>
-              body {
-                    margin: 0;
-                          font-family: 'Open Sans', sans-serif;
-                                background: #fff8f9;
-                                      color: #333;
-                                          }
-                                              header {
-                                                    background: #ffe4ec;
-                                                          padding: 20px;
-                                                                text-align: center;
-                                                                    }
-                                                                        header img {
-                                                                              max-width: 150px;
-                                                                                  }
-                                                                                      h1 {
-                                                                                            font-family: 'Playfair Display', serif;
-                                                                                                  font-size: 2.5em;
-                                                                                                        margin: 0.5em 0;
-                                                                                                            }
-                                                                                                                section {
-                                                                                                                      padding: 40px 20px;
-                                                                                                                            max-width: 1000px;
-                                                                                                                                  margin: auto;
-                                                                                                                                      }
-                                                                                                                                          .services, .testimonials, .gallery {
-                                                                                                                                                display: grid;
-                                                                                                                                                      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                                                                                                                                                            gap: 20px;
-                                                                                                                                                                }
-                                                                                                                                                                    .card {
-                                                                                                                                                                          background: white;
-                                                                                                                                                                                padding: 20px;
-                                                                                                                                                                                      border-radius: 12px;
-                                                                                                                                                                                            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-                                                                                                                                                                                                }
-                                                                                                                                                                                                    .gallery img {
-                                                                                                                                                                                                          width: 100%;
-                                                                                                                                                                                                                border-radius: 10px;
-                                                                                                                                                                                                                      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                              .contact {
-                                                                                                                                                                                                                                    background: #fce4ec;
-                                                                                                                                                                                                                                          padding: 40px 20px;
-                                                                                                                                                                                                                                                text-align: center;
-                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                        footer {
-                                                                                                                                                                                                                                                              background: #ffe4ec;
-                                                                                                                                                                                                                                                                    text-align: center;
-                                                                                                                                                                                                                                                                          padding: 15px;
-                                                                                                                                                                                                                                                                                font-size: 0.9em;
-                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                      </style>
-                                                                                                                                                                                                                                                                                      </head>
-                                                                                                                                                                                                                                                                                      <body>
-                                                                                                                                                                                                                                                                                        <header>
-                                                                                                                                                                                                                                                                                            <img src="logo.png" alt="Blush and Bloom Logo" />
-                                                                                                                                                                                                                                                                                                <h1>Blush and Bloom</h1>
-                                                                                                                                                                                                                                                                                                    <p>Exquisite Makeup & Hairdressing Services</p>
-                                                                                                                                                                                                                                                                                                      </header>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blush and Bloom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blush-pink: #f8cdd6;
+      --rose-gold: #b76e79;
+      --text-dark: #3e3e3e;
+      --background: #fff0f4;
+      --transition: all 0.3s ease-in-out;
+    }
 
-                                                                                                                                                                                                                                                                                                        <section>
-                                                                                                                                                                                                                                                                                                            <h2>Our Services</h2>
-                                                                                                                                                                                                                                                                                                                <div class="services">
-                                                                                                                                                                                                                                                                                                                      <div class="card">
-                                                                                                                                                                                                                                                                                                                              <h3>Makeup Artistry</h3>
-                                                                                                                                                                                                                                                                                                                                      <p>Bridal, photoshoots, natural looks, and more — personalized for every face and occasion.</p>
-                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                  <div class="card">
-                                                                                                                                                                                                                                                                                                                                                          <h3>Hair Styling & Care</h3>
-                                                                                                                                                                                                                                                                                                                                                                  <p>Updos, curls, treatments, and chic everyday styles that bring out your natural beauty.</p>
-                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                              <div class="card">
-                                                                                                                                                                                                                                                                                                                                                                                      <h3>Special Event Packages</h3>
-                                                                                                                                                                                                                                                                                                                                                                                              <p>Wedding glam, birthday glow-ups, proms and more — be unforgettable.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                          <div class="card">
-                                                                                                                                                                                                                                                                                                                                                                                                                  <h3>Beauty Consultations</h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                          <p>One-on-one sessions to perfect your beauty routine and prep for big days.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                      </section>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                        <section>
-                                                                                                                                                                                                                                                                                                                                                                                                                                            <h2>Our Work</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="gallery">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                      <img src="https://via.placeholder.com/300x400?text=Makeup+1" alt="Makeup work 1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="https://via.placeholder.com/300x400?text=Makeup+2" alt="Makeup work 2">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <img src="https://via.placeholder.com/300x400?text=Hair+1" alt="Hair styling 1">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="https://via.placeholder.com/300x400?text=Hair+2" alt="Hair styling 2">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <img src="https://via.placeholder.com/300x400?text=Bridal+Look" alt="Bridal look">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <img src="https://via.placeholder.com/300x400?text=Event+Glam" alt="Event glam">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </section>
+    body {
+      background-color: var(--background);
+      color: var(--text-dark);
+    }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <section>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h2>What Our Clients Say</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="testimonials">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div class="card">“I’ve never felt more beautiful in my life — Blush and Bloom made my wedding day unforgettable!” — Sarah M.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="card">“Professional, patient, and unbelievably talented. My makeup was flawless all night.” — Tasha A.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="card">“From the trial to the final look, everything was perfect. Highly recommend for brides!” — Lola E.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="card">“She understood my skin and face shape like no one else ever has. A true artist.” — Joy O.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="card">“My daughter’s prom look was breathtaking. I was in tears when I saw her.” — Mrs. L.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="card">“The hair styling was elegant, secure, and exactly what I imagined.” — Angela D.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <div class="card">“First time getting professional makeup and now I’m addicted. Everything was perfect.” — Sandra P.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="card">“She created a look that felt like *me* — just elevated.” — Nkem U.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div class="card">“As a photographer, I refer all my clients here. The results are flawless on camera.” — Chuka B.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="card">“Last-minute booking, and I was amazed. Calm, confident, and perfect service.” — Isioma R.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="card">“Anniversary glam was divine. My husband couldn’t stop staring.” — Amara N.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="card">“Consultation changed my whole skincare routine. Total game-changer!” — Fola T.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="card">“Through all the tears and dancing, my bridal look stayed perfect!” — Chioma E.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="card">“Honestly the best. Warm, skilled, and trend-savvy.” — Zainab M.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <div class="card">“So much care and detail in every brush stroke. 10/10.” — Gloria B.</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </section>
+    header {
+      background: var(--blush-pink);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <section class="contact">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <h2>Contact Us</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <p><strong>Phone:</strong> 08062774342, 07075754823</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <p><strong>Email:</strong> michaelebuzome4@gmail.com, ngozi.zica@gmail.com</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <p><strong>Instagram:</strong> Coming soon!</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </section>
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--rose-gold);
+      letter-spacing: 1px;
+    }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <footer>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              &copy; 2025 Blush and Bloom. All rights reserved.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </footer>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </html>
+    nav {
+      position: relative;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-gold);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 2.5rem;
+      left: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .nav-links li:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown li {
+      padding: 0.8rem 1.5rem;
+      white-space: nowrap;
+    }
+
+    .dropdown li a {
+      color: var(--text-dark);
+    }
+
+    .dropdown li a:hover {
+      color: var(--rose-gold);
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: var(--rose-gold);
+      margin: 4px 0;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Blush & Bloom</div>
+    <nav>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#">Menu ▾</a>
+          <ul class="dropdown">
+            <li><a href="#makeup">Makeup</a></li>
+            <li><a href="#hairstyles">Hairstyles</a></li>
+            <li><a href="#style">Style of the Week</a></li>
+            <li><a href="#transformation">Transformation</a></li>
+            <li><a href="#transformation-week">Transformation of the Week</a></li>
+            <li><a href="#reviews">Reviews & Testimonials</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Placeholder Sections -->
+  <section id="makeup" style="padding: 80px 20px;"><h2>Makeup</h2></section>
+  <section id="hairstyles" style="padding: 80px 20px;"><h2>Hairstyles</h2></section>
+  <section id="style" style="padding: 80px 20px;"><h2>Style of the Week</h2></section>
+  <section id="transformation" style="padding: 80px 20px;"><h2>Transformation</h2></section>
+  <section id="transformation-week" style="padding: 80px 20px;"><h2>Transformation of the Week</h2></section>
+  <section id="reviews" style="padding: 80px 20px;"><h2>Reviews & Testimonials</h2></section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
