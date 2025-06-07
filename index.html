@@ -40,7 +40,15 @@
 
     .logo <div class="logo">
   <a href="/">
-    <img src="images/logo.png" alt="Blush and Bloom Logo" style="height: 50px;">
+    <img src="images/logo.png" alt="Blush and Bloom Logo" style=".logo img {
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}">
   </a>
 </div>
       font-size: 1.8rem;
