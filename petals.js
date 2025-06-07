@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   const petalsContainer = document.getElementById('floating-petals');
   const petalCount = 15;
