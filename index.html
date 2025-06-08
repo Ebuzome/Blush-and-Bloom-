@@ -436,21 +436,19 @@
         
         <!-- Dropdown Menu -->
         <div class="dropdown-menu">
-            <ul>
-                <li><a href="#">Make up Services</a></li>
-                <li><a href="#">Hairdressing Services</a></li>
-                <li><a href="#">Skin care Consultations</a></li>
-                <li><a href="#">Transformations</a></li>
-                <li><a href="#">Transformations of the Week</a></li>
-                <li><a href="#">Reviews and Confessions</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#">Support Us</a></li>
-            </ul>
-        </div>
+  <ul>
+    <li><a href="#bridal-makeup"><i class="fas fa-ring"></i> Bridal Makeup</a></li>
+    <li><a href="#hairstyling"><i class="fas fa-cut"></i> Hair Services</a></li>
+    <li><a href="#skincare"><i class="fas fa-spa"></i> Skin Consultations</a></li>
+    <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
+    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+  </ul>
+</div>
+
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id= class="hero">
         <div class="container">
             <h1>Where Beauty Blooms</h1>
             <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry and professional hairdressing services in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
@@ -560,7 +558,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section>
+    <section id=
         <div class="container">
             <h2>Client Testimonials</h2>
             
@@ -786,15 +784,19 @@
         });
 
         // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+        <script>
+  // Smooth scroll for menu links
+  document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      document.querySelector('.dropdown-menu').classList.remove('show');
+    });
+  });
+</script>
 </body>
 </html>
 ```
