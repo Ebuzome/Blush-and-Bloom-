@@ -70,3 +70,36 @@
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
 }
+/* ======== DROPDOWN SUBMENU STYLES ======== */
+.submenu-parent {
+  position: relative;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+  transition: max-height 0.3s ease;
+}
+
+.submenu-parent:hover .submenu {
+  max-height: 500px;
+}
+
+.submenu li {
+  padding-left: 2rem !important;
+  border-bottom: none !important;
+}
+
+.submenu a i {
+  font-size: 0.8rem;
+}
+
+.fa-chevron-down {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+.submenu-parent:hover .fa-chevron-down {
+  transform: rotate(180deg);
+    }
