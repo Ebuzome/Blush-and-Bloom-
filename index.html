@@ -1,893 +1,321 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blush and Bloom | Beauty Services Nigeria</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Color Variables */
-        :root {
-            --rosy-gold: #D4AF37;
-            --velvet-pink: #AA336A;
-            --cream: #FFF8F0;
-            --dark-text: #333333;
-            --light-text: #ffffff;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease-out;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blush and Bloom offers premier makeup, hair, and skincare services tailored for Nigerian beauty needs. Book your glam session today!" />
+  <title>Blush and Bloom</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" />
+  <style>
+    :root {
+      --primary-color: #aa336a;
+      --secondary-color: #fff8f0;
+      --accent-color: #ffb6c1;
+      --text-color: #333;
+      --dark-bg: #1c1c1c;
+      --dark-text: #f5f5f5;
+    }
 
-        /* Enhanced Night Mode */
-        .dark-mode {
-            --cream: #1a120b; /* Deep brown */
-            --dark-text: #e0d7d0;
-            --velvet-pink: #d47a8a;
-            --rosy-gold: #c9a227;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--cream);
-            color: var(--dark-text);
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.7;
-            transition: var(--transition);
-        }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-color);
+      background: var(--secondary-color);
+      transition: background 0.3s, color 0.3s;
+    }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--velvet-pink);
-            transition: var(--transition);
-        }
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        section {
-            padding: 4rem 0;
-            transition: var(--transition);
-        }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
 
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
+    nav {
+      display: flex;
+      align-items: center;
+    }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            transition: var(--transition);
-        }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-        /* Menu Button */
-        .menu-btn {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: var(--transition);
-        }
+    .menu-btn,
+    .night-mode {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
 
-        .menu-btn:hover {
-            transform: scale(1.1);
-        }
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--primary-color);
+      padding: 1rem;
+    }
 
-        .menu-hint {
-            position: absolute;
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            transition: var(--transition);
-        }
+    .dropdown-menu.show {
+      display: flex;
+    }
 
-        /* Enhanced Dropdown Menu */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            width: 100%;
-            box-shadow: var(--shadow);
-            display: none;
-            z-index: 99;
-            border-radius: 0 0 10px 10px;
-            overflow: hidden;
-            opacity: 0;
-            max-height: 0;
-            transition: opacity 0.3s, max-height 0.5s ease-out;
-        }
+    .hero {
+      background: url('https://placehold.co/1200x600/AA336A/FFF8F0?text=Blush+%26+Bloom') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
 
-        .dropdown-menu.show {
-            display: block;
-            opacity: 1;
-            max-height: 500px;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+    }
 
-        .dropdown-menu ul {
-            list-style: none;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
 
-        .dropdown-menu li {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(170, 51, 106, 0.1);
-            transition: background 0.3s;
-        }
+    .hero .cta-button {
+      background: white;
+      color: var(--primary-color);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        .dropdown-menu li:hover {
-            background: rgba(170, 51, 106, 0.05);
-        }
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
 
-        .dropdown-menu a {
-            color: var(--velvet-pink);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            transition: var(--transition);
-        }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-        .dropdown-menu a:hover {
-            padding-left: 10px;
-            color: var(--rosy-gold);
-        }
+    .section p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
 
-        /* Night Mode Toggle */
-        .night-mode {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: var(--transition);
-        }
+    .services,
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
 
-        .night-mode:hover {
-            transform: rotate(30deg);
-        }
+    .service-card,
+    .benefit-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      transition: transform 0.3s;
+    }
 
-        /* Enhanced Hero Section */
-        .hero {
-            text-align: center;
-            padding: 5rem 0;
-            background: url('https://placehold.co/1200x600/AA336A/FFF8F0?text=Blush+&+Bloom') no-repeat center/cover;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
+    .service-card:hover,
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.3);
-            z-index: 1;
-        }
+    .dark-mode .service-card,
+    .dark-mode .benefit-card,
+    .dark-mode .testimonial,
+    .dark-mode .contact-card {
+      background: #2a2a2a;
+      color: var(--dark-text);
+    }
 
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
+    .testimonial {
+      position: relative;
+      padding: 2rem;
+      margin: 1rem;
+      background: white;
+      border-left: 4px solid var(--primary-color);
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
-        }
+    .testimonial:before {
+      content: "“";
+      font-size: 4rem;
+      color: var(--primary-color);
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
 
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
+    .contact-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
 
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            background: var(--rosy-gold);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 500;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            animation: fadeInUp 0.8s ease 0.4s both;
-            border: 2px solid transparent;
-        }
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 2rem;
+    }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-            background: transparent;
-            color: var(--rosy-gold);
-            border-color: var(--rosy-gold);
-        }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
 
-        /* Services Section */
-        .services-list {
-            margin-top: 2rem;
-        }
-        /* ====== SERVICE HIGHLIGHT SECTIONS ====== */
-.service-highlight {
-  padding: 3rem 0;
-  background: rgba(212, 175, 55, 0.05);
-  border-top: 1px solid rgba(170, 51, 106, 0.1);
-}
-
-.service-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.service-feature {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-.service-feature i {
-  font-size: 2rem;
-  color: var(--rosy-gold);
-  margin-bottom: 1rem;
-        }
-
-        .service-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1.2rem;
-            background: rgba(170, 51, 106, 0.05);
-            border-radius: 8px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(170, 51, 106, 0.1);
-        }
-
-        .service-icon {
-            background: var(--rosy-gold);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        /* Why Choose Us Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        /* Testimonials */
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .testimonial:before {
-            content: """;
-            font-size: 5rem;
-            position: absolute;
-            top: -20px;
-            left: 10px;
-            color: var(--rosy-gold);
-            opacity: 0.2;
-            font-family: serif;
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
-            margin-top: 1.2rem;
-        }
-
-        .client-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--velvet-pink);
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .contact-icon {
-            background: var(--rosy-gold);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--velvet-pink);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .menu-hint {
-                display: none;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                border-radius: 0;
-            }
-        }
-    </style>
+      .dropdown-menu {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header with Navigation -->
-    <header>
-        <div class="container nav-container">
-            <button class="menu-btn">
-                <i class="fas fa-bars"></i>
-                <span class="menu-hint">Click the menu button to view our services</span>
-            </button>
-            
-            <div class="logo">Blush & Bloom</div>
-            
-            <button class="night-mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-        
-        <!-- Dropdown Menu -->
-        <!-- ============ REPLACE DROPDOWN MENU SECTION ============ -->
-<div class="dropdown-menu">
-  <ul>
-    <!-- Makeup Services Submenu -->
-    <li class="submenu-parent">
-      <a href="#bridal-makeup"><i class="fas fa-ring"></i> Makeup Services <i class="fas fa-chevron-down"></i></a>
-      <ul class="submenu">
-        <li><a href="#bridal-makeup"><i class="fas fa-heart"></i> Bridal Packages</a></li>
-        <li><a href="#glam-makeup"><i class="fas fa-star"></i> Glam Makeup</a></li>
-        <li><a href="#traditional-makeup"><i class="fas fa-palette"></i> Traditional Styles</a></li>
-        <li><a href="#makeup-lessons"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
-      </ul>
-    </li>
-    
-    <!-- Other Menu Items -->
-    <li><a href="#hairstyling"><i class="fas fa-cut"></i> Hair Services</a></li>
-    <li><a href="#skincare"><i class="fas fa-spa"></i> Skin Consultations</a></li>
-    <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
-    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
-  </ul>
-</div>
-<!-- ============ END REPLACEMENT ============ -->
-
-    <!-- Services Section -->
-    <section>
-        <!-- ====== NEW MAKEUP SECTIONS ====== -->
-<section id="glam-makeup" class="service-highlight">
-  <div class="container">
-    <h2>Glam Makeup Services</h2>
-    <div class="service-details">
-      <div class="service-feature">
-        <i class="fas fa-camera"></i>
-        <h3>Photoshoot Ready</h3>
-        <p>HD makeup that looks flawless on camera for your special events</p>
+  <header>
+    <div class="logo">Blush & Bloom</div>
+    <nav>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#benefits">Why Choose Us</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="service-feature">
-        <i class="fas fa-moon"></i>
-        <h3>Evening Glam</h3>
-        <p>Dramatic looks perfect for weddings, galas, and night outs</p>
+      <button class="menu-btn" aria-expanded="false" aria-controls="dropdown-menu">☰</button>
+      <button class="night-mode" title="Toggle Dark Mode">🌙</button>
+    </nav>
+  </header>
+
+  <div class="dropdown-menu" id="dropdown-menu">
+    <a href="#services">Services</a>
+    <a href="#benefits">Why Choose Us</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <section class="hero">
+    <h1>Glow Like Never Before</h1>
+    <p>Professional makeup, hair, and skincare services tailored for the modern Nigerian beauty.</p>
+    <button class="cta-button">Book an Appointment</button>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <p>From everyday glam to special occasion transformations, we’ve got you covered.</p>
+    <div class="services">
+      <div class="service-card">
+        <h3>Makeup</h3>
+        <p>Soft glam, bridal looks, editorial makeup — flawless every time.</p>
+      </div>
+      <div class="service-card">
+        <h3>Hair Styling</h3>
+        <p>Protective styles, wig installs, and natural haircare by pros.</p>
+      </div>
+      <div class="service-card">
+        <h3>Skincare</h3>
+        <p>Facials and regimens suited for melanin-rich skin.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="traditional-makeup" class="service-highlight">
-  <div class="container">
-    <h2>Traditional Makeup Styles</h2>
-    <div class="service-details">
-      <div class="service-feature">
-        <i class="fas fa-ankh"></i>
-        <h3>Ankara-Inspired</h3>
-        <p>Makeup that complements your traditional Nigerian outfits</p>
+  <section class="section" id="benefits">
+    <h2>Why Choose Blush & Bloom?</h2>
+    <div class="benefits">
+      <div class="benefit-card">
+        <h3>Expert Artists</h3>
+        <p>Trained professionals who understand Nigerian beauty standards.</p>
       </div>
-      <div class="service-feature">
-        <i class="fas fa-gem"></i>
-        <h3>Gele-Friendly</h3>
-        <p>Looks designed to pair perfectly with headwraps</p>
+      <div class="benefit-card">
+        <h3>Premium Products</h3>
+        <p>We use high-quality, skin-safe products for lasting results.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Customized Experience</h3>
+        <p>Every service is tailored to your skin tone, type, and preferences.</p>
       </div>
     </div>
-  </div>
-</section>
-<!-- ====== END NEW SECTIONS ====== -->
-        <div class="container">
-            <h2>Our Exquisite Services</h2>
-            <div class="services-list">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <div>
-                        <h3>Bridal Makeup Packages</h3>
-                        <p>Comprehensive bridal beauty solutions including trials, day-of services, and touch-up kits to ensure you look flawless throughout your special day.</p>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <div>
-                        <h3>Professional Hair Styling</h3>
-                        <p>From precision cuts to intricate braiding, updos, and color treatments performed by certified stylists using premium products.</p>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <div>
-                        <h3>Special Occasion Glam</h3>
-                        <p>Red carpet-ready makeup and hairstyling for weddings, birthdays, anniversaries, and corporate events.</p>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div>
-                        <h3>Skincare Consultations</h3>
-                        <p>Personalized skincare analysis and treatment plans using clinically-tested products suitable for Nigerian skin types.</p>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <div>
-                        <h3>Bridal Party Packages</h3>
-                        <p>Group discounts for bridesmaids, mothers of the bride/groom, and flower girls to create cohesive wedding beauty.</p>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <div>
-                        <h3>Makeup Lessons</h3>
-                        <p>Personalized tutorials covering foundation matching, eye techniques, and product selection for everyday Nigerian beauty.</p>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div>
-                        <h3>Traditional Attire Styling</h3>
-                        <p>Specialized makeup and hair services designed to complement Ankara, Aso Ebi, and other traditional Nigerian outfits.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  </section>
 
-    <!-- Why Choose Us Section -->
-    <section style="background: rgba(212, 175, 55, 0.05);">
-        <div class="container">
-            <h2>Why Choose Blush and Bloom?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Nigerian Beauty Experts</h3>
-                    <p>Our team specializes in working with diverse Nigerian skin tones and hair textures, understanding the unique needs of our clients.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <h3>Premium Products</h3>
-                    <p>We use only high-quality, skin-friendly products from internationally recognized brands suitable for our climate.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <h3>Hygiene First</h3>
-                    <p>Strict sanitation protocols with disposable tools and sterilized equipment for every client appointment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section" id="testimonials">
+    <h2>What Clients Are Saying</h2>
+    <div class="testimonial">
+      <p>“Blush and Bloom made me feel like a queen on my wedding day. 10/10 service!”</p>
+      <p>- Adaeze O.</p>
+    </div>
+    <div class="testimonial">
+      <p>“The best facial I’ve had in Lagos. My skin is glowing!”</p>
+      <p>- Zainab K.</p>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section id=
-        <div class="container">
-            <h2>Client Testimonials</h2>
-            
-            <div class="testimonial">
-                <p>"Blush and Bloom transformed me for my wedding! They understood exactly how to make my makeup last through the heat and dancing. Five years later, I still come for their amazing braiding services."</p>
-                <div class="client-info">
-                    <div class="client-avatar">AO</div>
-                    <div>
-                        <strong>Amina Okafor</strong>
-                        <p>Lagos, Bride</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"After years of damaging my hair with chemicals, their hair recovery program restored my natural texture. The team truly cares about hair health, not just styling. Worth every naira!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">CE</div>
-                    <div>
-                        <strong>Chinedu Eze</strong>
-                        <p>Abuja, Regular Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"Their skincare consultation changed my life. Finally found products that don't cause breakouts in this humidity! My complexion has never looked better. Thank you Blush and Bloom!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">TK</div>
-                    <div>
-                        <strong>Tolu Kazeem</strong>
-                        <p>Ibadan, Skincare Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"The bridal makeup stayed flawless from morning until the last dance! They even came to my hotel room. Best decision I made for my wedding."</p>
-                <div class="client-info">
-                    <div class="client-avatar">NE</div>
-                    <div>
-                        <strong>Nneka Eze</strong>
-                        <p>Port Harcourt, Bride</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"My natural hair has never looked better since following their haircare routine. The stylists are magic workers!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">AO</div>
-                    <div>
-                        <strong>Amina Okoro</strong>
-                        <p>Abuja, Hair Client</p>
-                    </div>
-                </div>
-                         </div>
-            
-            <div class="testimonial">
-                <p>"The skincare consultation cleared my acne in 3 weeks. Finally found products that work for Nigerian skin!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">CA</div>
-                    <div>
-                        <strong>Chioma Adeleke</strong>
-                        <p>Lagos, Skincare Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"I get compliments every time I leave Blush and Bloom. Their makeup makes me glow like a Nollywood star!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">EB</div>
-                    <div>
-                        <strong>Ebere Bello</strong>
-                        <p>Enugu, Regular Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"Worth every kobo! My traditional wedding makeup was so beautiful I cried (and it didn't smudge)."</p>
-                <div class="client-info">
-                    <div class="client-avatar">FO</div>
-                    <div>
-                        <strong>Funke Okafor</strong>
-                        <p>Ibadan, Bride</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Additional testimonials to reach 12 -->
-            <div class="testimonial">
-                <p>"As a busy Lagos professional, their express makeup service saves me time while keeping me camera-ready for meetings."</p>
-                <div class="client-info">
-                    <div class="client-avatar">UO</div>
-                    <div>
-                        <strong>Uche Okonkwo</strong>
-                        <p>Lagos, Corporate Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"They transformed my daughter for her graduation photos. She looked like a princess without looking overdone!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">ME</div>
-                    <div>
-                        <strong>Mrs. Eze</strong>
-                        <p>Abuja, Parent</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"The only salon in Abuja that knows how to handle 4C hair without damaging it. My twist-outs last twice as long now!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">KA</div>
-                    <div>
-                        <strong>Kemi Adebayo</strong>
-                        <p>Abuja, Natural Hair Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"Flew them to Kano for my sister's wedding. Their travel team is just as talented as the main salon!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">HA</div>
-                    <div>
-                        <strong>Hauwa Abubakar</strong>
-                        <p>Kano, Destination Bride</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section" id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-card">
+      <p>Email: hello@blushandbloom.ng</p>
+      <p>Instagram: @blushandbloom_ng</p>
+      <p>Phone: +234 801 234 5678</p>
+      <p>Visit us in Lekki, Lagos</p>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" style="background: rgba(170, 51, 106, 0.05);">
-        <div class="container">
-            <h2>Contact Us</h2>
-            
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Our Location</h3>
-                        <p>24 Beauty Avenue, Victoria Island, Lagos, Nigeria</p>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Call Us</h3>
-                        <p>07075754823<br>08062774342</p>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email</h3>
-                        <p>michaelebuzome4@gmail.com<br>ngozi.zica@gmail.com</p>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h3>Instagram</h3>
-                        <p>@blushandbloom_ng</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer>
+    <p>&copy; 2025 Blush and Bloom. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom!" class="cta-button" style="margin-bottom: 2rem;">
-                <i class="fab fa-whatsapp"></i> Chat Now
-            </a>
-            <p>&copy; 2024 Blush & Bloom. All rights reserved.</p>
-        </div>
-    </footer>
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const nightModeBtn = document.querySelector('.night-mode');
+    const body = document.body;
 
-    <!-- JavaScript -->
-    <script>
-        // Toggle Dropdown Menu
-        
-    // Enhanced Menu Toggle with Submenu Support
-document.querySelector('.menu-btn').addEventListener('click', function() {
-  const menu = document.querySelector('.dropdown-menu');
-  menu.classList.toggle('show');
-  
-  // Close all submenus when main menu opens/closes
-  document.querySelectorAll('.submenu').forEach(submenu => {
-    submenu.style.maxHeight = null;
-  });
-});
-
-// Submenu hover functionality
-document.querySelectorAll('.submenu-parent').forEach(item => {
-  item.addEventListener('mouseenter', function() {
-    if (window.innerWidth > 768) { // Desktop only
-      this.querySelector('.submenu').style.maxHeight = '500px';
-    }
-  });
-  
-  item.addEventListener('mouseleave', function() {
-    if (window.innerWidth > 768) {
-      this.querySelector('.submenu').style.maxHeight = null;
-    }
-  });
-  
-  // Mobile touch support
-  item.addEventListener('click', function(e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      const submenu = this.querySelector('.submenu');
-      submenu.style.maxHeight = submenu.style.maxHeight ? null : '500px';
-    }
-  });
-});
-
-    // Night Mode Toggle
-    document.querySelector('.night-mode').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        const icon = this.querySelector('i');
-        if (icon.classList.contains('fa-moon')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-        }
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
+      menuBtn.setAttribute('aria-expanded', !expanded);
+      dropdownMenu.classList.toggle('show');
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav-container')) {
-            document.querySelector('.dropdown-menu').classList.remove('show');
-        }
+    nightModeBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
     });
+  </script>
+</body>
+</html>
 
-    // Smooth scroll for menu links
-    document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            document.querySelector('.dropdown-menu').classList.remove('show');
-        });
-    });
-</script>
