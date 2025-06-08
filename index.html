@@ -2,320 +2,667 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Blush and Bloom offers premier makeup, hair, and skincare services tailored for Nigerian beauty needs. Book your glam session today!" />
-  <title>Blush and Bloom</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" />
-  <style>
-    :root {
-      --primary-color: #aa336a;
-      --secondary-color: #fff8f0;
-      --accent-color: #ffb6c1;
-      --text-color: #333;
-      --dark-bg: #1c1c1c;
-      --dark-text: #f5f5f5;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blush and Bloom | Premium Beauty Services Nigeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Color Variables */
+        :root {
+            --rosy-gold: #D4AF37;
+            --velvet-pink: #AA336A;
+            --cream: #FFF8F0;
+            --dark-text: #333333;
+            --light-text: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        /* Enhanced Night Mode */
+        .dark-mode {
+            --cream: #1a120b;
+            --dark-text: #e0d7d0;
+            --velvet-pink: #d47a8a;
+            --rosy-gold: #c9a227;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: var(--text-color);
-      background: var(--secondary-color);
-      transition: background 0.3s, color 0.3s;
-    }
+        body {
+            background-color: var(--cream);
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            transition: var(--transition);
+        }
 
-    body.dark-mode {
-      background: var(--dark-bg);
-      color: var(--dark-text);
-    }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--velvet-pink);
+            transition: var(--transition);
+        }
 
-    header {
-      background: var(--primary-color);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-    }
+        section {
+            padding: 4rem 0;
+            transition: var(--transition);
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            transition: var(--transition);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
 
-    .menu-btn,
-    .night-mode {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      margin-left: 1rem;
-    }
+        /* Menu Button */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
 
-    .dropdown-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--primary-color);
-      padding: 1rem;
-    }
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
 
-    .dropdown-menu.show {
-      display: flex;
-    }
+        /* Enhanced Dropdown Menu with Submenus */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 100%;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity 0.3s, max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-    .hero {
-      background: url('https://placehold.co/1200x600/AA336A/FFF8F0?text=Blush+%26+Bloom') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 5rem 2rem;
-    }
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            max-height: 80vh;
+        }
 
-    .hero h1 {
-      font-size: 3rem;
-      font-family: 'Playfair Display', serif;
-    }
+        .dropdown-menu ul {
+            list-style: none;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin: 1rem 0;
-    }
+        .dropdown-menu > ul > li {
+            position: relative;
+        }
 
-    .hero .cta-button {
-      background: white;
-      color: var(--primary-color);
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-weight: bold;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .dropdown-menu li {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid rgba(170, 51, 106, 0.1);
+            transition: background 0.3s;
+        }
 
-    .section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
+        .dropdown-menu li:hover {
+            background: rgba(170, 51, 106, 0.05);
+        }
 
-    .section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        .dropdown-menu a {
+            color: var(--velvet-pink);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
 
-    .section p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
+        .dropdown-menu a:hover {
+            color: var(--rosy-gold);
+            transform: translateX(5px);
+        }
 
-    .services,
-    .benefits {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
+        .dropdown-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--rosy-gold);
+        }
 
-    .service-card,
-    .benefit-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 280px;
-      transition: transform 0.3s;
-    }
+        /* Submenu Styles */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(255,255,255,0.9);
+            transition: max-height 0.4s ease-out;
+        }
 
-    .service-card:hover,
-    .benefit-card:hover {
-      transform: translateY(-5px);
-    }
+        .submenu.active {
+            max-height: 500px;
+        }
 
-    .dark-mode .service-card,
-    .dark-mode .benefit-card,
-    .dark-mode .testimonial,
-    .dark-mode .contact-card {
-      background: #2a2a2a;
-      color: var(--dark-text);
-    }
+        .submenu li {
+            padding-left: 2rem !important;
+            border-bottom: none !important;
+        }
 
-    .testimonial {
-      position: relative;
-      padding: 2rem;
-      margin: 1rem;
-      background: white;
-      border-left: 4px solid var(--primary-color);
-    }
+        .submenu a {
+            font-size: 0.9rem;
+        }
 
-    .testimonial:before {
-      content: "“";
-      font-size: 4rem;
-      color: var(--primary-color);
-      position: absolute;
-      top: -10px;
-      left: 10px;
-    }
+        .has-submenu > a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
 
-    .contact-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 500px;
-      margin: 2rem auto;
-    }
+        .has-submenu.active > a::after {
+            transform: rotate(180deg);
+        }
 
-    footer {
-      background: var(--primary-color);
-      color: white;
-      text-align: center;
-      padding: 1.5rem 2rem;
-    }
+        /* Night Mode Toggle */
+        .night-mode {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
+        .night-mode:hover {
+            transform: rotate(30deg);
+        }
 
-      .dropdown-menu {
-        width: 100%;
-      }
-    }
-  </style>
+        /* Enhanced Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80') no-repeat center/cover;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--rosy-gold);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 0.8s ease 0.4s both;
+            border: 2px solid transparent;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            background: transparent;
+            color: var(--rosy-gold);
+            border-color: var(--rosy-gold);
+        }
+
+        /* Services Section */
+        .services-list {
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(170, 51, 106, 0.05);
+            border-radius: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(170, 51, 106, 0.1);
+            border-left: 4px solid var(--rosy-gold);
+        }
+
+        .service-icon {
+            background: var(--rosy-gold);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .service-item:hover .service-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Makeup Sub-Sections */
+        .makeup-subsection {
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .makeup-subsection:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-feature {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-feature i {
+            font-size: 2rem;
+            color: var(--rosy-gold);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .service-feature:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Why Choose Us Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 3px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--rosy-gold);
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            opacity: 1;
+        }
+
+        .testimonial:before {
+            content: """;
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: var(--rosy-gold);
+            opacity: 0.2;
+            font-family: serif;
+            transition: var(--transition);
+        }
+
+        .testimonial:hover:before {
+            opacity: 0.3;
+            transform: scale(1.05);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--velvet-pink);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .testimonial:hover .client-avatar {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            background: var(--rosy-gold);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--velvet-pink);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--rosy-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                border-radius: 0;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .has-submenu > a::after {
+                display: none;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div class="logo">Blush & Bloom</div>
-    <nav>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#benefits">Why Choose Us</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="menu-btn" aria-expanded="false" aria-controls="dropdown-menu">☰</button>
-      <button class="night-mode" title="Toggle Dark Mode">🌙</button>
-    </nav>
-  </header>
+    <!-- Header with Enhanced Navigation -->
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">Blush & Bloom</div>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <!-- Enhanced Dropdown Menu with Submenus -->
+        <div class="dropdown-menu">
+            <ul>
+                <!-- Makeup Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#makeup-services"><i class="fas fa-paint-brush"></i> Makeup Services</a>
+                    <ul class="submenu">
+                        <li><a href="#bridal-makeup"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                        <li><a href="#glam-makeup"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="#traditional-makeup"><i class="fas fa-palette"></i> Traditional Styles</a></li>
+                        <li><a href="#makeup-lessons"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Hair Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#hair-services"><i class="fas fa-cut"></i> Hair Services</a>
+                    <ul class="submenu">
+                        <li><a href="#braiding"><i class="fas fa-spa"></i> Braiding</a></li>
+                        <li><a href="#styling"><i class="fas fa-wind"></i> Styling</a></li>
+                        <li><a href="#treatments"><i class="fas fa-leaf"></i> Treatments</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Other Menu Items -->
+                <li><a href="#skincare"><i class="fas fa-spa"></i> Skin Consultations</a></li>
+                <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <div class="dropdown-menu" id="dropdown-menu">
-    <a href="#services">Services</a>
-    <a href="#benefits">Why Choose Us</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact">Contact</a>
-  </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Where Beauty Blooms</h1>
+            <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry and professional hairdressing services in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
+            <a href="#contact" class="cta-button">Book Your Glow-Up</a>
+        </div>
+    </section>
 
-  <section class="hero">
-    <h1>Glow Like Never Before</h1>
-    <p>Professional makeup, hair, and skincare services tailored for the modern Nigerian beauty.</p>
-    <button class="cta-button">Book an Appointment</button>
-  </section>
-
-  <section class="section" id="services">
-    <h2>Our Services</h2>
-    <p>From everyday glam to special occasion transformations, we’ve got you covered.</p>
-    <div class="services">
-      <div class="service-card">
-        <h3>Makeup</h3>
-        <p>Soft glam, bridal looks, editorial makeup — flawless every time.</p>
-      </div>
-      <div class="service-card">
-        <h3>Hair Styling</h3>
-        <p>Protective styles, wig installs, and natural haircare by pros.</p>
-      </div>
-      <div class="service-card">
-        <h3>Skincare</h3>
-        <p>Facials and regimens suited for melanin-rich skin.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="benefits">
-    <h2>Why Choose Blush & Bloom?</h2>
-    <div class="benefits">
-      <div class="benefit-card">
-        <h3>Expert Artists</h3>
-        <p>Trained professionals who understand Nigerian beauty standards.</p>
-      </div>
-      <div class="benefit-card">
-        <h3>Premium Products</h3>
-        <p>We use high-quality, skin-safe products for lasting results.</p>
-      </div>
-      <div class="benefit-card">
-        <h3>Customized Experience</h3>
-        <p>Every service is tailored to your skin tone, type, and preferences.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="testimonials">
-    <h2>What Clients Are Saying</h2>
-    <div class="testimonial">
-      <p>“Blush and Bloom made me feel like a queen on my wedding day. 10/10 service!”</p>
-      <p>- Adaeze O.</p>
-    </div>
-    <div class="testimonial">
-      <p>“The best facial I’ve had in Lagos. My skin is glowing!”</p>
-      <p>- Zainab K.</p>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <h2>Get in Touch</h2>
-    <div class="contact-card">
-      <p>Email: hello@blushandbloom.ng</p>
-      <p>Instagram: @blushandbloom_ng</p>
-      <p>Phone: +234 801 234 5678</p>
-      <p>Visit us in Lekki, Lagos</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Blush and Bloom. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const nightModeBtn = document.querySelector('.night-mode');
-    const body = document.body;
-
-    menuBtn.addEventListener('click', () => {
-      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
-      menuBtn.setAttribute('aria-expanded', !expanded);
-      dropdownMenu.classList.toggle('show');
-    });
-
-    nightModeBtn.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-    });
-  </script>
-</body>
-</html>
-
+    <!-- Makeup Services Section -->
+    <section id="makeup-services">
+        <div class="container">
+            <h2>Our Makeup Services</h2>
+            <div class="services-list">
+                <!-- Bridal Makeup -->
+                <div class="service-item" id="bridal-makeup">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div>
+                        <h3>Bridal Makeup Packages</h3>
+                        <p>Comprehensive bridal beauty solutions including trials, day-of services, and touch-up kits to ensure you look flawless throughout your special day.</p>
+                    </div>
+                </div>
+                
+                <!-- Glam Makeup Subsection -->
+                <div class="makeup-subsection" id="glam-makeup">
+                    <h3>Evening Glam Makeup</h3>
+                    <div class="service-grid">
+                        <div class="service-feature">
+                            <i class="fas fa-camera"></i>
+                            <h4>Photoshoot Ready</h4>
+                            <p>HD makeup that looks flawless on camera for your special events</p>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-moon"></i>
+                            <h4>Evening Glam</h4>
+                            <p>Dramatic looks perfect for weddings, galas, and night outs</p>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-glass-cheers"></i>
+                            <h4>Special Occasion</h4>
+                            <p>Custom looks tailored to your event's theme and lighting</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Traditional Makeup Subsection -->
+                <div class="makeup-subsection" id="traditional-makeup">
+                    <h3>Traditional Makeup Styles</h3>
+                    <div class="service-grid">
+                        <div class="service-feature">
+  
