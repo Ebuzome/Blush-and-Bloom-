@@ -759,46 +759,38 @@
     <!-- JavaScript -->
     <script>
         // Toggle Dropdown Menu
-        document.querySelector('.menu-btn').addEventListener('click', function() {
-            document.querySelector('.dropdown-menu').classList.toggle('show');
-        });
-
-        // Night Mode Toggle
-        document.querySelector('.night-mode').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            
-            // Toggle moon/sun icon
-            const icon = this.querySelector('i');
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-container')) {
-                document.querySelector('.dropdown-menu').classList.remove('show');
-            }
-        });
-
-        // Smooth scroll for anchor links
-        <script>
-  // Smooth scroll for menu links
-  document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-      document.querySelector('.dropdown-menu').classList.remove('show');
+        
+    document.querySelector('.menu-btn').addEventListener('click', function() {
+        document.querySelector('.dropdown-menu').classList.toggle('show');
     });
-  });
+
+    // Night Mode Toggle
+    document.querySelector('.night-mode').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const icon = this.querySelector('i');
+        if (icon.classList.contains('fa-moon')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-container')) {
+            document.querySelector('.dropdown-menu').classList.remove('show');
+        }
+    });
+
+    // Smooth scroll for menu links
+    document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            document.querySelector('.dropdown-menu').classList.remove('show');
+        });
+    });
 </script>
-</body>
-</html>
-```
-    
-       
