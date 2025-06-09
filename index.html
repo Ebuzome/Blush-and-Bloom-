@@ -284,6 +284,8 @@
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -293,16 +295,19 @@
 
         .service-content {
             padding: 2rem;
+            order: 2;
         }
 
         .service-image {
             height: 300px;
             background-size: cover;
             background-position: center;
+            order: 1;
         }
 
         .service-features {
             margin: 1rem 0;
+            list-style: none;
         }
 
         .service-features li {
@@ -320,22 +325,6 @@
             left: 0;
         }
 
-        .service-icon {
-            background: var(--rosy-gold);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        /* Price Tag */
         .price-tag {
             display: inline-block;
             background: var(--velvet-pink);
@@ -525,6 +514,7 @@
             color: var(--rosy-gold);
             transform: translateY(-3px);
         }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -538,6 +528,20 @@
         }
 
         /* Responsive Design */
+        @media (min-width: 768px) {
+            .service-card {
+                flex-direction: row;
+            }
+            
+            .service-card:nth-child(even) .service-content {
+                order: 1;
+            }
+            
+            .service-card:nth-child(even) .service-image {
+                order: 2;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -562,64 +566,64 @@
 </head>
 <body>
     <!-- Header with Enhanced Navigation -->
-<header>
-    <div class="container nav-container">
-        <button class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">Blush & Bloom</div>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
         
-        <div class="logo">Blush & Bloom</div>
-        
-        <button class="night-mode">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
-    
-    <!-- Enhanced Dropdown Menu with Submenus -->
-    <div class="dropdown-menu">
-        <ul>
-            <!-- Makeup Services Submenu -->
-            <li class="has-submenu">
-                <a href="javascript:void(0)"><i class="fas fa-paint-brush"></i> Makeup Services</a>
-                <ul class="submenu">
-                    <li><a href="#bridal-makeup"><i class="fas fa-heart"></i> Bridal Packages</a></li>
-                    <li><a href="#evening-glam"><i class="fas fa-star"></i> Evening Glam</a></li>
-                    <li><a href="#traditional-makeup"><i href="#traditional-makeup"><i class="fas fa-palette"></i> Traditional Styles</a></li>
-                    <li><a href="#makeup-lessons"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
-                </ul>
-            </li>
-            
-            <!-- Hair Services Submenu -->
-            <li class="has-submenu">
-                <a href="javascript:void(0)"><i class="fas fa-cut"></i> Hair Services</a>
-                <ul class="submenu">
-                    <li><a href="#braiding"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
-                    <li><a href="#styling"><i class="fas fa-wind"></i> Styling & Updos</a></li>
-                    <li><a href="#treatments"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
-                    <li><a href="#color-services"><i class="fas fa-fill-drip"></i> Coloring</a></li>
-                </ul>
-            </li>
-            
-            <!-- Skincare Services Submenu -->
-            <li class="has-submenu">
-                <a href="javascript:void(0)"><i class="fas fa-spa"></i> Skincare Consultations</a>
-                <ul class="submenu">
-                    <li><a href="#anti-aging"><i class="fas fa-clock"></i> Anti-Aging</a></li>
-                    <li><a href="#acne-treatment"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
-                    <li><a href="#hyperpigmentation"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
-                    <li><a href="#skincare-products"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
-                </ul>
-            </li>
-            
-            <!-- Blog -->
-            <li><a href="#blog"><i class="fas fa-blog"></i> Beauty Blog</a></li>
-            
-            <!-- Other Menu Items -->
-            <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
-            <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
-        </ul>
-    </div>
-                    </header>
+        <!-- Enhanced Dropdown Menu with Submenus -->
+        <div class="dropdown-menu">
+            <ul>
+                <!-- Makeup Services Submenu -->
+                <li class="has-submenu">
+                    <a href="javascript:void(0)"><i class="fas fa-paint-brush"></i> Makeup Services</a>
+                    <ul class="submenu">
+                        <li><a href="#bridal-makeup"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                        <li><a href="#evening-glam"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="#traditional-makeup"><i class="fas fa-palette"></i> Traditional Styles</a></li>
+                        <li><a href="#makeup-lessons"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Hair Services Submenu -->
+                <li class="has-submenu">
+                    <a href="javascript:void(0)"><i class="fas fa-cut"></i> Hair Services</a>
+                    <ul class="submenu">
+                        <li><a href="#braiding"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
+                        <li><a href="#styling"><i class="fas fa-wind"></i> Styling & Updos</a></li>
+                        <li><a href="#treatments"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
+                        <li><a href="#color-services"><i class="fas fa-fill-drip"></i> Coloring</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Skincare Services Submenu -->
+                <li class="has-submenu">
+                    <a href="javascript:void(0)"><i class="fas fa-spa"></i> Skincare Consultations</a>
+                    <ul class="submenu">
+                        <li><a href="#anti-aging"><i class="fas fa-clock"></i> Anti-Aging</a></li>
+                        <li><a href="#acne-treatment"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
+                        <li><a href="#hyperpigmentation"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
+                        <li><a href="#skincare-products"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Blog -->
+                <li><a href="#blog"><i class="fas fa-blog"></i> Beauty Blog</a></li>
+                
+                <!-- Other Menu Items -->
+                <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -652,6 +656,7 @@
                     <span class="price-tag">Starting from ₦50,000</span>
                 </div>
             </div>
+            
             <!-- Evening Glam -->
             <div class="service-card" id="evening-glam">
                 <div class="service-content">
@@ -794,8 +799,9 @@
                     </ul>
                     <span class="price-tag">Starting from ₦25,000</span>
                 </div>
-    </div>
-      <!-- Acne Treatment -->
+            </div>
+            
+            <!-- Acne Treatment -->
             <div class="service-card" id="acne-treatment">
                 <div class="service-content">
                     <h3>Acne & Blemish Control</h3>
@@ -875,8 +881,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Testimonials Section (all 12 testimonials preserved) -->
+
+    <!-- Testimonials Section -->
     <section id="testimonials">
         <div class="container">
             <h2>Client Testimonials</h2>
@@ -886,7 +892,7 @@
                 <div class="client-info">
                     <div class="client-avatar">AO</div>
                     <div>
-                        <strong>Amina Okafor</strong>
+                        <strong>Anna Okafor</strong>
                         <p>Lagos, Bride</p>
                     </div>
                 </div>
@@ -930,62 +936,18 @@
                 <div class="client-info">
                     <div class="client-avatar">AO</div>
                     <div>
-                        <strong>Amina Okoro</strong>
-                        <p>Abuja, Hair Client</p>
-                    </div>
-                   </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"After years of damaging my hair with chemicals, their hair recovery program restored my natural texture. The team truly cares about hair health, not just styling. Worth every naira!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">CE</div>
-                    <div>
-                        <strong>Chinedu Eze</strong>
-                        <p>Abuja, Regular Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"Their skincare consultation changed my life. Finally found products that don't cause breakouts in this humidity! My complexion has never looked better. Thank you Blush and Bloom!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">TK</div>
-                    <div>
-                        <strong>Tolu Kazeem</strong>
-                        <p>Ibadan, Skincare Client</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"The bridal makeup stayed flawless from morning until the last dance! They even came to my hotel room. Best decision I made for my wedding."</p>
-                <div class="client-info">
-                    <div class="client-avatar">NE</div>
-                    <div>
-                        <strong>Nneka Eze</strong>
-                        <p>Port Harcourt, Bride</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <p>"My natural hair has never looked better since following their haircare routine. The stylists are magic workers!"</p>
-                <div class="client-info">
-                    <div class="client-avatar">AO</div>
-                    <div>
-                        <strong>Amina Okoro</strong>
+                        <strong>Achalugo Okoro</strong>
                         <p>Abuja, Hair Client</p>
                     </div>
                 </div>
-                         </div>
+            </div>
             
             <div class="testimonial">
                 <p>"The skincare consultation cleared my acne in 3 weeks. Finally found products that work for Nigerian skin!"</p>
                 <div class="client-info">
                     <div class="client-avatar">CA</div>
                     <div>
-                        <strong>Chioma Adeleke</strong>
+                        <strong>Catherine Adeleke</strong>
                         <p>Lagos, Skincare Client</p>
                     </div>
                 </div>
@@ -996,7 +958,7 @@
                 <div class="client-info">
                     <div class="client-avatar">EB</div>
                     <div>
-                        <strong>Ebere Bello</strong>
+                        <strong>Esther Bello</strong>
                         <p>Enugu, Regular Client</p>
                     </div>
                 </div>
@@ -1007,19 +969,18 @@
                 <div class="client-info">
                     <div class="client-avatar">FO</div>
                     <div>
-                        <strong>Funke Okafor</strong>
+                        <strong>Felicia Okafor</strong>
                         <p>Ibadan, Bride</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Additional testimonials to reach 12 -->
             <div class="testimonial">
                 <p>"As a busy Lagos professional, their express makeup service saves me time while keeping me camera-ready for meetings."</p>
                 <div class="client-info">
-                    <div class="client-avatar">UO</div>
+                    <div class="client-avatar">IO</div>
                     <div>
-                        <strong>Uche Okonkwo</strong>
+                        <strong>Isabelle Okonkwo</strong>
                         <p>Lagos, Corporate Client</p>
                     </div>
                 </div>
@@ -1039,16 +1000,16 @@
             <div class="testimonial">
                 <p>"The only salon in Abuja that knows how to handle 4C hair without damaging it. My twist-outs last twice as long now!"</p>
                 <div class="client-info">
-                    <div class="client-avatar">KA</div>
+                    <div class="client-avatar">VA</div>
                     <div>
-                        <strong>Kemi Adebayo</strong>
+                        <strong>Vera Adebayo</strong>
                         <p>Abuja, Natural Hair Client</p>
                     </div>
                 </div>
             </div>
             
             <div class="testimonial">
-                <p>"Flew them to Kano for my sister's wedding. Their travel team is just as talented as the main salon!"</p>
+                <p>"Flew them to Kano for my sister's wedding. Their travel team is just so talented and reliable!"</p>
                 <div class="client-info">
                     <div class="client-avatar">HA</div>
                     <div>
@@ -1059,7 +1020,8 @@
             </div>
         </div>
     </section>
-     <!-- Contact Section -->
+    
+    <!-- Contact Section -->
     <section id="contact" style="background: rgba(212, 175, 55, 0.05);">
         <div class="container">
             <h2>Contact Us</h2>
@@ -1071,7 +1033,7 @@
                     </div>
                     <div>
                         <h3>Our Location</h3>
-                        <p>24 Beauty Avenue, Victoria Island, Lagos, Nigeria</p>
+                        <p>Lagos, Nigeria</p>
                     </div>
                 </div>
                 
@@ -1121,70 +1083,74 @@
         </div>
     </footer>
 
-   <!-- JavaScript -->
-<script>
-    // Enhanced Menu Toggle with Submenu Support
-    document.querySelector('.menu-btn').addEventListener('click', function() {
-        const menu = document.querySelector('.dropdown-menu');
-        menu.classList.toggle('show');
-    });
-    
-    // Submenu Toggle - Works on all screen sizes
-    document.querySelectorAll('.has-submenu > a').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const submenu = this.nextElementSibling;
-            const isActive = submenu.classList.contains('active');
-            
-            // Close all other submenus first
-            document.querySelectorAll('.submenu').forEach(menu => {
-                menu.classList.remove('active');
-                menu.previousElementSibling.classList.remove('active');
-            });
-            
-            // Toggle current submenu
-            if (!isActive) {
-                submenu.classList.add('active');
-                this.classList.add('active');
-            }
+    <!-- JavaScript -->
+    <script>
+        // Enhanced Menu Toggle with Submenu Support
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('show');
         });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav-container')) {
-            document.querySelector('.dropdown-menu').classList.remove('show');
-            document.querySelectorAll('.submenu').forEach(menu => {
-                menu.classList.remove('active');
-                menu.previousElementSibling.classList.remove('active');
+        
+        // Submenu Toggle - Works on all screen sizes
+        document.querySelectorAll('.has-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const submenu = this.nextElementSibling;
+                const isActive = submenu.classList.contains('active');
+                
+                // Close all other submenus first
+                document.querySelectorAll('.submenu').forEach(menu => {
+                    menu.classList.remove('active');
+                    menu.previousElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current submenu
+                if (!isActive) {
+                    submenu.classList.add('active');
+                    this.classList.add('active');
+                }
             });
-        }
-    });
+        });
 
-    // Night Mode Toggle
-    document.querySelector('.night-mode').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        const icon = this.querySelector('i');
-        if (document.body.classList.contains('dark-mode')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-        }
-    });
-
-    // Smooth scroll for anchor links (submenu items)
-    document.querySelectorAll('.submenu a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-            // Close menu if mobile
-            if (window.innerWidth <= 768) {
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-container')) {
                 document.querySelector('.dropdown-menu').classList.remove('show');
+                document.querySelectorAll('.submenu').forEach(menu => {
+                    menu.classList.remove('active');
+                    menu.previousElementSibling.classList.remove('active');
+                });
             }
         });
-    });
-                    </script>
+
+        // Night Mode Toggle
+        document.querySelector('.night-mode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Smooth scroll for anchor links (submenu items)
+        document.querySelectorAll('.submenu a, .footer-links a, .cta-button').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close menu if mobile
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.dropdown-menu').classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
