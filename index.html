@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +41,7 @@
             transition: var(--transition);
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--velvet-pink);
             transition: var(--transition);
@@ -277,27 +276,48 @@
             border-color: var(--rosy-gold);
         }
 
-        /* Services Section */
-        .services-list {
-            margin-top: 2rem;
-        }
-
-        .service-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(170, 51, 106, 0.05);
+        /* Service Cards */
+        .service-card {
+            background: white;
             border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
             transition: var(--transition);
-            cursor: pointer;
-            border-left: 4px solid transparent;
         }
 
-        .service-item:hover {
+        .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(170, 51, 106, 0.1);
-            border-left: 4px solid var(--rosy-gold);
+            box-shadow: 0 10px 30px rgba(170, 51, 106, 0.2);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-features {
+            margin: 1rem 0;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--rosy-gold);
+            position: absolute;
+            left: 0;
         }
 
         .service-icon {
@@ -315,84 +335,51 @@
             transition: var(--transition);
         }
 
-        .service-item:hover .service-icon {
-            transform: rotate(15deg) scale(1.1);
+        /* Price Tag */
+        .price-tag {
+            display: inline-block;
+            background: var(--velvet-pink);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-top: 1rem;
         }
 
-        /* Makeup Sub-Sections */
-        .makeup-subsection {
-            padding: 3rem 0;
-            background: rgba(255, 255, 255, 0.8);
-            margin: 2rem 0;
+        /* Blog Section */
+        .blog-card {
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-
-        .makeup-subsection:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-feature {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 8px;
+            overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .service-feature:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-feature i {
-            font-size: 2rem;
-            color: var(--rosy-gold);
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             transition: var(--transition);
         }
 
-        .service-feature:hover i {
-            transform: scale(1.2);
-        }
-
-        /* Why Choose Us Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-top: 3px solid transparent;
-        }
-
-        .benefit-card:hover {
+        .blog-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-top: 3px solid var(--rosy-gold);
+        }
+
+        .blog-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--rosy-gold);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Testimonials */
-        .testimonials-container {
-            position: relative;
-        }
-
         .testimonial {
             background: white;
             padding: 2rem;
@@ -453,8 +440,8 @@
 
         /* Contact Section */
         .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -467,6 +454,7 @@
             border-radius: 8px;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            flex: 1 1 300px;
         }
 
         .contact-card:hover {
@@ -507,6 +495,7 @@
             justify-content: center;
             gap: 2rem;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -519,6 +508,23 @@
             transform: translateY(-3px);
         }
 
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--rosy-gold);
+            transform: translateY(-3px);
+        }
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -527,18 +533,6 @@
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
                 transform: translateY(0);
             }
         }
@@ -589,7 +583,7 @@
                     <a href="#makeup-services"><i class="fas fa-paint-brush"></i> Makeup Services</a>
                     <ul class="submenu">
                         <li><a href="#bridal-makeup"><i class="fas fa-heart"></i> Bridal Packages</a></li>
-                        <li><a href="#glam-makeup"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="#evening-glam"><i class="fas fa-star"></i> Evening Glam</a></li>
                         <li><a href="#traditional-makeup"><i class="fas fa-palette"></i> Traditional Styles</a></li>
                         <li><a href="#makeup-lessons"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
                     </ul>
@@ -599,14 +593,28 @@
                 <li class="has-submenu">
                     <a href="#hair-services"><i class="fas fa-cut"></i> Hair Services</a>
                     <ul class="submenu">
-                        <li><a href="#braiding"><i class="fas fa-spa"></i> Braiding</a></li>
-                        <li><a href="#styling"><i class="fas fa-wind"></i> Styling</a></li>
-                        <li><a href="#treatments"><i class="fas fa-leaf"></i> Treatments</a></li>
+                        <li><a href="#braiding"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
+                        <li><a href="#styling"><i class="fas fa-wind"></i> Styling & Updos</a></li>
+                        <li><a href="#treatments"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
+                        <li><a href="#color-services"><i class="fas fa-fill-drip"></i> Coloring</a></li>
                     </ul>
                 </li>
                 
+                <!-- Skincare Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#skincare-services"><i class="fas fa-spa"></i> Skincare Consultations</a>
+                    <ul class="submenu">
+                        <li><a href="#anti-aging"><i class="fas fa-clock"></i> Anti-Aging</a></li>
+                        <li><a href="#acne-treatment"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
+                        <li><a href="#hyperpigmentation"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
+                        <li><a href="#skincare-products"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Blog -->
+                <li><a href="#blog"><i class="fas fa-blog"></i> Beauty Blog</a></li>
+                
                 <!-- Other Menu Items -->
-                <li><a href="#skincare"><i class="fas fa-spa"></i> Skin Consultations</a></li>
                 <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
                 <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
             </ul>
@@ -617,7 +625,7 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Where Beauty Blooms</h1>
-            <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry and professional hairdressing services in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
+            <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry, professional hairdressing, and personalized skincare in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
             <a href="#contact" class="cta-button">Book Your Glow-Up</a>
         </div>
     </section>
@@ -625,138 +633,249 @@
     <!-- Makeup Services Section -->
     <section id="makeup-services">
         <div class="container">
-            <h2>Our Makeup Services</h2>
-            <div class="services-list">
-                <!-- Bridal Makeup -->
-                <div class="service-item" id="bridal-makeup">
-                    <div class="service-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div>
-                        <h3>Bridal Makeup Packages</h3>
-                        <p>Comprehensive bridal beauty solutions including trials, day-of services, and touch-up kits to ensure you look flawless throughout your special day.</p>
-                    </div>
+            <h2>Professional Makeup Services</h2>
+            <p class="section-intro">Transform your look with our expert makeup artistry tailored for Nigerian skin tones and special occasions.</p>
+            
+            <!-- Bridal Makeup Package -->
+            <div class="service-card" id="bridal-makeup">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Bridal Makeup Packages</h3>
+                    <p>Complete bridal beauty solutions designed to last through your special day and photographs beautifully.</p>
+                    <ul class="service-features">
+                        <li>Pre-wedding consultation & trial session</li>
+                        <li>Bride and bridesmaids packages available</li>
+                        <li>Traditional and contemporary styles</li>
+                        <li>Touch-up kit included</li>
+                        <li>On-location service available</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦50,000</span>
                 </div>
-                
-                <!-- Glam Makeup Subsection -->
-                <div class="makeup-subsection" id="glam-makeup">
+            </div>
+            <!-- Evening Glam -->
+            <div class="service-card" id="evening-glam">
+                <div class="service-content">
                     <h3>Evening Glam Makeup</h3>
-                    <div class="service-grid">
-                        <div class="service-feature">
-                            <i class="fas fa-camera"></i>
-                            <h4>Photoshoot Ready</h4>
-                            <p>HD makeup that looks flawless on camera for your special events</p>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-moon"></i>
-                            <h4>Evening Glam</h4>
-                            <p>Dramatic looks perfect for weddings, galas, and night outs</p>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-glass-cheers"></i>
-                            <h4>Special Occasion</h4>
-                            <p>Custom looks tailored to your event's theme and lighting</p>
-                        </div>
-                    </div>
+                    <p>Dramatic looks perfect for special events, parties, and night outs.</p>
+                    <ul class="service-features">
+                        <li>HD makeup that photographs beautifully</li>
+                        <li>Long-lasting formulas for Nigerian climate</li>
+                        <li>Customized to your outfit and skin tone</li>
+                        <li>False lash application included</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦25,000</span>
                 </div>
-                
-                <!-- Traditional Makeup Subsection -->
-                <div class="makeup-subsection" id="traditional-makeup">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80')"></div>
+            </div>
+            
+            <!-- Traditional Makeup -->
+            <div class="service-card" id="traditional-makeup">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80')"></div>
+                <div class="service-content">
                     <h3>Traditional Makeup Styles</h3>
-                    <div class="service-grid">
-                        <div class="service-feature">
-                                  <i class="fas fa-ankh"></i>
-                            <h4>Ankara-Inspired</h4>
-                            <p>Makeup that complements your traditional Nigerian outfits</p>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-gem"></i>
-                            <h4>Gele-Friendly</h4>
-                            <p>Looks designed to pair perfectly with headwraps</p>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-palette"></i>
-                            <h4>Cultural Fusion</h4>
-                            <p>Blending modern techniques with traditional aesthetics</p>
-                        </div>
-                    </div>
+                    <p>Beautiful makeup designed to complement Nigerian traditional attire and headwraps.</p>
+                    <ul class="service-features">
+                        <li>Ankara-inspired color coordination</li>
+                        <li>Gele-friendly makeup application</li>
+                        <li>Cultural fusion styles</li>
+                        <li>Traditional and modern blend options</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦30,000</span>
                 </div>
-                
-                <!-- Makeup Lessons -->
-                <div class="service-item" id="makeup-lessons">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div>
-                        <h3>Makeup Lessons</h3>
-                        <p>Personalized tutorials covering foundation matching, eye techniques, and product selection for everyday Nigerian beauty.</p>
-                    </div>
+            </div>
+            
+            <!-- Makeup Lessons -->
+            <div class="service-card" id="makeup-lessons">
+                <div class="service-content">
+                    <h3>Makeup Lessons</h3>
+                    <p>Learn professional techniques tailored for Nigerian skin tones and features.</p>
+                    <ul class="service-features">
+                        <li>Personalized 1-on-1 instruction</li>
+                        <li>Learn foundation matching for dark skin</li>
+                        <li>Eye makeup techniques</li>
+                        <li>Product recommendations for Nigerian climate</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦15,000/session</span>
                 </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
             </div>
         </div>
     </section>
 
-    <!-- Hair Services Section (existing content preserved) -->
-    <section id="hair-services">
+    <!-- Hair Services Section -->
+    <section id="hair-services" style="background: rgba(212, 175, 55, 0.05);">
         <div class="container">
-            <h2>Hair Services</h2>
-            <div class="services-list">
-                <div class="service-item" id="braiding">
-                    <div class="service-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <div>
-                        <h3>Professional Braiding</h3>
-                        <p>From cornrows to box braids, done with care to protect your natural hair.</p>
-                    </div>
+            <h2>Professional Hair Services</h2>
+            <p class="section-intro">From braids to blowouts, we specialize in healthy hair care for Nigerian hair types.</p>
+            
+            <!-- Braiding -->
+            <div class="service-card" id="braiding">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+                <div class="service-content">
+                    <h3>Braiding & Extensions</h3>
+                    <p>Protective styles done with care to maintain your hair's health.</p>
+                    <ul class="service-features">
+                        <li>Box braids, cornrows, and twists</li>
+                        <li>Faux locs and passion twists</li>
+                        <li>Gentle installation to prevent breakage</li>
+                        <li>Pre-braiding treatment included</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦15,000</span>
                 </div>
-                
-                <div class="service-item" id="styling">
-                    <div class="service-icon">
-                        <i class="fas fa-wind"></i>
-                    </div>
-                    <div>
-                        <h3>Styling & Updos</h3>
-                        <p>Elegant styles for weddings, parties, and special occasions.</p>
-                    </div>
+            </div>
+            
+            <!-- Styling -->
+            <div class="service-card" id="styling">
+                <div class="service-content">
+                    <h3>Styling & Updos</h3>
+                    <p>Elegant styles for weddings, parties, and special occasions.</p>
+                    <ul class="service-features">
+                        <li>Bridal upstyles</li>
+                        <li>Traditional gele styling</li>
+                        <li>Silk press and blowouts</li>
+                        <li>Special occasion styling</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦12,000</span>
                 </div>
-                
-                <div class="service-item" id="treatments">
-                    <div class="service-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div>
-                        <h3>Hair Treatments</h3>
-                        <p>Revitalizing treatments for damaged or dry hair.</p>
-                    </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+            </div>
+            
+            <!-- Treatments -->
+            <div class="service-card" id="treatments">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Hair Treatments</h3>
+                    <p>Revitalizing treatments for damaged or dry hair.</p>
+                    <ul class="service-features">
+                        <li>Protein treatments</li>
+                        <li>Deep conditioning</li>
+                        <li>Scalp treatments</li>
+                        <li>Hair masks</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦8,000</span>
                 </div>
+            </div>
+            
+            <!-- Color Services -->
+            <div class="service-card" id="color-services">
+                <div class="service-content">
+                    <h3>Hair Coloring</h3>
+                    <p>Professional coloring that protects your hair's health.</p>
+                    <ul class="service-features">
+                        <li>Balayage and highlights</li>
+                        <li>Full color services</li>
+                        <li>Color correction</li>
+                        <li>Pre-color consultation</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦20,000</span>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section (existing content preserved) -->
-    <section style="background: rgba(212, 175, 55, 0.05);">
+    <!-- Skincare Services Section -->
+    <section id="skincare-services">
         <div class="container">
-            <h2>Why Choose Blush and Bloom?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Nigerian Beauty Experts</h3>
-                    <p>Our team specializes in working with diverse Nigerian skin tones and hair textures, understanding the unique needs of our clients.</p>
+            <h2>Skincare Consultations</h2>
+            <p class="section-intro">Personalized skincare solutions for Nigerian skin types and climate conditions.</p>
+            
+            <!-- Anti-Aging -->
+            <div class="service-card" id="anti-aging">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Anti-Aging Treatments</h3>
+                    <p>Combat signs of aging with treatments designed for melanin-rich skin.</p>
+                    <ul class="service-features">
+                        <li>Fine line and wrinkle reduction</li>
+                        <li>Dark spot correction</li>
+                        <li>Collagen boosting treatments</li>
+                        <li>Customized home care regimen</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦25,000</span>
                 </div>
-                
-                <div class="benefit-card">
-                    <h3>Premium Products</h3>
-                    <p>We use only high-quality, skin-friendly products from internationally recognized brands suitable for our climate.</p>
+    </div>
+      <!-- Acne Treatment -->
+            <div class="service-card" id="acne-treatment">
+                <div class="service-content">
+                    <h3>Acne & Blemish Control</h3>
+                    <p>Solutions for acne-prone skin in Nigeria's humid climate.</p>
+                    <ul class="service-features">
+                        <li>Acne assessment and treatment plan</li>
+                        <li>Hyperpigmentation prevention</li>
+                        <li>Non-comedogenic product recommendations</li>
+                        <li>Follow-up consultations</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦18,000</span>
                 </div>
-                
-                <div class="benefit-card">
-                    <h3>Hygiene First</h3>
-                    <p>Strict sanitation protocols with disposable tools and sterilized equipment for every client appointment.</p>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+            </div>
+            
+            <!-- Skincare Products -->
+            <div class="service-card" id="skincare-products">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Product Recommendations</h3>
+                    <p>Curated skincare products that work for Nigerian skin.</p>
+                    <ul class="service-features">
+                        <li>Personalized product selection</li>
+                        <li>Affordable local options</li>
+                        <li>Climate-appropriate formulations</li>
+                        <li>Routine building session</li>
+                    </ul>
+                    <span class="price-tag">Consultation: ₦10,000</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Blog Section -->
+    <section id="blog" style="background: rgba(170, 51, 106, 0.05);">
+        <div class="container">
+            <h2>Beauty Blog</h2>
+            <p class="section-intro">Tips, trends, and advice from our beauty experts.</p>
+            
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80')"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> June 10, 2024</span>
+                        <span><i class="far fa-comment"></i> 12 Comments</span>
+                    </div>
+                    <h3>5 Makeup Tips for Nigerian Humid Weather</h3>
+                    <p>Discover how to make your makeup last all day in Lagos heat and humidity with these professional tips...</p>
+                    <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80')"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> May 28, 2024</span>
+                        <span><i class="far fa-comment"></i> 8 Comments</span>
+                    </div>
+                    <h3>The Best Protective Styles for Nigerian Hair</h3>
+                    <p>Learn which protective styles are gentlest on 4C hair and how to maintain them in our climate...</p>
+                    <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80')"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> May 15, 2024</span>
+                        <span><i class="far fa-comment"></i> 15 Comments</span>
+                    </div>
+                    <h3>Skincare Routine for Hyperpigmentation</h3>
+                    <p>Our dermatologist-approved routine to help fade dark spots and even skin tone for Nigerian complexions...</p>
+                    <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Testimonials Section (all 12 testimonials preserved) -->
     <section id="testimonials">
         <div class="container">
@@ -940,9 +1059,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Contact Section (existing content preserved) -->
-    <section id="contact" style="background: rgba(170, 51, 106, 0.05);">
+     <!-- Contact Section -->
+    <section id="contact" style="background: rgba(212, 175, 55, 0.05);">
         <div class="container">
             <h2>Contact Us</h2>
             
@@ -973,7 +1091,7 @@
                     </div>
                     <div>
                         <h3>Email</h3>
-                        <p>michaelebuzome4@gmail.com<br>ngozi.zica@gmail.com</p>
+                        <p>info@blushandbloom.ng<br>bookings@blushandbloom.ng</p>
                     </div>
                 </div>
             </div>
@@ -987,8 +1105,18 @@
                 <a href="#home"><i class="fas fa-home"></i> Home</a>
                 <a href="#makeup-services"><i class="fas fa-paint-brush"></i> Makeup</a>
                 <a href="#hair-services"><i class="fas fa-cut"></i> Hair</a>
+                <a href="#skincare-services"><i class="fas fa-spa"></i> Skincare</a>
+                <a href="#blog"><i class="fas fa-blog"></i> Blog</a>
                 <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
             </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
             <p>&copy; 2024 Blush & Bloom. All rights reserved.</p>
         </div>
     </footer>
@@ -1000,6 +1128,7 @@
             const menu = document.querySelector('.dropdown-menu');
             menu.classList.toggle('show');
         });
+        
         // Submenu Toggle
         document.querySelectorAll('.has-submenu > a').forEach(item => {
             item.addEventListener('click', function(e) {
@@ -1064,7 +1193,4 @@
         });
     </script>
 </body>
-</html>
-
-
-  
+                    </html>
