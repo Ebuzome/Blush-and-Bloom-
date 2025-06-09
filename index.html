@@ -168,6 +168,7 @@
             overflow: hidden;
             background: rgba(255,255,255,0.9);
             transition: max-height 0.4s ease-out;
+            padding-left: 1rem;
         }
 
         .submenu.active {
@@ -175,7 +176,7 @@
         }
 
         .submenu li {
-            padding-left: 2rem !important;
+            padding-left: 1rem !important;
             border-bottom: none !important;
         }
 
@@ -266,6 +267,17 @@
             animation: fadeInUp 0.8s ease 0.4s both;
             border: 2px solid transparent;
             font-size: 1.1rem;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            margin-left: 15px;
+        }
+
+        .whatsapp-button:hover {
+            background: transparent;
+            color: #25D366;
+            border-color: #25D366;
         }
 
         .cta-button:hover {
@@ -470,6 +482,31 @@
             transform: rotate(15deg) scale(1.1);
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+
         /* Footer */
         footer {
             background: var(--velvet-pink);
@@ -561,6 +598,17 @@
             .has-submenu > a::after {
                 display: none;
             }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-button, .whatsapp-button {
+                margin-left: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -630,7 +678,12 @@
         <div class="container">
             <h1>Where Beauty Blooms</h1>
             <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry, professional hairdressing, and personalized skincare in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
-            <a href="#contact" class="cta-button">Book Your Glow-Up</a>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Book Your Glow-Up</a>
+                <a href="https://wa.me/2347075754823" class="cta-button whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -654,6 +707,9 @@
                         <li>On-location service available</li>
                     </ul>
                     <span class="price-tag">Starting from ₦50,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Bridal%20Makeup%20Packages" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
             </div>
             
@@ -669,6 +725,9 @@
                         <li>False lash application included</li>
                     </ul>
                     <span class="price-tag">Starting from ₦25,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Evening%20Glam%20Makeup" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
                 <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80')"></div>
             </div>
@@ -686,6 +745,9 @@
                         <li>Traditional and modern blend options</li>
                     </ul>
                     <span class="price-tag">Starting from ₦30,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Traditional%20Makeup%20Styles" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
             </div>
             
@@ -701,6 +763,9 @@
                         <li>Product recommendations for Nigerian climate</li>
                     </ul>
                     <span class="price-tag">Starting from ₦15,000/session</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Makeup%20Lessons" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
                 <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
             </div>
@@ -726,6 +791,9 @@
                         <li>Pre-braiding treatment included</li>
                     </ul>
                     <span class="price-tag">Starting from ₦15,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Braiding%20%26%20Extensions%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
             </div>
             
@@ -741,13 +809,16 @@
                         <li>Special occasion styling</li>
                     </ul>
                     <span class="price-tag">Starting from ₦12,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Styling%20%26%20Updos%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
                 <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
             </div>
             
             <!-- Treatments -->
             <div class="service-card" id="treatments">
-                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605210053620-8e7e5cffc0a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
                 <div class="service-content">
                     <h3>Hair Treatments</h3>
                     <p>Revitalizing treatments for damaged or dry hair.</p>
@@ -758,6 +829,9 @@
                         <li>Hair masks</li>
                     </ul>
                     <span class="price-tag">Starting from ₦8,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Hair%20Treatments" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
             </div>
             
@@ -773,8 +847,11 @@
                         <li>Pre-color consultation</li>
                     </ul>
                     <span class="price-tag">Starting from ₦20,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Hair%20Coloring%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
-                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
             </div>
         </div>
     </section>
@@ -798,6 +875,9 @@
                         <li>Customized home care regimen</li>
                     </ul>
                     <span class="price-tag">Starting from ₦25,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Anti-Aging%20Treatments" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
             </div>
             
@@ -813,8 +893,11 @@
                         <li>Follow-up consultations</li>
                     </ul>
                     <span class="price-tag">Starting from ₦18,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Acne%20%26%20Blemish%20Control%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
-                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
             </div>
             
             <!-- Skincare Products -->
@@ -830,6 +913,9 @@
                         <li>Routine building session</li>
                     </ul>
                     <span class="price-tag">Consultation: ₦10,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Skincare%20Product%20Recommendations" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
                 </div>
             </div>
         </div>
@@ -1053,9 +1139,15 @@
                     </div>
                     <div>
                         <h3>Email</h3>
-                        <p>info@blushandbloom.ng<br>bookings@blushandbloom.ng</p>
+                        <p>michaelebuzome4@gmail.com<br>ngozi.zica@gmail.com</p>
                     </div>
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://wa.me/2347075754823" class="cta-button whatsapp-button" target="_blank" style="padding: 14px 32px; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp
+                </a>
             </div>
         </div>
     </section>
@@ -1083,6 +1175,11 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2347075754823" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- JavaScript -->
     <script>
         // Enhanced Menu Toggle with Submenu Support
@@ -1094,27 +1191,33 @@
         // Submenu Toggle - Works on all screen sizes
         document.querySelectorAll('.has-submenu > a').forEach(item => {
             item.addEventListener('click', function(e) {
-                e.preventDefault();
+                // Prevent default only if it's a submenu toggle
+                if (this.getAttribute('href') === 'javascript:void(0)') {
+                    e.preventDefault();
+                }
+                
                 const submenu = this.nextElementSibling;
                 const isActive = submenu.classList.contains('active');
                 
-                // Close all other submenus first
-                document.querySelectorAll('.submenu').forEach(menu => {
-                    menu.classList.remove('active');
-                    menu.previousElementSibling.classList.remove('active');
-                });
+                // Close all other submenus first if on mobile
+                if (window.innerWidth <= 768) {
+                    document.querySelectorAll('.submenu').forEach(menu => {
+                        if (menu !== submenu) {
+                            menu.classList.remove('active');
+                            menu.previousElementSibling.classList.remove('active');
+                        }
+                    });
+                }
                 
                 // Toggle current submenu
-                if (!isActive) {
-                    submenu.classList.add('active');
-                    this.classList.add('active');
-                }
+                submenu.classList.toggle('active');
+                this.classList.toggle('active');
             });
         });
 
         // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-container')) {
+            if (!e.target.closest('.nav-container') && !e.target.closest('.dropdown-menu')) {
                 document.querySelector('.dropdown-menu').classList.remove('show');
                 document.querySelectorAll('.submenu').forEach(menu => {
                     menu.classList.remove('active');
@@ -1137,7 +1240,7 @@
         // Smooth scroll for anchor links (submenu items)
         document.querySelectorAll('.submenu a, .footer-links a, .cta-button').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
+                if (this.getAttribute('href') !== '#' && !this.getAttribute('href').startsWith('http') && !this.getAttribute('href').startsWith('mailto') && !this.getAttribute('href').startsWith('tel')) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth',
