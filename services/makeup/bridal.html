@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Color Variables */
         :root {
             --rosy-gold: #D4AF37;
             --velvet-pink: #AA336A;
@@ -17,6 +18,14 @@
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        /* Enhanced Night Mode */
+        .dark-mode {
+            --cream: #1a120b;
+            --dark-text: #e0d7d0;
+            --velvet-pink: #d47a8a;
+            --rosy-gold: #c9a227;
+        }
+
         /* Base Styles */
         * {
             margin: 0;
@@ -25,15 +34,18 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
             background-color: var(--cream);
             color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.7;
+            transition: var(--transition);
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--velvet-pink);
+            transition: var(--transition);
         }
 
         .container {
@@ -43,55 +55,223 @@
             padding: 2rem 0;
         }
 
-        /* Hero Section */
-        .bridal-hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('../assets/images/bridal-makeup-01.jpg') center/cover;
-            height: 70vh;
+        section {
+            padding: 4rem 0;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation (Identical to index.html) */
+        header {
+            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            transition: var(--transition);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        /* Menu Button */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Dropdown Menu with Submenus */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 100%;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity 0.3s, max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            max-height: 80vh;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+        }
+
+        .dropdown-menu > ul > li {
+            position: relative;
+        }
+
+        .dropdown-menu li {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid rgba(170, 51, 106, 0.1);
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu li:hover {
+            background: rgba(170, 51, 106, 0.05);
+        }
+
+        .dropdown-menu a {
+            color: var(--velvet-pink);
+            text-decoration: none;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--rosy-gold);
+            transform: translateX(5px);
+        }
+
+        .dropdown-menu a i {
+            margin-right: 10px;
+            width: 20px;
             text-align: center;
+            color: var(--rosy-gold);
+        }
+
+        /* Submenu Styles */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(255,255,255,0.9);
+            transition: max-height 0.4s ease-out;
+            padding-left: 1rem;
+        }
+
+        .submenu.active {
+            max-height: 500px;
+        }
+
+        .submenu li {
+            padding-left: 1rem !important;
+            border-bottom: none !important;
+        }
+
+        .submenu a {
+            font-size: 0.9rem;
+        }
+
+        .has-submenu > a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+
+        .has-submenu.active > a::after {
+            transform: rotate(180deg);
+        }
+
+        /* Night Mode Toggle */
+        .night-mode {
+            background: transparent;
+            border: none;
             color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .night-mode:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Hero Section */
+        .bridal-hero {
+            text-align: center;
+            padding: 8rem 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center/cover;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .bridal-hero::after {
+        .bridal-hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(170,51,106,0.3), rgba(212,175,55,0.3));
+            background: linear-gradient(45deg, rgba(170,51,106,0.3), rgba(212,175,55,0.3));
             z-index: 1;
-            animation: gradientShift 8s infinite alternate;
+            transition: var(--transition);
+            animation: gradient-shift 8s infinite alternate;
         }
 
-        @keyframes gradientShift {
+        @keyframes gradient-shift {
             0% { opacity: 0.3; }
             100% { opacity: 0.7; }
         }
 
-        .hero-content {
+        .bridal-hero .container {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
         }
 
-        .hero-content h1 {
+        .bridal-hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
+        .bridal-hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
 
         /* Makeup Gallery Section */
@@ -114,11 +294,14 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             height: 400px;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(170,51,106,0.2);
+        .gallery-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .gallery-img {
@@ -399,8 +582,12 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-content h1 {
+            .bridal-hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .bridal-hero p {
+                font-size: 1.1rem;
             }
             
             .package-tiers {
@@ -414,25 +601,90 @@
     </style>
 </head>
 <body>
-    <!-- Bridal Makeup Hero Section -->
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <a href="../index.html" class="logo">Blush & Bloom</a>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <!-- Dropdown Menu -->
+        <div class="dropdown-menu">
+            <ul>
+                <!-- Makeup Services Submenu -->
+                <li class="has-submenu">
+                    <a href="../services/makeup/index.html"><i class="fas fa-paint-brush"></i> Makeup Services</a>
+                    <ul class="submenu">
+                        <li><a href="../services/makeup/bridal.html"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                        <li><a href="../services/makeup/evening-glam.html"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="../services/makeup/traditional.html"><i class="fas fa-palette"></i> Traditional Styles</a></li>
+                        <li><a href="../services/makeup/lessons.html"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Hair Services Submenu -->
+                <li class="has-submenu">
+                    <a href="../services/hair/index.html"><i class="fas fa-cut"></i> Hair Services</a>
+                    <ul class="submenu">
+                        <li><a href="../services/hair/braiding.html"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
+                        <li><a href="../services/hair/styling.html"><i class="fas fa-wind"></i> Styling & Updos</a></li>
+                        <li><a href="../services/hair/treatments.html"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
+                        <li><a href="../services/hair/coloring.html"><i class="fas fa-fill-drip"></i> Coloring</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Skincare Services Submenu -->
+                <li class="has-submenu">
+                    <a href="../services/skincare/index.html"><i class="fas fa-spa"></i> Skincare Consultations</a>
+                    <ul class="submenu">
+                        <li><a href="../services/skincare/anti-aging.html"><i class="fas fa-clock"></i> Anti-Aging</a></li>
+                        <li><a href="../services/skincare/acne.html"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
+                        <li><a href="../services/skincare/pigmentation.html"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
+                        <li><a href="../services/skincare/products.html"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Blog -->
+                <li><a href="../blog/index.html"><i class="fas fa-blog"></i> Beauty Blog</a></li>
+                
+                <!-- Other Menu Items -->
+                <li><a href="../about.html"><i class="fas fa-address-card"></i> About Us</a></li>
+                <li><a href="../contact.html"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
     <section class="bridal-hero">
-        <div class="hero-content">
-            <h1>Timeless Bridal Beauty</h1>
-            <p>Where your wedding glow becomes a lifelong memory. Our artistry celebrates Nigerian beauty with techniques perfected for our climate and culture.</p>
-            <a href="#gift-packages" class="cta-button">Explore Gift Packages</a>
+        <!-- Floating decorative elements -->
+        <i class="fas fa-gift floating-element" style="top:20%; left:10%; animation-delay:0s; font-size:2rem;"></i>
+        <i class="fas fa-ring floating-element" style="top:70%; right:15%; animation-delay:1s;"></i>
+        <i class="fas fa-heart floating-element" style="top:40%; right:10%; animation-delay:2s; color:var(--rosy-gold);"></i>
+        
+        <div class="container">
+            <h1>Exquisite Bridal Gift Packages</h1>
+            <p>Celebrate the newlyweds with thoughtfully curated luxury gifts that create lasting memories</p>
+            <a href="#packages" class="cta-button">Explore Our Packages</a>
         </div>
     </section>
 
-    <!-- Makeup Gallery Section -->
+    <!-- Bridal Makeup Gallery -->
     <section class="makeup-gallery">
         <div class="container">
-            <h2>Our Signature Bridal Looks</h2>
-            <p>Each design tells your unique love story through expert artistry</p>
+            <h2>Our Signature Bridal Makeup Artistry</h2>
+            <p>Transform your special day with our expert makeup services designed for Nigerian beauty</p>
             
             <div class="gallery-grid">
                 <!-- Gallery Item 1 -->
                 <div class="gallery-item">
-                    <div class="gallery-img" style="background-image: url('../assets/images/bridal-makeup-01.jpg');"></div>
+                    <div class="gallery-img" style="background-image: url('../../assets/images/bridal-makeup-01.jpg');"></div>
                     <div class="gallery-caption">
                         <h3>Classic Nigerian Bride</h3>
                         <p>Traditional gele with contemporary makeup fusion</p>
@@ -442,7 +694,7 @@
                 
                 <!-- Gallery Item 2 -->
                 <div class="gallery-item">
-                    <div class="gallery-img" style="background-image: url('../assets/images/bridal-makeup-02.jpg');"></div>
+                    <div class="gallery-img" style="background-image: url('../../assets/images/bridal-makeup-02.jpg');"></div>
                     <div class="gallery-caption">
                         <h3>Modern Minimalist</h3>
                         <p>"Less is more" elegance for intimate weddings</p>
@@ -452,7 +704,7 @@
                 
                 <!-- Gallery Item 3 -->
                 <div class="gallery-item">
-                    <div class="gallery-img" style="background-image: url('../assets/images/bridal-makeup-03.jpg');"></div>
+                    <div class="gallery-img" style="background-image: url('../../assets/images/bridal-makeup-03.jpg');"></div>
                     <div class="gallery-caption">
                         <h3>Glamorous Evening</h3>
                         <p>Dramatic eyes and bold lips that photograph beautifully</p>
@@ -462,7 +714,7 @@
                 
                 <!-- Gallery Item 4 -->
                 <div class="gallery-item">
-                    <div class="gallery-img" style="background-image: url('../assets/images/bridal-makeup-04.jpg');"></div>
+                    <div class="gallery-img" style="background-image: url('../../assets/images/bridal-makeup-04.jpg');"></div>
                     <div class="gallery-caption">
                         <h3>Cultural Fusion</h3>
                         <p>Ankara-inspired colors meet Western techniques</p>
@@ -474,7 +726,7 @@
     </section>
 
     <!-- Gift Packages Intro -->
-    <section class="gift-intro" id="gift-packages">
+    <section class="gift-intro">
         <div class="container gift-intro-content">
             <h2>Thoughtful Bridal Gift Packages</h2>
             <p>Surprise the newlyweds with curated luxury gifts that keep giving long after the wedding day</p>
@@ -482,7 +734,7 @@
             <div class="gift-carousel">
                 <!-- Gift Carousel Item 1 -->
                 <div class="gift-carousel-item">
-                    <div class="gift-carousel-img" style="background-image: url('../assets/images/wedding-gifts-01.jpg');"></div>
+                    <div class="gift-carousel-img" style="background-image: url('../../assets/images/wedding-gifts-01.jpg');"></div>
                     <div class="gift-carousel-caption">
                         <h3>Memory Keepers</h3>
                         <p>Preserve precious moments with heirloom-quality gifts</p>
@@ -492,7 +744,7 @@
                 
                 <!-- Gift Carousel Item 2 -->
                 <div class="gift-carousel-item">
-                    <div class="gift-carousel-img" style="background-image: url('../assets/images/wedding-gifts-02.jpg');"></div>
+                    <div class="gift-carousel-img" style="background-image: url('../../assets/images/wedding-gifts-02.jpg');"></div>
                     <div class="gift-carousel-caption">
                         <h3>Home Luxuries</h3>
                         <p>Elevate their newlywed nest with practical elegance</p>
@@ -502,7 +754,7 @@
                 
                 <!-- Gift Carousel Item 3 -->
                 <div class="gift-carousel-item">
-                    <div class="gift-carousel-img" style="background-image: url('../assets/images/wedding-gifts-03.jpg');"></div>
+                    <div class="gift-carousel-img" style="background-image: url('../../assets/images/wedding-gifts-03.jpg');"></div>
                     <div class="gift-carousel-caption">
                         <h3>Romantic Experiences</h3>
                         <p>Gifts that inspire connection and new adventures</p>
@@ -512,7 +764,7 @@
                 
                 <!-- Gift Carousel Item 4 -->
                 <div class="gift-carousel-item">
-                    <div class="gift-carousel-img" style="background-image: url('../assets/images/wedding-gifts-06.jpg');"></div>
+                    <div class="gift-carousel-img" style="background-image: url('../../assets/images/wedding-gifts-06.jpg');"></div>
                     <div class="gift-carousel-caption">
                         <h3>Practical Magic</h3>
                         <p>Beautiful items they'll use every day with joy</p>
@@ -522,7 +774,7 @@
                 
                 <!-- Gift Carousel Item 5 -->
                 <div class="gift-carousel-item">
-                    <div class="gift-carousel-img" style="background-image: url('../assets/images/wedding-gifts-08.jpg');"></div>
+                    <div class="gift-carousel-img" style="background-image: url('../../assets/images/wedding-gifts-08.jpg');"></div>
                     <div class="gift-carousel-caption">
                         <h3>Timeless Keepsakes</h3>
                         <p>Gifts that grow more valuable with each anniversary</p>
@@ -534,7 +786,7 @@
     </section>
 
     <!-- Packages Section -->
-    <section class="packages-section">
+    <section id="packages" class="packages-section">
         <div class="container">
             <h2>Curated Bridal Gift Packages</h2>
             <p>Select the perfect collection for the newlyweds' lifestyle</p>
@@ -619,10 +871,10 @@
                     </div>
                     <div class="package-body">
                         <ul class="package-features">
-                            <li>Handcrafted Hope Chest <span class="package-value">(₦35,000)</span></li>
+                            <li>Humidifier, Plate sets <span class="package-value">(₦35,000)</span></li>
                             <li>Couple's Jewelry Set <span class="package-value">(₦28,000)</span></li>
                             <li>Smart Kitchen Scale <span class="package-value">(₦15,000)</span></li>
-                            <li>Hamper, luxurious Plate sets <span class="package-value">(₦40,000)</span></li>
+                            <li>Fabulous Furniture item<span class="package-value">(₦40,000)</span></li>
                             <li>Vintage Champagne Set <span class="package-value">(₦22,000)</span></li>
                             <li>Luxury Picnic Basket <span class="package-value">(₦18,000)</span></li>
                             <li>Future Letters Book <span class="package-value">(₦12,000)</span></li>
@@ -645,10 +897,10 @@
                     <div class="package-body">
                         <ul class="package-features">
                             <li><strong>Customizable</strong> <span class="package-value">(₦200,000 value)</span></li>
-                            <li>Mini Blender, humidifier <span class="package-value">(₦30,000-₦50,000)</span></li>
-                            <li>Customizable<span class="package-value">(Priceless)</span></li>
+                            <li>Customizable <span class="package-value">(₦30,000-₦50,000)</span></li>
+                            <li>Customizable <span class="package-value">(Priceless)</span></li>
                             <li>Customizable <span class="package-value">(₦15,000)</span></li>
-                            <li>Customizable<span class="package-value">(₦5,000-₦20,000)</span></li>
+                            <li>Customizable <span class="package-value">(₦5,000-₦20,000)</span></li>
                         </ul>
                         <p><em>"The gift that keeps revealing itself"</em></p>
                         <a href="https://wa.me/2347075754823?text=I'm%20interested%20in%20the%20Mystery%20Legacy%20Package%20(₦250,000)" class="cta-button whatsapp-button" target="_blank">
@@ -660,34 +912,92 @@
         </div>
     </section>
 
+    <!-- JavaScript -->
     <script>
-        // Animate gallery items on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
+        // Enhanced Menu Toggle
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('show');
+        });
+        
+        // Submenu Toggle - Fixed to allow link clicking
+        document.querySelectorAll('.has-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Only prevent default if the link is a submenu toggle
+                if (this.getAttribute('href') === '#' || this.getAttribute('href') === 'javascript:void(0)') {
+                    e.preventDefault();
+                    const submenu = this.nextElementSibling;
+                    const isActive = submenu.classList.contains('active');
+                    
+                    // Close all other submenus first
+                    document.querySelectorAll('.submenu').forEach(menu => {
+                        menu.classList.remove('active');
+                        menu.previousElementSibling.classList.remove('active');
+                    });
+                    
+                    // Toggle current submenu
+                    if (!isActive) {
+                        submenu.classList.add('active');
+                        this.classList.add('active');
                     }
-                });
-            }, { threshold: 0.1 });
-            
-            galleryItems.forEach(item => {
-                item.style.opacity = 0;
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(item);
+                }
             });
-            
-            // Mystery package hover effect
-            const mysteryPackage = document.querySelector('.mystery-package');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-container') && !e.target.closest('.dropdown-menu')) {
+                document.querySelector('.dropdown-menu').classList.remove('show');
+                document.querySelectorAll('.submenu').forEach(menu => {
+                    menu.classList.remove('active');
+                    menu.previousElementSibling.classList.remove('active');
+                });
+            }
+        });
+
+        // Night Mode Toggle
+        document.querySelector('.night-mode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Animate gallery items on scroll
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        galleryItems.forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Mystery package hover effect
+        const mysteryPackage = document.querySelector('.mystery-package');
+        if (mysteryPackage) {
             mysteryPackage.addEventListener('mouseenter', function() {
                 this.querySelector('.mystery-badge').style.animation = 'bounce 0.5s infinite';
             });
             mysteryPackage.addEventListener('mouseleave', function() {
                 this.querySelector('.mystery-badge').style.animation = 'bounce 2s infinite';
+            });
+        }
+
+        // Smooth scroll for anchor links
+       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
