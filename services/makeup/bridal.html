@@ -1001,5 +1001,31 @@
             });
         });
     </script>
+    <script>
+  // Toggle mobile menu
+  const menuBtn = document.querySelector('.menu-btn');
+  const dropdown = document.querySelector('.dropdown-menu');
+
+  menuBtn.addEventListener('click', () => {
+    dropdown.classList.toggle('show');
+  });
+
+  // Toggle submenus
+  document.querySelectorAll('.has-submenu > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent actual navigation
+      const parentLi = link.parentElement;
+      parentLi.classList.toggle('active');
+      const submenu = link.nextElementSibling;
+      submenu.classList.toggle('active');
+    });
+  });
+
+  // Night mode toggle
+  const nightModeBtn = document.querySelector('.night-mode');
+  nightModeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 </body>
 </html>
