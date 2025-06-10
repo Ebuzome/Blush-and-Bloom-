@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blush and Bloom | Premium Beauty Services Nigeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Color Variables */
+        :root {
+            --rosy-gold: #D4AF37;
+            --velvet-pink: #AA336A;
+            --cream: #FFF8F0;
+            --dark-text: #333333;
+            --light-text: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Enhanced Night Mode */
+        .dark-mode {
+            --cream: #1a120b;
+            --dark-text: #e0d7d0;
+            --velvet-pink: #d47a8a;
+            --rosy-gold: #c9a227;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--velvet-pink);
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 4rem 0;
+            transition: var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            transition: var(--transition);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Menu Button */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Dropdown Menu with Submenus */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 100%;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity 0.3s, max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            max-height: 80vh;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+        }
+
+        .dropdown-menu > ul > li {
+            position: relative;
+        }
+
+        .dropdown-menu li {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid rgba(170, 51, 106, 0.1);
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu li:hover {
+            background: rgba(170, 51, 106, 0.05);
+        }
+
+        .dropdown-menu a {
+            color: var(--velvet-pink);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--rosy-gold);
+            transform: translateX(5px);
+        }
+
+        .dropdown-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--rosy-gold);
+        }
+
+        /* Submenu Styles */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(255,255,255,0.9);
+            transition: max-height 0.4s ease-out;
+            padding-left: 1rem;
+        }
+
+        .submenu.active {
+            max-height: 500px;
+        }
+
+        .submenu li {
+            padding-left: 1rem !important;
+            border-bottom: none !important;
+        }
+
+        .submenu a {
+            font-size: 0.9rem;
+        }
+
+        .has-submenu > a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+
+        .has-submenu.active > a::after {
+            transform: rotate(180deg);
+        }
+
+        /* Night Mode Toggle */
+        .night-mode {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .night-mode:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80') no-repeat center/cover;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--rosy-gold);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 0.8s ease 0.4s both;
+            border: 2px solid transparent;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            margin-left: 15px;
+        }
+
+        .whatsapp-button:hover {
+            background: transparent;
+            color: #25D366;
+            border-color: #25D366;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            background: transparent;
+            color: var(--rosy-gold);
+            border-color: var(--rosy-gold);
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(170, 51, 106, 0.2);
+        }
+
+        .service-content {
+            padding: 2rem;
+            order: 2;
+        }
+
+        .service-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            order: 1;
+        }
+
+        .service-features {
+            margin: 1rem 0;
+            list-style: none;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--rosy-gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--velvet-pink);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        /* Blog Section */
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--rosy-gold);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            opacity: 1;
+        }
+
+        .testimonial:before {
+            content: """;
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: var(--rosy-gold);
+            opacity: 0.2;
+            font-family: serif;
+            transition: var(--transition);
+        }
+
+        .testimonial:hover:before {
+            opacity: 0.3;
+            transform: scale(1.05);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--velvet-pink);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .testimonial:hover .client-avatar {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            flex: 1 1 300px;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            background: var(--rosy-gold);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--velvet-pink);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--rosy-gold);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--rosy-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .service-card {
+                flex-direction: row;
+            }
+            
+            .service-card:nth-child(even) .service-content {
+                order: 1;
+            }
+            
+            .service-card:nth-child(even) .service-image {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                border-radius: 0;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .has-submenu > a::after {
+                display: none;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-button, .whatsapp-button {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Enhanced Navigation -->
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">Blush & Bloom</div>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <!-- Enhanced Dropdown Menu with Submenus -->
+        <div class="dropdown-menu">
+            <ul>
+                <!-- Makeup Services Submenu -->
+                <li class="has-submenu">
+                    <a href="javascript:void(0)"><i class="fas fa-paint-brush"></i> Makeup Services</a>
+                    <ul class="submenu">
+                        <li><a href="#bridal-makeup"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                        <li><a href="#evening-glam"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="#traditional-makeup"><i class="fas fa-palette"></i> Traditional Styles</a></li>
+                        <li><a href="#makeup-lessons"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Hair Services Submenu -->
+                <li class="has-submenu">
+                    <a href="javascript:void(0)"><i class="fas fa-cut"></i> Hair Services</a>
+                    <ul class="submenu">
+                        <li><a href="#braiding"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
+                        <li><a href="#styling"><i class="fas fa-wind"></i> Styling & Updos</a></li>
+                        <li><a href="#treatments"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
+                        <li><a href="#color-services"><i class="fas fa-fill-drip"></i> Coloring</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Skincare Services Submenu -->
+                <li class="has-submenu">
+                    <a href="javascript:void(0)"><i class="fas fa-spa"></i> Skincare Consultations</a>
+                    <ul class="submenu">
+                        <li><a href="#anti-aging"><i class="fas fa-clock"></i> Anti-Aging</a></li>
+                        <li><a href="#acne-treatment"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
+                        <li><a href="#hyperpigmentation"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
+                        <li><a href="#skincare-products"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Blog -->
+                <li><a href="#blog"><i class="fas fa-blog"></i> Beauty Blog</a></li>
+                
+                <!-- Other Menu Items -->
+                <li><a href="#testimonials"><i class="fas fa-quote-left"></i> Client Stories</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Where Beauty Blooms</h1>
+            <p>Welcome to Blush and Bloom, your premier destination for exceptional makeup artistry, professional hairdressing, and personalized skincare in Nigeria. We believe every person deserves to feel beautiful, confident, and radiant.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Book Your Glow-Up</a>
+                <a href="https://wa.me/2347075754823" class="cta-button whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Makeup Services Section -->
+    <section id="makeup-services">
+        <div class="container">
+            <h2>Professional Makeup Services</h2>
+            <p class="section-intro">Transform your look with our expert makeup artistry tailored for Nigerian skin tones and special occasions.</p>
+            
+            <!-- Bridal Makeup Package -->
+            <div class="service-card" id="bridal-makeup">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Bridal Makeup Packages</h3>
+                    <p>Complete bridal beauty solutions designed to last through your special day and photographs beautifully.</p>
+                    <ul class="service-features">
+                        <li>Pre-wedding consultation & trial session</li>
+                        <li>Bride and bridesmaids packages available</li>
+                        <li>Traditional and contemporary styles</li>
+                        <li>Touch-up kit included</li>
+                        <li>On-location service available</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦50,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Bridal%20Makeup%20Packages" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Evening Glam -->
+            <div class="service-card" id="evening-glam">
+                <div class="service-content">
+                    <h3>Evening Glam Makeup</h3>
+                    <p>Dramatic looks perfect for special events, parties, and night outs.</p>
+                    <ul class="service-features">
+                        <li>HD makeup that photographs beautifully</li>
+                        <li>Long-lasting formulas for Nigerian climate</li>
+                        <li>Customized to your outfit and skin tone</li>
+                        <li>False lash application included</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦25,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Evening%20Glam%20Makeup" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80')"></div>
+            </div>
+            
+            <!-- Traditional Makeup -->
+            <div class="service-card" id="traditional-makeup">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80')"></div>
+                <div class="service-content">
+                    <h3>Traditional Makeup Styles</h3>
+                    <p>Beautiful makeup designed to complement Nigerian traditional attire and headwraps.</p>
+                    <ul class="service-features">
+                        <li>Ankara-inspired color coordination</li>
+                        <li>Gele-friendly makeup application</li>
+                        <li>Cultural fusion styles</li>
+                        <li>Traditional and modern blend options</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦30,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Traditional%20Makeup%20Styles" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Makeup Lessons -->
+            <div class="service-card" id="makeup-lessons">
+                <div class="service-content">
+                    <h3>Makeup Lessons</h3>
+                    <p>Learn professional techniques tailored for Nigerian skin tones and features.</p>
+                    <ul class="service-features">
+                        <li>Personalized 1-on-1 instruction</li>
+                        <li>Learn foundation matching for dark skin</li>
+                        <li>Eye makeup techniques</li>
+                        <li>Product recommendations for Nigerian climate</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦15,000/session</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Makeup%20Lessons" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hair Services Section -->
+    <section id="hair-services" style="background: rgba(212, 175, 55, 0.05);">
+        <div class="container">
+            <h2>Professional Hair Services</h2>
+            <p class="section-intro">From braids to blowouts, we specialize in healthy hair care for Nigerian hair types.</p>
+            
+            <!-- Braiding -->
+            <div class="service-card" id="braiding">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+                <div class="service-content">
+                    <h3>Braiding & Extensions</h3>
+                    <p>Protective styles done with care to maintain your hair's health.</p>
+                    <ul class="service-features">
+                        <li>Box braids, cornrows, and twists</li>
+                        <li>Faux locs and passion twists</li>
+                        <li>Gentle installation to prevent breakage</li>
+                        <li>Pre-braiding treatment included</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦15,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Braiding%20%26%20Extensions%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Styling -->
+            <div class="service-card" id="styling">
+                <div class="service-content">
+                    <h3>Styling & Updos</h3>
+                    <p>Elegant styles for weddings, parties, and special occasions.</p>
+                    <ul class="service-features">
+                        <li>Bridal upstyles</li>
+                        <li>Traditional gele styling</li>
+                        <li>Silk press and blowouts</li>
+                        <li>Special occasion styling</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦12,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Styling%20%26%20Updos%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+            </div>
+            
+            <!-- Treatments -->
+            <div class="service-card" id="treatments">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605210053620-8e7e5cffc0a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+                <div class="service-content">
+                    <h3>Hair Treatments</h3>
+                    <p>Revitalizing treatments for damaged or dry hair.</p>
+                    <ul class="service-features">
+                        <li>Protein treatments</li>
+                        <li>Deep conditioning</li>
+                        <li>Scalp treatments</li>
+                        <li>Hair masks</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦8,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Hair%20Treatments" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Color Services -->
+            <div class="service-card" id="color-services">
+                <div class="service-content">
+                    <h3>Hair Coloring</h3>
+                    <p>Professional coloring that protects your hair's health.</p>
+                    <ul class="service-features">
+                        <li>Balayage and highlights</li>
+                        <li>Full color services</li>
+                        <li>Color correction</li>
+                        <li>Pre-color consultation</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦20,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Hair%20Coloring%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skincare Services Section -->
+    <section id="skincare-services">
+        <div class="container">
+            <h2>Skincare Consultations</h2>
+            <p class="section-intro">Personalized skincare solutions for Nigerian skin types and climate conditions.</p>
+            
+            <!-- Anti-Aging -->
+            <div class="service-card" id="anti-aging">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Anti-Aging Treatments</h3>
+                    <p>Combat signs of aging with treatments designed for melanin-rich skin.</p>
+                    <ul class="service-features">
+                        <li>Fine line and wrinkle reduction</li>
+                        <li>Dark spot correction</li>
+                        <li>Collagen boosting treatments</li>
+                        <li>Customized home care regimen</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦25,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Anti-Aging%20Treatments" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Acne Treatment -->
+            <div class="service-card" id="acne-treatment">
+                <div class="service-content">
+                    <h3>Acne & Blemish Control</h3>
+                    <p>Solutions for acne-prone skin in Nigeria's humid climate.</p>
+                    <ul class="service-features">
+                        <li>Acne assessment and treatment plan</li>
+                        <li>Hyperpigmentation prevention</li>
+                        <li>Non-comedogenic product recommendations</li>
+                        <li>Follow-up consultations</li>
+                    </ul>
+                    <span class="price-tag">Starting from ₦18,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Acne%20%26%20Blemish%20Control%20services" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80')"></div>
+            </div>
+            
+            <!-- Skincare Products -->
+            <div class="service-card" id="skincare-products">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                <div class="service-content">
+                    <h3>Product Recommendations</h3>
+                    <p>Curated skincare products that work for Nigerian skin.</p>
+                    <ul class="service-features">
+                        <li>Personalized product selection</li>
+                        <li>Affordable local options</li>
+                        <li>Climate-appropriate formulations</li>
+                        <li>Routine building session</li>
+                    </ul>
+                    <span class="price-tag">Consultation: ₦10,000</span>
+                    <a href="https://wa.me/2347075754823?text=Hi%20Blush%20and%20Bloom,%20I'm%20interested%20in%20your%20Skincare%20Product%20Recommendations" class="cta-button whatsapp-button" style="display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" style="background: rgba(170, 51, 106, 0.05);">
+        <div class="container">
+            <h2>Beauty Blog</h2>
+            <p class="section-intro">Tips, trends, and advice from our beauty experts.</p>
+            
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80')"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> June 10, 2024</span>
+                        <span><i class="far fa-comment"></i> 12 Comments</span>
+                    </div>
+                    <h3>5 Makeup Tips for Nigerian Humid Weather</h3>
+                    <p>Discover how to make your makeup last all day in Lagos heat and humidity with these professional tips...</p>
+                    <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80')"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> May 28, 2024</span>
+                        <span><i class="far fa-comment"></i> 8 Comments</span>
+                    </div>
+                    <h3>The Best Protective Styles for Nigerian Hair</h3>
+                    <p>Learn which protective styles are gentlest on 4C hair and how to maintain them in our climate...</p>
+                    <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80')"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> May 15, 2024</span>
+                        <span><i class="far fa-comment"></i> 15 Comments</span>
+                    </div>
+                    <h3>Skincare Routine for Hyperpigmentation</h3>
+                    <p>Our dermatologist-approved routine to help fade dark spots and even skin tone for Nigerian complexions...</p>
+                    <a href="#" class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            
+            <div class="testimonial">
+                <p>"Blush and Bloom transformed me for my wedding! They understood exactly how to make my makeup last through the heat and dancing. Five years later, I still come for their amazing braiding services."</p>
+                <div class="client-info">
+                    <div class="client-avatar">AO</div>
+                    <div>
+                        <strong>Anna Okafor</strong>
+                        <p>Lagos, Bride</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"After years of damaging my hair with chemicals, their hair recovery program restored my natural texture. The team truly cares about hair health, not just styling. Worth every naira!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">CE</div>
+                    <div>
+                        <strong>Chinedu Eze</strong>
+                        <p>Abuja, Regular Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Their skincare consultation changed my life. Finally found products that don't cause breakouts in this humidity! My complexion has never looked better. Thank you Blush and Bloom!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">TK</div>
+                    <div>
+                        <strong>Tolu Kazeem</strong>
+                        <p>Ibadan, Skincare Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"The bridal makeup stayed flawless from morning until the last dance! They even came to my hotel room. Best decision I made for my wedding."</p>
+                <div class="client-info">
+                    <div class="client-avatar">NE</div>
+                    <div>
+                        <strong>Nneka Eze</strong>
+                        <p>Port Harcourt, Bride</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"My natural hair has never looked better since following their haircare routine. The stylists are magic workers!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">AO</div>
+                    <div>
+                        <strong>Achalugo Okoro</strong>
+                        <p>Abuja, Hair Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"The skincare consultation cleared my acne in 3 weeks. Finally found products that work for Nigerian skin!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">CA</div>
+                    <div>
+                        <strong>Catherine Adeleke</strong>
+                        <p>Lagos, Skincare Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"I get compliments every time I leave Blush and Bloom. Their makeup makes me glow like a Nollywood star!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">EB</div>
+                    <div>
+                        <strong>Esther Bello</strong>
+                        <p>Enugu, Regular Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Worth every kobo! My traditional wedding makeup was so beautiful I cried (and it didn't smudge)."</p>
+                <div class="client-info">
+                    <div class="client-avatar">FO</div>
+                    <div>
+                        <strong>Felicia Okafor</strong>
+                        <p>Ibadan, Bride</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"As a busy Lagos professional, their express makeup service saves me time while keeping me camera-ready for meetings."</p>
+                <div class="client-info">
+                    <div class="client-avatar">IO</div>
+                    <div>
+                        <strong>Isabelle Okonkwo</strong>
+                        <p>Lagos, Corporate Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"They transformed my daughter for her graduation photos. She looked like a princess without looking overdone!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">ME</div>
+                    <div>
+                        <strong>Mrs. Eze</strong>
+                        <p>Abuja, Parent</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"The only salon in Abuja that knows how to handle 4C hair without damaging it. My twist-outs last twice as long now!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">VA</div>
+                    <div>
+                        <strong>Vera Adebayo</strong>
+                        <p>Abuja, Natural Hair Client</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Flew them to Kano for my sister's wedding. Their travel team is just so talented and reliable!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">HA</div>
+                    <div>
+                        <strong>Hauwa Abubakar</strong>
+                        <p>Kano, Destination Bride</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" style="background: rgba(212, 175, 55, 0.05);">
+        <div class="container">
+            <h2>Contact Us</h2>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Our Location</h3>
+                        <p>Lagos, Nigeria</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>07075754823<br>08062774342</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>michaelebuzome4@gmail.com<br>ngozi.zica@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://wa.me/2347075754823" class="cta-button whatsapp-button" target="_blank" style="padding: 14px 32px; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home"><i class="fas fa-home"></i> Home</a>
+                <a href="#makeup-services"><i class="fas fa-paint-brush"></i> Makeup</a>
+                <a href="#hair-services"><i class="fas fa-cut"></i> Hair</a>
+                <a href="#skincare-services"><i class="fas fa-spa"></i> Skincare</a>
+                <a href="#blog"><i class="fas fa-blog"></i> Blog</a>
+                <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <p>&copy; 2024 Blush & Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2347075754823" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Enhanced Menu Toggle with Submenu Support
+        document.querySelector('.menu-btn').addEventListener('click', function() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('show');
+        });
+        
+        // Submenu Toggle - Works on all screen sizes
+        document.querySelectorAll('.has-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Prevent default only if it's a submenu toggle
+                if (this.getAttribute('href') === 'javascript:void(0)') {
+                    e.preventDefault();
+                }
+                
+                const submenu = this.nextElementSibling;
+                const isActive = submenu.classList.contains('active');
+                
+                // Close all other submenus first if on mobile
+                if (window.innerWidth <= 768) {
+                    document.querySelectorAll('.submenu').forEach(menu => {
+                        if (menu !== submenu) {
+                            menu.classList.remove('active');
+                            menu.previousElementSibling.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Toggle current submenu
+                submenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-container') && !e.target.closest('.dropdown-menu')) {
+                document.querySelector('.dropdown-menu').classList.remove('show');
+                document.querySelectorAll('.submenu').forEach(menu => {
+                    menu.classList.remove('active');
+                    menu.previousElementSibling.classList.remove('active');
+                });
+            }
+        });
+
+        // Night Mode Toggle
+        document.querySelector('.night-mode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Smooth scroll for anchor links (submenu items)
+        document.querySelectorAll('.submenu a, .footer-links a, .cta-button').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#' && !this.getAttribute('href').startsWith('http') && !this.getAttribute('href').startsWith('mailto') && !this.getAttribute('href').startsWith('tel')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close menu if mobile
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.dropdown-menu').classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
