@@ -1190,35 +1190,43 @@
       dropdown.classList.toggle('active');
     });
 
-    // Optional: Close menu on outside click
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
-        dropdown.classList.remove('active');
-      }
+    // Night mode toggle
+    const nightModeBtn = document.querySelector('.night-mode');
+    nightModeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('night');
     });
 
-    // Handle link behavior
+    // Submenu toggle (for multi-level dropdowns)
+    document.querySelectorAll('.has-submenu > a').forEach(menuItem => {
+      menuItem.addEventListener('click', function (e) {
+        e.preventDefault();
+        const submenu = this.nextElementSibling;
+        submenu.classList.toggle('show');
+      });
+    });
+
+    // Handle link behavior for all links inside dropdown
     document.querySelectorAll('.dropdown-menu a').forEach(link => {
       link.addEventListener('click', function (event) {
         const href = link.getAttribute('href');
 
-        // If it's an in-page anchor (e.g., #testimonials), scroll to it smoothly
-        if (href.startsWith('#')) {
+        // If in-page anchor (e.g., #testimonials), smooth scroll
+        if (href && href.startsWith('#')) {
           event.preventDefault();
           const target = document.querySelector(href);
           if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
           }
         }
-        // If it's a JavaScript void or empty, prevent action
+        // If it's a dummy link
         else if (href === 'javascript:void(0)' || href === '') {
           event.preventDefault();
         }
-        // Otherwise, let the browser navigate normally (e.g., to bridal.html)
-        // ✅ No preventDefault here
+        // Else: external or page navigation — DO NOT preventDefault()
       });
     });
   });
+                    </script>
                                                            </script>
 </body>
 </html>
