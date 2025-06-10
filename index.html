@@ -1182,78 +1182,43 @@
 
     <!-- JavaScript -->
     <script>
-        // Enhanced Menu Toggle with Submenu Support
-        document.querySelector('.menu-btn').addEventListener('click', function() {
-            const menu = document.querySelector('.dropdown-menu');
-            menu.classList.toggle('show');
-        });
-        
-        // Submenu Toggle - Works on all screen sizes
-        document.querySelectorAll('.has-submenu > a').forEach(item => {
-            item.addEventListener('click', function(e) {
-                // Prevent default only if it's a submenu toggle
-                if (this.getAttribute('href') === 'javascript:void(0)') {
-                    e.preventDefault();
-                }
-                
-                const submenu = this.nextElementSibling;
-                const isActive = submenu.classList.contains('active');
-                
-                // Close all other submenus first if on mobile
-                if (window.innerWidth <= 768) {
-                    document.querySelectorAll('.submenu').forEach(menu => {
-                        if (menu !== submenu) {
-                            menu.classList.remove('active');
-                            menu.previousElementSibling.classList.remove('active');
-                        }
-                    });
-                }
-                
-                // Toggle current submenu
-                submenu.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-btn');
+    const dropdown = document.querySelector('.dropdown-menu');
+    menuBtn.addEventListener('click', () => {
+      dropdown.classList.toggle('active');
+    });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-container') && !e.target.closest('.dropdown-menu')) {
-                document.querySelector('.dropdown-menu').classList.remove('show');
-                document.querySelectorAll('.submenu').forEach(menu => {
-                    menu.classList.remove('active');
-                    menu.previousElementSibling.classList.remove('active');
-                });
-            }
-        });
+    // Optional: Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
 
-        // Night Mode Toggle
-        document.querySelector('.night-mode').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            const icon = this.querySelector('i');
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
+    // Handle link behavior
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+      link.addEventListener('click', function (event) {
+        const href = link.getAttribute('href');
 
-        // Smooth scroll for anchor links (submenu items)
-        document.querySelectorAll('.submenu a, .footer-links a, .cta-button').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#' && !this.getAttribute('href').startsWith('http') && !this.getAttribute('href').startsWith('mailto') && !this.getAttribute('href').startsWith('tel')) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Close menu if mobile
-                    if (window.innerWidth <= 768) {
-                        document.querySelector('.dropdown-menu').classList.remove('show');
-                    }
-                }
-            });
-        });
-    </script>
+        // If it's an in-page anchor (e.g., #testimonials), scroll to it smoothly
+        if (href.startsWith('#')) {
+          event.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+        // If it's a JavaScript void or empty, prevent action
+        else if (href === 'javascript:void(0)' || href === '') {
+          event.preventDefault();
+        }
+        // Otherwise, let the browser navigate normally (e.g., to bridal.html)
+        // ✅ No preventDefault here
+      });
+    });
+  });
+                                                           </script>
 </body>
 </html>
