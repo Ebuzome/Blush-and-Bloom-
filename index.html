@@ -1181,52 +1181,63 @@
     </a>
 
     <!-- JavaScript -->
-    <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const dropdown = document.querySelector('.dropdown-menu');
-    menuBtn.addEventListener('click', () => {
-      dropdown.classList.toggle('active');
+     <script>
+    // Enhanced Menu Toggle
+    document.querySelector('.menu-btn').addEventListener('click', function() {
+        document.querySelector('.dropdown-menu').classList.toggle('show');
     });
 
-    // Night mode toggle
-    const nightModeBtn = document.querySelector('.night-mode');
-    nightModeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('night');
+    // Fixed Submenu Toggle - Now allows link clicking
+    document.querySelectorAll('.has-submenu > a').forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Only prevent default if the link is a submenu toggle (# or javascript:)
+            if (this.getAttribute('href') === '#' || this.getAttribute('href') === 'javascript:void(0)') {
+                e.preventDefault();
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('active');
+                this.classList.toggle('active');
+            }
+            // All other links will behave normally
+        });
     });
 
-    // Submenu toggle (for multi-level dropdowns)
-    document.querySelectorAll('.has-submenu > a').forEach(menuItem => {
-      menuItem.addEventListener('click', function (e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-        submenu.classList.toggle('show');
-      });
+    // Night Mode Toggle (unchanged)
+    document.querySelector('.night-mode').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
     });
 
-    // Handle link behavior for all links inside dropdown
-    document.querySelectorAll('.dropdown-menu a').forEach(link => {
-      link.addEventListener('click', function (event) {
-        const href = link.getAttribute('href');
+    // Current Page Detection (improved)
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.setAttribute('aria-current', 'page');
+                link.closest('li')?.classList.add('active');
+                
+                // Auto-expand parent submenus
+                let parentSubmenu = link.closest('.submenu');
+                while (parentSubmenu) {
+                    parentSubmenu.classList.add('active');
+                    parentSubmenu.previousElementSibling.classList.add('active');
+                    parentSubmenu = parentSubmenu.parentElement.closest('.submenu');
+                }
+            }
+        });
+    });
 
-        // If in-page anchor (e.g., #testimonials), smooth scroll
-        if (href && href.startsWith('#')) {
-          event.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-container') && !e.target.closest('.dropdown-menu')) {
+            document.querySelector('.dropdown-menu').classList.remove('show');
+            document.querySelectorAll('.submenu').forEach(menu => {
+                menu.classList.remove('active');
+                menu.previousElementSibling.classList.remove('active');
+            });
         }
-        // If it's a dummy link
-        else if (href === 'javascript:void(0)' || href === '') {
-          event.preventDefault();
-        }
-        // Else: external or page navigation — DO NOT preventDefault()
-      });
     });
-  });
-                    </script>
-                                                           </script>
+                                       </script>                                                     </script>
 </body>
 </html>
