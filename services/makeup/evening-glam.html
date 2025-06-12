@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evening Glam Makeup | Blush & Bloom</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Deeper Rose-Gold Color Scheme */
+        /* Deep Wine Red Color Scheme */
         :root {
-            --rosy-gold: #B8860B; /* Deeper rose-gold */
-            --velvet-pink: #8A2D5E; /* Deep velvet pink */
+            --deep-wine: #6d0d13; /* Deep wine red */
+            --rosy-gold: #B8860B;
             --cream: #FFF8F0;
             --dark-text: #333333;
             --light-text: #ffffff;
@@ -23,7 +23,7 @@
         .dark-mode {
             --cream: #1a120b;
             --dark-text: #e0d7d0;
-            --velvet-pink: #a85a7c;
+            --deep-wine: #8a2d36;
             --rosy-gold: #a67c00;
             --section-bg: rgba(26, 18, 11, 0.9);
         }
@@ -39,14 +39,14 @@
             background-color: var(--cream);
             color: var(--dark-text);
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.7;
+            line-height: 1.8;
             transition: var(--transition);
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            color: var(--velvet-pink);
+            color: var(--deep-wine);
             transition: var(--transition);
         }
 
@@ -64,7 +64,7 @@
 
         /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
+            background: linear-gradient(135deg, var(--deep-wine) 0%, var(--rosy-gold) 100%);
             padding: 1.5rem 0;
             position: sticky;
             top: 0;
@@ -81,12 +81,13 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: white;
             transition: var(--transition);
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
             text-decoration: none;
+            font-family: 'Dancing Script', cursive;
         }
 
         /* Menu Button */
@@ -137,16 +138,16 @@
 
         .dropdown-menu li {
             padding: 0.8rem 1.2rem;
-            border-bottom: 1px solid rgba(170, 51, 106, 0.1);
+            border-bottom: 1px solid rgba(109, 13, 19, 0.1);
             transition: background 0.3s;
         }
 
         .dropdown-menu li:hover {
-            background: rgba(170, 51, 106, 0.05);
+            background: rgba(109, 13, 19, 0.05);
         }
 
         .dropdown-menu a {
-            color: var(--velvet-pink);
+            color: var(--deep-wine);
             text-decoration: none;
             font-weight: 500;
             display: flex;
@@ -234,7 +235,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(138, 45, 94, 0.4), rgba(184, 134, 11, 0.4));
+            background: linear-gradient(45deg, rgba(109, 13, 19, 0.4), rgba(184, 134, 11, 0.4));
             z-index: 1;
             transition: var(--transition);
             animation: gradient-shift 8s infinite alternate;
@@ -251,16 +252,20 @@
         }
 
         .evening-hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease;
+            font-family: 'Dancing Script', cursive;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .evening-hero p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             max-width: 800px;
             margin: 0 auto 2rem;
             animation: fadeInUp 0.8s ease 0.2s both;
+            font-style: italic;
         }
 
         /* Home Button Styles */
@@ -304,10 +309,10 @@
         
         .home-button:hover {
             transform: scale(1.1) rotate(10deg);
-            background: var(--velvet-pink);
+            background: var(--deep-wine);
         }
 
-        /* Petals Animation with Increased Opacity and Duration */
+        /* Petals Animation with Reduced Opacity */
         .petals-container {
             position: fixed;
             top: 0;
@@ -321,7 +326,7 @@
         
         .petal {
             position: absolute;
-            color: rgba(184, 134, 11, 0.9); /* More opaque */
+            color: rgba(184, 134, 11, 0.7); /* Reduced opacity */
             font-size: 1.8rem;
             opacity: 0;
             animation: fall linear forwards;
@@ -332,7 +337,7 @@
         @keyframes fall {
             to {
                 transform: translateY(100vh) rotate(360deg);
-                opacity: 0.8; /* More visible */
+                opacity: 0.7;
             }
         }
 
@@ -350,10 +355,13 @@
         }
         
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
+            font-family: 'Dancing Script', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .section-header h2::after {
@@ -362,19 +370,20 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 120px;
             height: 3px;
-            background: var(--rosy-gold);
+            background: var(--deep-wine);
         }
         
         .section-intro {
-            font-size: 1.2rem;
-            max-width: 800px;
+            font-size: 1.3rem;
+            max-width: 900px;
             margin: 0 auto 3rem;
             text-align: center;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
+            line-height: 1.9;
         }
         
         .section-intro.reveal {
@@ -385,8 +394,8 @@
         /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
         
         .image-card {
@@ -397,6 +406,7 @@
             transition: var(--transition);
             opacity: 0;
             transform: translateY(30px);
+            background: white;
         }
         
         .image-card.reveal {
@@ -407,12 +417,12 @@
         
         .image-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(138, 45, 94, 0.2);
+            box-shadow: 0 15px 30px rgba(109, 13, 19, 0.2);
         }
         
         .image-card img {
             width: 100%;
-            height: 300px;
+            height: 320px;
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
@@ -422,122 +432,334 @@
             transform: scale(1.05);
         }
         
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        .image-content {
             padding: 1.5rem;
-            color: white;
-            transform: translateY(100px);
-            transition: transform 0.5s ease;
         }
         
-        .image-card:hover .image-overlay {
-            transform: translateY(0);
+        .image-content h3 {
+            color: var(--deep-wine);
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
         }
         
-        .image-overlay h3 {
-            color: var(--rosy-gold);
-            margin-bottom: 0.5rem;
+        .image-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--rosy-gold);
+        }
+        
+        .blog-text {
+            margin: 1rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
         
         .client-comment {
             font-style: italic;
-            margin: 0.5rem 0;
-            font-size: 0.95rem;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--rosy-gold);
+            color: var(--deep-wine);
         }
         
         .remark {
             display: inline-block;
-            background: var(--velvet-pink);
+            background: var(--deep-wine);
             color: white;
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
         }
         
-        .icon-row {
+        .interaction-bar {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease 0.3s;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(109, 13, 19, 0.1);
         }
         
-        .image-card:hover .icon-row {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .icon-row i {
-            font-size: 1.2rem;
-            color: var(--rosy-gold);
-            background: rgba(255,255,255,0.2);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+        .like-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 1.1rem;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            justify-content: center;
+        }
+        
+        .like-btn:hover {
+            color: var(--deep-wine);
+            transform: scale(1.1);
+        }
+        
+        .like-btn.liked {
+            color: var(--deep-wine);
+        }
+        
+        .like-btn i {
+            margin-right: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-icons a {
+            color: #666;
+            font-size: 1.1rem;
             transition: var(--transition);
         }
         
-        .icon-row i:hover {
-            background: var(--rosy-gold);
+        .social-icons a:hover {
+            color: var(--deep-wine);
+            transform: translateY(-3px);
+        }
+        
+        .comments-toggle {
+            background: transparent;
+            border: none;
+            color: var(--deep-wine);
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .comments-toggle i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .comments-toggle.active i {
+            transform: rotate(180deg);
+        }
+        
+        .comments-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .comments-container.active {
+            max-height: 500px;
+        }
+        
+        .comment {
+            margin: 1.2rem 0;
+            padding: 1rem;
+            background: rgba(109, 13, 19, 0.03);
+            border-radius: 8px;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--deep-wine);
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--deep-wine);
+        }
+        
+        .comment-text {
+            line-height: 1.7;
+        }
+
+        /* Additional Content Sections */
+        .content-section {
+            background: rgba(109, 13, 19, 0.05);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .content-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--deep-wine);
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .tip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tip-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .tip-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(109, 13, 19, 0.1);
+        }
+        
+        .tip-card h4 {
+            color: var(--rosy-gold);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .tip-card p {
+            line-height: 1.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(109, 13, 19, 0.1);
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--deep-wine);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            line-height: 1.8;
+            padding-top: 0.5rem;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
         }
 
         /* CTA Section */
         .cta-section {
             text-align: center;
-            background: linear-gradient(135deg, var(--velvet-pink) 0%, var(--rosy-gold) 100%);
-            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--deep-wine) 0%, var(--rosy-gold) 100%);
+            padding: 5rem 0;
             color: white;
+            border-radius: 15px;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,0 50,100 100,100 L100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
         }
         
         .cta-section h2 {
             color: white;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .cta-section p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             max-width: 700px;
             margin: 0 auto 2rem;
+            font-style: italic;
         }
 
         /* CTA Button */
         .cta-button {
             display: inline-block;
             background: white;
-            color: var(--velvet-pink);
-            padding: 14px 40px;
+            color: var(--deep-wine);
+            padding: 16px 45px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             margin-top: 1.5rem;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             border: 2px solid transparent;
+            font-family: 'Playfair Display', serif;
         }
 
         .whatsapp-button {
             background: #25D366;
             color: white;
-            margin-left: 15px;
+            margin-left: 20px;
         }
 
         .cta-button:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: transparent;
+            color: white;
+            border-color: white;
         }
 
         .whatsapp-button:hover {
@@ -561,11 +783,11 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .evening-hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .evening-hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
             .gallery-grid {
@@ -588,11 +810,15 @@
                 margin-left: 0;
                 width: 100%;
             }
+            
+            .content-section, .faq-section {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Petals Container with Increased Opacity -->
+    <!-- Petals Container -->
     <div class="petals-container" id="petalsContainer"></div>
     
     <!-- Header with Navigation -->
@@ -663,9 +889,11 @@
         </div>
         
         <div class="container">
-            <h1>Evening Glam Makeup</h1>
-            <p>Transform your special night with our breathtaking makeup artistry designed for unforgettable evenings</p>
-            <a href="#services" class="cta-button">Discover Our Looks</a>
+            <h1>Evening Glamour</h1>
+            <p>Where twilight meets timeless beauty in every brushstroke</p>
+            <div class="cta-buttons">
+                <a href="#gallery" class="cta-button">Explore Gallery</a>
+            </div>
         </div>
     </section>
 
@@ -673,87 +901,319 @@
     <section id="services" class="intro-section">
         <div class="container">
             <div class="section-header">
-                <h2>Evening Glam Perfection</h2>
+                <h2>Enchanting Evening Transformations</h2>
             </div>
             
             <div class="section-intro" id="introText">
-                <p>Our evening makeup services are designed to make you shine at any social gathering. From intimate dinners to grand galas, we create looks that are:</p>
-                <p><strong>Simple yet elaborate • Breath-taking • Perfectly tailored to your features • Long-lasting through the night</strong></p>
-                <p>Each creation is a masterpiece that enhances your natural beauty while adding a touch of glamour.</p>
+                <p>At Blush & Bloom, we believe that evening glamour is an art form - a delicate balance between sophistication and allure, between subtle elegance and breathtaking impact. Our signature evening makeup services are meticulously crafted to capture the magic of twilight and transform it into wearable art that enhances your natural beauty while making a statement.</p>
+                
+                <p>Each creation begins with a personalized consultation where we discuss your vision, outfit, and the event's ambiance. We specialize in creating looks that transition seamlessly from candlelit dinners to starlit receptions, ensuring you remain the embodiment of grace and glamour throughout the night.</p>
+                
+                <p>Our makeup artists are masters of illumination, using advanced techniques to create dimension that catches the light beautifully, whether you're under chandeliers or moonlight. From the dewy freshness of early evening to the sultry depth of midnight, we create looks that evolve with the night.</p>
             </div>
             
-            <div class="gallery-grid">
+            <div class="gallery-grid" id="gallery">
                 <!-- Image 1 -->
                 <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Gold Glam Makeup">
-                    <div class="image-overlay">
-                        <h3>Gold Glam</h3>
-                        <p class="client-comment">"The gold accents made me feel like royalty all evening!"</p>
-                        <span class="remark">Simply stunning</span>
-                        <div class="icon-row">
-                            <i class="fas fa-heart"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-gem"></i>
+                    <img src="assets/images/evening-glam-02.jpg" alt="Gilded Twilight Look">
+                    <div class="image-content">
+                        <h3>Gilded Twilight</h3>
+                        <div class="blog-text">
+                            <p>Our most requested evening look combines warm gold tones with deep plum accents for a multidimensional effect that captures the transition from dusk to night. Perfect for gala events and upscale dinners.</p>
+                            <p>The technique involves layering metallic pigments to create a luminous finish that catches every flicker of candlelight. We finish with precisely placed highlights that enhance facial structure without overpowering.</p>
+                        </div>
+                        <div class="client-comment">
+                            "I felt like a golden goddess all night! The makeup lasted through dinner, dancing, and even the after-party without fading."
+                        </div>
+                        <span class="remark">Editor's Choice</span>
+                        
+                        <button class="comments-toggle" data-target="comments1">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments1">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">C</div>
+                                    <div class="comment-author">Chioma A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    This look transformed me completely! I received so many compliments all night. The gold tones made my skin glow like never before.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">T</div>
+                                    <div class="comment-author">Temi L.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup artist was a true artist. She explained every step and customized the look to match my dress perfectly. Worth every penny!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Amina K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I've never felt more beautiful. The makeup lasted all night and photographed incredibly. I'll be booking for every special event!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> 42 Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Image 2 -->
                 <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Smokey Elegance">
-                    <div class="image-overlay">
-                        <h3>Smokey Elegance</h3>
-                        <p class="client-comment">"The perfect balance between dramatic and sophisticated."</p>
-                        <span class="remark">Breathtaking</span>
-                        <div class="icon-row">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sparkles"></i>
-                            <i class="fas fa-crown"></i>
+                    <img src="assets/images/evening-glam-05.jpg" alt="Velvet Wine Elegance">
+                    <div class="image-content">
+                        <h3>Velvet Wine Elegance</h3>
+                        <div class="blog-text">
+                            <p>Inspired by rich merlot and burgundy hues, this sophisticated look features deep wine-stained lips and softly smoked eyes that create an air of mystery and allure.</p>
+                            <p>We use a unique layering technique to build depth without heaviness, ensuring the look remains fresh through hours of wear. The finish is velvety matte with strategic luminosity on high points.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The wine-colored lips were a showstopper! I loved how the artist balanced the bold lip with perfectly understated eyes - pure elegance."
+                        </div>
+                        <span class="remark">Most Requested</span>
+                        
+                        <button class="comments-toggle" data-target="comments2">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments2">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">N</div>
+                                    <div class="comment-author">Ngozi O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    This look made me feel like royalty! The wine colors complemented my skin tone perfectly and lasted all night without touch-ups.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">B</div>
+                                    <div class="comment-author">Bisi A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup artist was incredibly talented. She transformed my features in the most flattering way. I've never received so many compliments!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">F</div>
+                                    <div class="comment-author">Funke M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The attention to detail was remarkable. From the perfectly blended eyeshadow to the crisp lip line, every element was flawless.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> 56 Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Image 3 -->
                 <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1622295026650-8c9b5e0b6a1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Berry Kiss">
-                    <div class="image-overlay">
-                        <h3>Berry Kiss</h3>
-                        <p class="client-comment">"The berry tones complemented my complexion perfectly!"</p>
-                        <span class="remark">Perfectly executed</span>
-                        <div class="icon-row">
-                            <i class="fas fa-wine-glass"></i>
-                            <i class="fas fa-lips"></i>
-                            <i class="fas fa-palette"></i>
+                    <img src="assets/images/evening-glamz-001.jpg" alt="Starry Night Radiance">
+                    <div class="image-content">
+                        <h3>Starry Night Radiance</h3>
+                        <div class="blog-text">
+                            <p>This celestial-inspired look features strategically placed shimmer that mimics starlight, creating a magical glow that intensifies under evening lighting.</p>
+                            <p>We use finely-milled iridescent particles to create a soft-focus effect that blurs imperfections while catching the light beautifully. The technique involves precise placement along the high points of the face and décolletage.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The starry effect was absolutely magical! I felt like I was glowing from within all evening. So many people asked about my 'lit from within' radiance."
+                        </div>
+                        <span class="remark">New Trend</span>
+                        
+                        <button class="comments-toggle" data-target="comments3">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments3">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">S</div>
+                                    <div class="comment-author">Sade O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    This look was pure magic! The starry effect was subtle yet impactful. I felt like a celestial being all night.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">E</div>
+                                    <div class="comment-author">Efe T.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The shimmer was applied with such precision. It caught the light beautifully without looking glittery. Absolute perfection!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Ada U.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I was skeptical about shimmer, but the artist knew exactly where to place it for maximum impact without overdoing it. Stunning!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> 38 Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Image 4 -->
                 <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bronze Goddess">
-                    <div class="image-overlay">
+                    <img src="assets/images/evening-glam-08.jpg" alt="Bronze Goddess">
+                    <div class="image-content">
                         <h3>Bronze Goddess</h3>
-                        <p class="client-comment">"I felt like a glowing goddess all night long!"</p>
-                        <span class="remark">Absolutely radiant</span>
-                        <div class="icon-row">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-feather"></i>
-                            <i class="fas fa-glasses"></i>
+                        <div class="blog-text">
+                            <p>Warm, sun-kissed perfection for those who want to radiate golden-hour warmth all night long. This look features terracotta tones blended with molten gold accents.</p>
+                            <p>We use a combination of cream and powder products to create dimension that mimics natural sunlight. The technique involves strategic contouring with warm tones rather than traditional cool contours.</p>
+                        </div>
+                        <div class="client-comment">
+                            "I've never felt more confident! The bronze tones made my skin look luminous and healthy. I felt like I just returned from a tropical vacation."
+                        </div>
+                        <span class="remark">Summer Favorite</span>
+                        
+                        <button class="comments-toggle" data-target="comments4">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments4">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">D</div>
+                                    <div class="comment-author">Dami K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The bronze tones made my complexion glow! I received so many compliments about looking healthy and radiant.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">Y</div>
+                                    <div class="comment-author">Yemi A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    This look was perfect for my summer wedding. It photographed beautifully in both daylight and evening lighting.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">K</div>
+                                    <div class="comment-author">Kemi S.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The artist blended everything to perfection. The transition from day to night was flawless. Highly recommend!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> 47 Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Image 5 -->
                 <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="Crystal Accents">
-                    <div class="image-overlay">
-                        <h3>Crystal Accents</h3>
-                        <p class="client-comment">"The crystal details added just the right amount of sparkle!"</p>
-                        <span class="remark">Elaborate in every sense</span>
-                        <div class="icon-row">
-                            <i class="fas fa-gem"></i>
-                            <i class="fas fa-ring"></i>
-                            <i class="fas fa-sparkles"></i>
+                    <img src="assets/images/evening-glam-14.jpg" alt="Midnight Mystery">
+                    <div class="image-content">
+                        <h3>Midnight Mystery</h3>
+                        <div class="blog-text">
+                            <p>For those who dare to make a bold statement, this look features deep jewel tones, graphic elements, and a touch of avant-garde sophistication.</p>
+                            <p>We use richly pigmented creams and powders to create intense color payoff that lasts. The look is balanced with flawless skin and sculpted features to prevent it from feeling overwhelming.</p>
+                        </div>
+                        <div class="client-comment">
+                            "This look stopped people in their tracks! The deep emerald green against my skin tone was absolutely breathtaking. I felt like a work of art."
+                        </div>
+                        <span class="remark">Daring & Bold</span>
+                        
+                        <button class="comments-toggle" data-target="comments5">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments5">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">Z</div>
+                                    <div class="comment-author">Zara U.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I wanted something different for my birthday and this look delivered! The bold colors made me feel confident and unique.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">O</div>
+                                    <div class="comment-author">Ola D.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup artist transformed me into a modern art masterpiece. The precision was incredible - every line was perfect.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">T</div>
+                                    <div class="comment-author">Tope M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I was nervous about going so bold, but the artist guided me through the process and the result was stunning. Worth stepping out of my comfort zone!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> 51 Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -761,92 +1221,60 @@
         </div>
     </section>
 
-    <!-- Bridal Makeup Section -->
-    <section class="intro-section" style="background: rgba(184, 134, 11, 0.05);">
+    <!-- Additional Content Sections -->
+    <section class="intro-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Bridal Makeup Excellence</h2>
+            <div class="content-section">
+                <h3>Evening Glam Essentials</h3>
+                <div class="tip-grid">
+                    <div class="tip-card">
+                        <h4>The Art of Longevity</h4>
+                        <p>Discover our proprietary techniques for creating makeup that lasts from dusk till dawn. We use specialized primers, setting techniques, and transfer-resistant formulas that withstand humidity, dancing, and even tears of joy. Learn how to prep your skin for maximum wear time and which products truly deliver on their long-wear promises.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Lighting Mastery</h4>
+                        <p>Evening events present unique lighting challenges. We've mastered the art of creating makeup that transitions beautifully from soft candlelight to bright flash photography. Our techniques ensure you look flawless in every lighting scenario, avoiding the ghostly flashback or overly dramatic appearance that can ruin event photos.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Texture Play</h4>
+                        <p>The secret to dimensional evening glam lies in mixing textures. We combine matte, satin, shimmer, and metallic finishes to create depth and interest. Learn which textures work best for different features and how to balance high-impact elements with more subdued finishes for a sophisticated overall effect.</p>
+                    </div>
+                </div>
             </div>
             
-            <div class="section-intro">
-                <p>Our bridal makeup services create unforgettable moments for your special day. We specialize in:</p>
-                <p><strong>Timeless elegance • Flawless photography-ready looks • Personalized consultations • Stress-free experience</strong></p>
-                <p>Every bride deserves to feel like the most beautiful version of herself on her wedding day.</p>
-            </div>
-            
-            <div class="gallery-grid">
-                <!-- Image 1 -->
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Classic Bride">
-                    <div class="image-overlay">
-                        <h3>Classic Bride</h3>
-                        <p class="client-comment">"I felt like the most beautiful bride with this timeless look!"</p>
-                        <span class="remark">Elegance defined</span>
-                        <div class="icon-row">
-                            <i class="fas fa-heart"></i>
-                            <i class="fas fa-ring"></i>
-                            <i class="fas fa-camera"></i>
-                        </div>
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How far in advance should I book my evening glam appointment?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For special events and occasions, we recommend booking at least 4-6 weeks in advance, especially during peak seasons like holidays and wedding months. For last-minute bookings, we do maintain a waitlist and occasionally have cancellations, so don't hesitate to contact us even if your event is soon.</p>
+                        <p>For regular clients attending multiple events, we offer a subscription service with priority booking and discounted rates. This ensures you always have access to our artists when you need them most.</p>
                     </div>
                 </div>
                 
-                <!-- Image 2 -->
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="Traditional Elegance">
-                    <div class="image-overlay">
-                        <h3>Traditional Elegance</h3>
-                        <p class="client-comment">"Perfect blend of cultural elements with modern sophistication."</p>
-                        <span class="remark">Heritage perfected</span>
-                        <div class="icon-row">
-                            <i class="fas fa-globe-africa"></i>
-                            <i class="fas fa-palette"></i>
-                            <i class="fas fa-hands"></i>
-                        </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What should I bring to my appointment?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend bringing inspiration photos, your outfit (or fabric swatch), any special jewelry you'll be wearing, and your preferred lip color if you have one. While we have an extensive professional kit, if you have sensitive skin or specific product preferences, feel free to bring your favorite foundation or other products.</p>
+                        <p>For bridal clients, we suggest having your hair trial completed before your makeup trial so we can see the complete look. Also consider bringing photos of your venue as lighting conditions can influence our approach.</p>
                     </div>
                 </div>
                 
-                <!-- Image 3 -->
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Modern Romance">
-                    <div class="image-overlay">
-                        <h3>Modern Romance</h3>
-                        <p class="client-comment">"Soft and romantic - exactly what I envisioned for my wedding!"</p>
-                        <span class="remark">Dreamy perfection</span>
-                        <div class="icon-row">
-                            <i class="fas fa-rose"></i>
-                            <i class="fas fa-feather"></i>
-                            <i class="fas fa-cloud"></i>
-                        </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I maintain my makeup throughout the evening?
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                </div>
-                
-                <!-- Image 4 -->
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Glamorous Bride">
-                    <div class="image-overlay">
-                        <h3>Glamorous Bride</h3>
-                        <p class="client-comment">"Dramatic yet tasteful - I felt like a celebrity on my big day!"</p>
-                        <span class="remark">Showstopping</span>
-                        <div class="icon-row">
-                            <i class="fas fa-gem"></i>
-                            <i class="fas fa-crown"></i>
-                            <i class="fas fa-sparkles"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Image 5 -->
-                <div class="image-card">
-                    <img src="https://images.unsplash.com/photo-1622295026650-8c9b5e0b6a1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Natural Beauty">
-                    <div class="image-overlay">
-                        <h3>Natural Beauty</h3>
-                        <p class="client-comment">"Enhanced my features without looking overdone - simply perfect!"</p>
-                        <span class="remark">Effortlessly beautiful</span>
-                        <div class="icon-row">
-                            <i class="fas fa-leaf"></i>
-                            <i class="fas fa-seedling"></i>
-                            <i class="fas fa-wind"></i>
-                        </div>
+                    <div class="faq-answer">
+                        <p>We provide all clients with a custom touch-up kit containing blotting papers, a mini setting spray, lip color, and a small brush for powder application. The key to longevity is minimal touching of your face, blotting rather than rubbing when needed, and strategic powder application only on areas that get oily.</p>
+                        <p>For particularly long events, we offer an "event support" package where an artist remains on-site for touch-ups. We also teach you quick fixes for common issues like smudged liner or faded lip color during your appointment.</p>
                     </div>
                 </div>
             </div>
@@ -856,13 +1284,14 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready for Your Glam Transformation?</h2>
-            <p>Book your evening glam or bridal makeup session today and experience the Blush & Bloom difference</p>
-            <div class="cta-buttons">
-                <a href="#services" class="cta-button">View Gallery</a>
-                <a href="https://wa.me/2348062774342" class="cta-button whatsapp-button" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Book on WhatsApp
-                </a>
+            <div class="cta-content">
+                <h2>Ready for Your Transformation?</h2>
+                <p>Book your exclusive evening glam experience today and step into the spotlight with confidence</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/2348062774342" class="cta-button whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book on WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -880,6 +1309,9 @@
             const introText = document.getElementById('introText');
             const imageCards = document.querySelectorAll('.image-card');
             const sectionIntros = document.querySelectorAll('.section-intro');
+            const commentsToggles = document.querySelectorAll('.comments-toggle');
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            const likeButtons = document.querySelectorAll('.like-btn');
 
             // Toggle dropdown menu
             if (menuBtn && dropdownMenu) {
@@ -941,7 +1373,7 @@
                 window.location.href = '../index.html';
             });
 
-            // Create floating petals with increased opacity and duration
+            // Create floating petals with reduced opacity
             function createPetals() {
                 const petalIcons = ['✿', '❀', '❁', '✾', '✽', '❃', '🌸', '🌼', '🌺', '🌷'];
                 const numPetals = 25;
@@ -968,6 +1400,40 @@
             
             // Initialize petals
             createPetals();
+            
+            // Comments toggle functionality
+            commentsToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const comments = document.getElementById(targetId);
+                    this.classList.toggle('active');
+                    comments.classList.toggle('active');
+                });
+            });
+            
+            // FAQ toggle functionality
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const answer = this.nextElementSibling;
+                    answer.classList.toggle('active');
+                });
+            });
+            
+            // Like button functionality
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('liked');
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('liked')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                    }
+                });
+            });
             
             // Reveal animations on scroll
             function revealOnScroll() {
