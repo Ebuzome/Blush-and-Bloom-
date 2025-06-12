@@ -495,3 +495,80 @@
           </a>
         </div>
   </div>
+      <h3>Timeless Love</h3>
+<div class="package-price">₦75,000</div>
+<p>Sentimental heirlooms</p>
+</div>
+<div class="package-body">
+  <ul class="package-features">
+    <li>Solid Silver Picture Frame <span class="package-value">(₦15,000)</span></li>
+    <li>Handcrafted Memory Box <span class="package-value">(₦12,000)</span></li>
+    <li>Premium Wine Set <span class="package-value">(₦10,000)</span></li>
+    <li>Couple's Passport Covers <span class="package-value">(₦8,000)</span></li>
+    <li>Personalized Star Map <span class="package-value">(₦10,000)</span></li>
+    <li>Year of Date Nights Jar <span class="package-value">(₦7,000)</span></li>
+    <li>Smart Garden Kit <span class="package-value">(₦13,000)</span></li>
+  </ul>
+  <a href="https://wa.me/2347075754823?text=I'm%20interested%20in%20the%20Timeless%20Love%20Package%20(₦75,000)" class="cta-button whatsapp-button" target="_blank">
+    <i class="fab fa-whatsapp"></i> Book This Package
+  </a>
+</div>
+</div>
+
+<!-- Opulent Nest Package -->
+<div class="package-card">
+  <div class="package-header">
+    <h3>Opulent Nest</h3>
+    <div class="package-price">₦120,000</div>
+    <p>Home luxury collection</p>
+  </div>
+  <div class="package-body">
+    <ul class="package-features">
+      <li>Smart Coffee Maker <span class="package-value">(₦25,000)</span></li>
+      <li>Designer Throw Blanket <span class="package-value">(₦18,000)</span></li>
+      <li>Dinner-for-Two Hamper <span class="package-value">(₦15,000)</span></li>
+      <li>Custom Wall Art <span class="package-value">(₦12,000)</span></li>
+      <li>Smart Home Diffuser <span class="package-value">(₦10,000)</span></li>
+      <li>Couple's Massage Kit <span class="package-value">(₦8,000)</span></li>
+      <li>Adventure Fund Piggy Bank <span class="package-value">(₦5,000)</span></li>
+      <li>Limited-Edition Board Game <span class="package-value">(₦7,000)</span></li>
+    </ul>
+    <a href="https://wa.me/2347075754823?text=I'm%20interested%20in%20the%20Opulent%20Nest%20Package%20(₦120,000)" class="cta-button whatsapp-button" target="_blank">
+      <i class="fab fa-whatsapp"></i> Book This Package
+    </a>
+  </div             
+    </div>
+  link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const parentLi = link.parentElement;
+        const submenu = link.nextElementSibling;
+
+        // Close other submenus
+        document.querySelectorAll('.has-submenu').forEach(item => {
+          if (item !== parentLi) {
+            item.classList.remove('active');
+            const otherSub = item.querySelector('.submenu');
+            if (otherSub) otherSub.classList.remove('active');
+          }
+        });
+
+        // Toggle current submenu
+        parentLi.classList.toggle('active');
+        if (submenu) submenu.classList.toggle('active');
+      });
+    });
+
+    // Dark mode toggle
+    if (nightModeBtn) {
+      nightModeBtn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const icon = nightModeBtn.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('fa-moon');
+          icon.classList.toggle('fa-sun');
+        }
+      });
+    }
+  });
+                            </script>
