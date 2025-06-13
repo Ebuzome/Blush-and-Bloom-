@@ -1,1 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Glam Makeup | Blush & Bloom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Deep Matte Black Color Scheme */
+        :root {
+            --deep-black: #0e0e0e;
+            --metallic-gold: #d4af37;
+            --champagne: #f5e1a4;
+            --cream: #FFF8F0;
+            --light-text: #ffffff;
+            --dark-text: #e0e0e0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+            --transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--dark-text);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            transition: var(--transition);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--metallic-gold);
+            transition: var(--transition);
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 5rem 0;
+            transition: var(--transition);
+        }
+
+        /* Custom Cursor */
+        #custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--metallic-gold);
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 15px var(--metallic-gold);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+
+        #cursor-trail {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.5s;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(14, 14, 14, 0.9);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--metallic-gold);
+            transition: var(--transition);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Menu Button */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: var(--metallic-gold);
+            font-size: 1.5rem;
+            cursor: none;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Dropdown Menu with Submenus */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 30, 30, 0.95);
+            width: 100%;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity 0.3s, max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            max-height: 80vh;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+        }
+
+        .dropdown-menu > ul > li {
+            position: relative;
+        }
+
+        .dropdown-menu li {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu li:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .dropdown-menu a {
+            color: var(--champagne);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--metallic-gold);
+            transform: translateX(5px);
+        }
+
+        .dropdown-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--metallic-gold);
+        }
+
+        /* Submenu Styles */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(40, 40, 40, 0.9);
+            transition: max-height 0.4s ease-out;
+            padding-left: 1rem;
+        }
+
+        .submenu.active {
+            max-height: 500px;
+        }
+
+        .submenu li {
+            padding-left: 1rem !important;
+            border-bottom: none !important;
+        }
+
+        .submenu a {
+            font-size: 0.9rem;
+        }
+
+        .has-submenu > a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+
+        .has-submenu.active > a::after {
+            transform: rotate(180deg);
+        }
+
+        /* Night Mode Toggle */
+        .night-mode {
+            background: transparent;
+            border: none;
+            color: var(--metallic-gold);
+            font-size: 1.5rem;
+            cursor: none;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .night-mode:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Hero Section with Light Ray Effect */
+        .traditional-hero {
+            text-align: center;
+            padding: 10rem 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('../../assets/images/trad-glamz-01.jpg') no-repeat center/cover;
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, 
+                        rgba(212, 175, 55, 0.1) 0%, 
+                        rgba(212, 175, 55, 0) 70%);
+            animation: glow-move 20s infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes glow-move {
+            0% { transform: translateX(-10%) translateY(-10%) scale(1); }
+            100% { transform: translateX(10%) translateY(10%) scale(1.2); }
+        }
+
+        .traditional-hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .traditional-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .traditional-hero p {
+            font-size: 1.4rem;
+            margin: 0 auto 2rem;
+            max-width: 700px;
+            color: var(--champagne);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        /* Floating Orbs */
+        .floating-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                        rgba(212, 175, 55, 0.3) 0%, 
+                        rgba(212, 175, 55, 0) 70%);
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: float-orb linear infinite;
+        }
+
+        @keyframes float-orb {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(20px, 40px); }
+            50% { transform: translate(40px, 0); }
+            75% { transform: translate(20px, -40px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Section Styles */
+        .intro-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--champagne);
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--metallic-gold);
+        }
+        
+        .section-intro {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            line-height: 1.9;
+            color: var(--dark-text);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .image-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: rgba(30, 30, 30, 0.7);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-content {
+            padding: 1.8rem;
+        }
+        
+        .image-content h3 {
+            color: var(--metallic-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .image-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--metallic-gold);
+        }
+        
+        .blog-text {
+            margin: 1.2rem 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--dark-text);
+        }
+        
+        .client-comment {
+            font-style: italic;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--metallic-gold);
+            color: var(--champagne);
+        }
+        
+        .remark {
+            display: inline-block;
+            background: var(--metallic-gold);
+            color: var(--deep-black);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+        
+        .interaction-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .like-btn {
+            background: transparent;
+            border: none;
+            cursor: none;
+            color: #aaa;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .like-btn:hover {
+            color: var(--metallic-gold);
+        }
+        
+        .like-btn.liked {
+            color: var(--metallic-gold);
+        }
+        
+        .like-btn i {
+            margin-right: 8px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: #aaa;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            color: var(--metallic-gold);
+            transform: translateY(-3px);
+        }
+        
+        .comments-toggle {
+            background: transparent;
+            border: none;
+            color: var(--metallic-gold);
+            font-weight: 500;
+            cursor: none;
+            padding: 0.5rem 0;
+            margin-top: 1.2rem;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .comments-toggle i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .comments-toggle.active i {
+            transform: rotate(180deg);
+        }
+        
+        .comments-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(40, 40, 40, 0.5);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+        
+        .comments-container.active {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .comment {
+            margin: 1.2rem 0;
+            padding: 1.2rem;
+            background: rgba(50, 50, 50, 0.5);
+            border-radius: 8px;
+            border-left: 2px solid var(--metallic-gold);
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .comment-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--metallic-gold);
+            color: var(--deep-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--champagne);
+        }
+        
+        .comment-text {
+            line-height: 1.7;
+            color: var(--dark-text);
+            padding-left: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(14, 14, 14, 0.9), rgba(30, 30, 30, 0.9)), 
+                        url('../../assets/images/trad-glam-18.jpg') no-repeat center/cover;
+            padding: 6rem 0;
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 4rem 0;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 14, 14, 0.7);
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--metallic-gold);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--champagne);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--metallic-gold);
+            color: var(--deep-black);
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-size: 1.2rem;
+            border: 2px solid transparent;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            cursor: none;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+            margin-left: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            background: transparent;
+            color: var(--metallic-gold);
+            border-color: var(--metallic-gold);
+        }
+
+        .whatsapp-button:hover {
+            background: transparent;
+            color: #25D366;
+            border-color: #25D366;
+        }
+
+        /* Page Transition Overlay */
+        #page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--deep-black);
+            z-index: 99999;
+            transition: height 0.8s ease;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .traditional-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .traditional-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-button, .whatsapp-button {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .traditional-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div id="page-transition"></div>
+    
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="cursor-trail"></div>
+    
+    <!-- Floating Orbs -->
+    <div class="floating-orbs">
+        <div class="orb" style="width: 300px; height: 300px; top: 20%; left: 10%; animation-duration: 30s;"></div>
+        <div class="orb" style="width: 250px; height: 250px; top: 60%; left: 80%; animation-duration: 40s;"></div>
+        <div class="orb" style="width: 200px; height: 200px; top: 40%; left: 50%; animation-duration: 35s;"></div>
+    </div>
+    
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <a href="../../index.html" class="logo">Blush & Bloom</a>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <!-- Dropdown Menu with Corrected Links -->
+        <div class="dropdown-menu">
+            <ul>
+                <!-- Makeup Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-paint-brush"></i> Makeup Services</a>
+                    <ul class="submenu">
+                        <li><a href="bridal.html"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                        <li><a href="evening-glam.html"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="traditional-glam.html"><i class="fas fa-palette"></i> Traditional Styles</a></li>
+                        <li><a href="lessons.html"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Hair Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-cut"></i> Hair Services</a>
+                    <ul class="submenu">
+                        <li><a href="../hair/braiding.html"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
+                        <li><a href="../hair/styling.html"><i class="fas fa-wind"></i> Styling & Updos</a></li>
+                        <li><a href="../hair/treatments.html"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
+                        <li><a href="../hair/coloring.html"><i class="fas fa-fill-drip"></i> Coloring</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Skincare Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-spa"></i> Skincare Consultations</a>
+                    <ul class="submenu">
+                        <li><a href="../skincare/anti-aging.html"><i class="fas fa-clock"></i> Anti-Aging</a></li>
+                        <li><a href="../skincare/acne.html"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
+                        <li><a href="../skincare/pigmentation.html"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
+                        <li><a href="../skincare/products.html"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Blog -->
+                <li><a href="../../blog/index.html"><i class="fas fa-blog"></i> Beauty Blog</a></li>
+                
+                <!-- Other Menu Items -->
+                <li><a href="../../about.html"><i class="fas fa-address-card"></i> About Us</a></li>
+                <li><a href="../../contact.html"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="traditional-hero">
+        <div class="hero-glow"></div>
+        
+        <div class="container">
+            <h1>Traditional Glamour</h1>
+            <p>Celebrating Nigerian heritage through exquisite traditional makeup artistry</p>
+            <a href="#gallery" class="cta-button">Explore Our Gallery</a>
+        </div>
+    </section>
+
+    <!-- Traditional Glam Services -->
+    <section id="services" class="intro-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cultural Elegance Reimagined</h2>
+            </div>
+            
+            <div class="section-intro">
+                <p>At Blush & Bloom, we honor Nigeria's rich cultural heritage through our traditional makeup services. Our artisans blend centuries-old techniques with contemporary artistry to create looks that pay homage to tradition while embracing modern elegance. Each design is meticulously crafted to complement traditional attire, gele styles, and cultural accessories, ensuring you radiate confidence at every traditional ceremony.</p>
+                
+                <p>Our expertise extends beyond mere application - we specialize in creating makeup that withstands the vibrant energy of Nigerian celebrations. From the colorful fabrics of Ankara to the intricate details of traditional jewelry, our makeup harmonizes with every element of your cultural ensemble. We understand the significance of traditional ceremonies and approach each creation with the reverence and artistry they deserve.</p>
+                
+                <p>Whether you're preparing for a traditional wedding, engagement ceremony, or cultural festival, our team will work closely with you to create a look that honors your heritage while expressing your unique beauty. We take pride in celebrating the diversity of Nigerian culture through our artistry, creating looks that are as unique as the individuals who wear them.</p>
+            </div>
+            
+            <div class="gallery-grid" id="gallery">
+                <!-- Image 1 -->
+                <div class="image-card">
+                    <img src="../../assets/images/trad-glam-02.jpg" alt="Yoruba Royalty">
+                    <div class="image-content">
+                        <h3>Yoruba Royalty</h3>
+                        <div class="blog-text">
+                            <p>Inspired by the regal traditions of the Yoruba people, this look features warm earthy tones with gold accents that complement traditional aso-oke fabrics. The makeup enhances natural features while honoring cultural symbolism.</p>
+                            <p>We use specialized techniques to ensure the makeup withstands hours of celebration, from the ceremony to the dance floor. The gold leaf detailing around the eyes pays homage to traditional Yoruba adornments.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The makeup artist perfectly captured the essence of Yoruba elegance. I felt like a queen throughout my traditional wedding!"
+                        </div>
+                        <span class="remark">Most Requested</span>
+                        
+                        <button class="comments-toggle" data-target="comments1">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments1">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Amina K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    Absolutely stunning! The gold accents perfectly complemented my gele and jewelry.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">F</div>
+                                    <div class="comment-author">Funke O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup lasted all day and night without fading. Perfect for a traditional wedding!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">T</div>
+                                    <div class="comment-author">Tolu A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The artist understood exactly how to balance traditional elements with modern glam.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">B</div>
+                                    <div class="comment-author">Bisi M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The attention to detail was remarkable. Every element complemented my traditional attire.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">Y</div>
+                                    <div class="comment-author">Yemi D.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I received countless compliments on my makeup. It photographed beautifully!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">O</div>
+                                    <div class="comment-author">Oluwaseun F.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup artist was a true cultural artist. She honored our traditions perfectly.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">C</div>
+                                    <div class="comment-author">Chioma N.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The warm tones complemented my skin perfectly. I've never felt more beautiful!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">142</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="image-card">
+                    <img src="../../assets/images/trad-glam-03.jpg" alt="Igbo Elegance">
+                    <div class="image-content">
+                        <h3>Igbo Elegance</h3>
+                        <div class="blog-text">
+                            <p>This sophisticated look celebrates Igbo traditions with its clean lines and radiant complexion. The makeup enhances natural beauty while incorporating symbolic elements of Igbo culture.</p>
+                            <p>We use specialized contouring techniques to complement traditional headgear and accessories. The soft focus finish creates a luminous effect that honors the Igbo appreciation for natural beauty.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The makeup artist captured the essence of Igbo beauty traditions. I felt both traditional and modern at my traditional marriage ceremony."
+                        </div>
+                        <span class="remark">Cultural Fusion</span>
+                        
+                        <button class="comments-toggle" data-target="comments2">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments2">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">N</div>
+                                    <div class="comment-author">Nneka O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    Perfect balance of tradition and modernity. My family was so impressed!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">C</div>
+                                    <div class="comment-author">Chika E.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup lasted through the entire ceremony and looked fresh until the end.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">I</div>
+                                    <div class="comment-author">Ifeoma U.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The artist understood the significance of every element in Igbo traditions.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">U</div>
+                                    <div class="comment-author">Uche M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The radiant complexion work was exceptional. I looked naturally glowing!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">O</div>
+                                    <div class="comment-author">Obinna K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    My wife looked absolutely stunning. The makeup complemented her traditional attire perfectly.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Amara J.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The attention to detail with the cultural elements was impressive. Highly recommend!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">E</div>
+                                    <div class="comment-author">Ebele N.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I felt like a true Igbo princess. The makeup enhanced my features beautifully.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">118</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="image-card">
+                    <img src="../../assets/images/trad-glam-05.jpg" alt="Hausa Royalty">
+                    <div class="image-content">
+                        <h3>Hausa Royalty</h3>
+                        <div class="blog-text">
+                            <p>Inspired by the regal traditions of Northern Nigeria, this look features intricate henna-inspired designs and rich jewel tones. The makeup complements traditional Hausa fabrics and headwraps.</p>
+                            <p>We incorporate symbolic patterns and colors that honor Hausa cultural heritage. The look is designed to withstand the day-long celebrations while maintaining its vibrancy and elegance.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The henna-inspired designs were exquisite! The artist captured the essence of Hausa beauty traditions perfectly."
+                        </div>
+                        <span class="remark">Cultural Masterpiece</span>
+                        
+                        <button class="comments-toggle" data-target="comments3">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments3">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">Z</div>
+                                    <div class="comment-author">Zainab A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The intricate designs were breathtaking! True Hausa elegance.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Aisha M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup lasted through the entire durbar ceremony. Impressive!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">H</div>
+                                    <div class="comment-author">Hauwa B.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The artist respected our cultural traditions while creating something fresh.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">F</div>
+                                    <div class="comment-author">Fatima K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The jewel tones complemented my traditional attire perfectly.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">M</div>
+                                    <div class="comment-author">Maryam S.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I felt like royalty throughout my traditional wedding. Perfect makeup!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">R</div>
+                                    <div class="comment-author">Rahma U.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The attention to cultural details was exceptional. Highly recommend!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">B</div>
+                                    <div class="comment-author">Binta A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup artist understood the significance of every element. Beautiful work!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">96</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="image-card">
+                    <img src="../../assets/images/trad-glam-06.jpg" alt="Ankara Fusion">
+                    <div class="image-content">
+                        <h3>Ankara Fusion</h3>
+                        <div class="blog-text">
+                            <p>A vibrant celebration of Nigerian culture, this look draws inspiration from colorful Ankara prints. The makeup features bold colors and patterns that complement traditional fabrics.</p>
+                            <p>We carefully select hues that harmonize with your Ankara outfit while creating a cohesive look. The technique involves precise application to ensure the makeup enhances rather than competes with the vibrant fabrics.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The colors matched my Ankara perfectly! I loved how the makeup became part of my cultural expression."
+                        </div>
+                        <span class="remark">Colorful Tradition</span>
+                        
+                        <button class="comments-toggle" data-target="comments4">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments4">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">D</div>
+                                    <div class="comment-author">Deborah O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The color matching was incredible! Perfect harmony with my Ankara.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">T</div>
+                                    <div class="comment-author">Temitope A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I loved how the makeup enhanced my outfit without overwhelming it.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">K</div>
+                                    <div class="comment-author">Kemi S.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The vibrant colors lasted all day. Perfect for a Nigerian celebration!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">S</div>
+                                    <div class="comment-author">Seyi B.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The artist truly understands how to work with African fabrics and colors.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">F</div>
+                                    <div class="comment-author">Folake M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I received so many compliments on how well my makeup complemented my outfit.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Adaobi N.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The fusion of traditional patterns with modern techniques was impressive.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">B</div>
+                                    <div class="comment-author">Bimbo R.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup made me feel confident and proud of my cultural heritage.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">132</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="image-card">
+                    <img src="../../assets/images/trad-glam-08.jpg" alt="Gele Glamour">
+                    <div class="image-content">
+                        <h3>Gele Glamour</h3>
+                        <div class="blog-text">
+                            <p>Specifically designed to complement elaborate gele styles, this look features sculpted features and a flawless complexion. The makeup enhances your natural beauty while creating harmony with your headwrap.</p>
+                            <p>We use contouring techniques that work with the gele's structure, ensuring your features remain balanced and elegant. The focus is on creating a radiant complexion that shines beneath traditional headwear.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The makeup perfectly balanced my elaborate gele. I felt elegant and sophisticated throughout my ceremony."
+                        </div>
+                        <span class="remark">Headwrap Harmony</span>
+                        
+                        <button class="comments-toggle" data-target="comments5">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments5">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">C</div>
+                                    <div class="comment-author">Chinwe O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The contouring complemented my gele perfectly. Amazing technique!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">N</div>
+                                    <div class="comment-author">Ngozi A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    Finally a makeup artist who understands how to work with elaborate headwraps!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">U</div>
+                                    <div class="comment-author">Uju M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    My features looked balanced and elegant despite the large gele. Perfect!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">O</div>
+                                    <div class="comment-author">Onyinye K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup lasted through hours of dancing and celebration. Impressive!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Amaka J.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I felt like a Nigerian queen with this look. The harmony was perfect.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">E</div>
+                                    <div class="comment-author">Ebere N.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The artist truly understands Nigerian traditional aesthetics. Highly recommend!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">I</div>
+                                    <div class="comment-author">Ijeoma U.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The flawless complexion work was exceptional. I looked radiant all day!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">125</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="image-card">
+                    <img src="../../assets/images/trad-glam-10.jpg" alt="Coral Radiance">
+                    <div class="image-content">
+                        <h3>Coral Radiance</h3>
+                        <div class="blog-text">
+                            <p>A vibrant coral-inspired look that celebrates the energy of Nigerian festivities. The warm tones complement traditional fabrics while creating a fresh, modern appearance.</p>
+                            <p>We use coral hues that enhance various skin tones, creating a radiant effect that photographs beautifully. The look is designed to maintain its vibrancy through long celebrations.</p>
+                        </div>
+                        <div class="client-comment">
+                            "The coral tones made my skin glow! Perfect for my traditional engagement ceremony."
+                        </div>
+                        <span class="remark">Festival Favorite</span>
+                        
+                        <button class="comments-toggle" data-target="comments6">
+                            View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments6">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">M</div>
+                                    <div class="comment-author">Mariam O.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The coral tones made my skin look radiant and healthy. Beautiful!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">T</div>
+                                    <div class="comment-author">Tola A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    Perfect for my engagement ceremony! I received so many compliments.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">S</div>
+                                    <div class="comment-author">Simi D.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The makeup lasted through the entire celebration without fading.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Adeola K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The warm tones complemented my traditional attire perfectly.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">F</div>
+                                    <div class="comment-author">Funmi B.</div>
+                                </div>
+                                <div class="comment-text">
+                                    I loved how fresh and modern this look felt while still honoring tradition.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">Y</div>
+                                    <div class="comment-author">Yewande T.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The radiance was incredible! I looked like I was glowing from within.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">B</div>
+                                    <div class="comment-author">Bola R.</div>
+                                </div>
+                                <div class="comment-text">
+                                    Perfect balance between traditional elegance and modern freshness. Loved it!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">108</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Your Traditional Transformation?</h2>
+                <p>Book your traditional glam experience today and celebrate your heritage in style</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/2348062774342" class="cta-button whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Book on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Custom Cursor
+            const cursor = document.getElementById('custom-cursor');
+            const trail = document.getElementById('cursor-trail');
+            
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(() => {
+                    trail.style.left = e.clientX + 'px';
+                    trail.style.top = e.clientY + 'px';
+                    trail.style.opacity = '1';
+                }, 100);
+            });
+            
+            document.addEventListener('mouseleave', function() {
+                cursor.style.opacity = '0';
+                trail.style.opacity = '0';
+            });
+            
+            document.addEventListener('mouseenter', function() {
+                cursor.style.opacity = '1';
+                trail.style.opacity = '1';
+            });
+            
+            // Cursor hover effects
+            const hoverElements = document.querySelectorAll('a, button, .like-btn, .comments-toggle');
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '30px';
+                    cursor.style.height = '30px';
+                    cursor.style.background = 'rgba(212, 175, 55, 0.3)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '20px';
+                    cursor.style.height = '20px';
+                    cursor.style.background = 'rgba(212, 175, 55, 0.2)';
+                });
+            });
+            
+            // Scroll Reveal Animation
+            function revealOnScroll() {
+                const revealElements = document.querySelectorAll('.traditional-hero h1, .traditional-hero p, .section-header, .section-intro, .image-card');
+                
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.85) {
+                        element.classList.add('reveal');
+                    }
+                });
+            }
+            
+            // Initial reveal check
+            revealOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', revealOnScroll);
+            
+            // Page Load Animation
+            setTimeout(() => {
+                document.querySelector('.traditional-hero h1').classList.add('reveal');
+                document.querySelector('.traditional-hero p').classList.add('reveal');
+            }, 500);
+            
+            // Page Transition
+            const pageTransition = document.getElementById('page-transition');
+            
+            document.querySelectorAll('a').forEach(link => {
+                if (link.href && !link.hash && link.target !== '_blank') {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const destination = this.href;
+                        
+                        pageTransition.style.height = '100%';
+                        
+                        setTimeout(() => {
+                            window.location.href = destination;
+                        }, 800);
+                    });
+                }
+            });
+            
+            // Night mode toggle
+            const nightModeBtn = document.querySelector('.night-mode');
+            if (nightModeBtn) {
+                nightModeBtn.addEventListener('click', function () {
+                    document.body.classList.toggle('dark-mode');
+                    const icon = nightModeBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-moon');
+                        icon.classList.toggle('fa-sun');
+                    }
+                });
+            }
+            
+            // Like button functionality
+            document.querySelectorAll('.like-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const likeCount = this.querySelector('.like-count');
+                    let count = parseInt(likeCount.textContent);
+                    
+                    if (!this.classList.contains('liked')) {
+                        count++;
+                        this.classList.add('liked');
+                        this.querySelector('i').classList.remove('far');
+                        this.querySelector('i').classList.add('fas');
+                    } else {
+                        count--;
+                        this.classList.remove('liked');
+                        this.querySelector('i').classList.remove('fas');
+                        this.querySelector('i').classList.add('far');
+                    }
+                    
+                    likeCount.textContent = count;
+                });
+            });
+            
+            // Comments toggle functionality
+            document.querySelectorAll('.comments-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const comments = document.getElementById(targetId);
+                    this.classList.toggle('active');
+                    comments.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
