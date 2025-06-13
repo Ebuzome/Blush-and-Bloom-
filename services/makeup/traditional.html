@@ -2024,100 +2024,72 @@
                     }
                 });
             }
-            
-            // Initial reveal check
-            revealOnScroll();
-            
-            // Check on scroll
-            window.addEventListener('scroll', revealOnScroll);
-            
-            // Page Load Animation
-            setTimeout(() => {
-                document.querySelector('.traditional-hero h1').classList.add('reveal');
-                document.querySelector('.traditional-hero p').classList.add('reveal');
-            }, 500);
-            
-            // Page Transition
-            const pageTransition = document.getElementById('page-transition');
-            
-            document.querySelectorAll('a').forEach(link => {
-                if (link.href && !link.hash && link.target !== '_blank') {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const destination = this.href;
-                        
-                        pageTransition.style.height = '100%';
-                        
-                        setTimeout(() => {
-                            window.location.href = destination;
-                        }, 800);
-                    });
-                }
-            });
-            
-            // Night mode toggle
-            const nightModeBtn = document.querySelector('.night-mode');
-            if (nightModeBtn) {
-                nightModeBtn.addEventListener('click', function () {
-                    document.body.classList.toggle('dark-mode');
-                    const icon = nightModeBtn.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-moon');
-                        icon.classList.toggle('fa-sun');
-                    }
-                });
+            <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ... existing cursor and animation code ...
+        
+        // Page Transition - Only apply to non-dropdown links
+        const pageTransition = document.getElementById('page-transition');
+        
+        document.querySelectorAll('a').forEach(link => {
+            // Skip dropdown menu links
+            if (link.closest('.dropdown-menu')) {
+                return;
             }
             
-            // Like button functionality
-            document.querySelectorAll('.like-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const likeCount = this.querySelector('.like-count');
-                    let count = parseInt(likeCount.textContent);
-                    
-                    if (!this.classList.contains('liked')) {
-                        count++;
-                        this.classList.add('liked');
-                        this.querySelector('i').classList.remove('far');
-                        this.querySelector('i').classList.add('fas');
-                    } else {
-                        count--;
-                        this.classList.remove('liked');
-                        this.querySelector('i').classList.remove('fas');
-                        this.querySelector('i').classList.add('far');
-                    }
-                    
-                    likeCount.textContent = count;
-                });
-            });
-            
-            // Comments toggle functionality
-            document.querySelectorAll('.comments-toggle').forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const comments = document.getElementById(targetId);
-                    this.classList.toggle('active');
-                    comments.classList.toggle('active');
-                });
-            });
-            
-            // Menu toggle functionality
-            const menuBtn = document.querySelector('.menu-btn');
-            const dropdownMenu = document.querySelector('.dropdown-menu');
-            
-            menuBtn.addEventListener('click', function() {
-                dropdownMenu.classList.toggle('show');
-            });
-            
-            // Submenu toggle functionality
-            document.querySelectorAll('.has-submenu > a').forEach(item => {
-                item.addEventListener('click', function(e) {
+            if (link.href && !link.hash && link.target !== '_blank') {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const submenu = this.nextElementSibling;
-                    this.parentElement.classList.toggle('active');
-                    submenu.classList.toggle('active');
+                    const destination = this.href;
+                    
+                    pageTransition.style.height = '100%';
+                    
+                    setTimeout(() => {
+                        window.location.href = destination;
+                    }, 800);
                 });
+            }
+        });
+        
+        // Menu toggle functionality
+        const menuBtn = document.querySelector('.menu-btn');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+        
+        // Submenu toggle functionality
+        document.querySelectorAll('.has-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const submenu = this.nextElementSibling;
+                const parentLi = this.parentElement;
+                
+                // Close other submenus
+                document.querySelectorAll('.submenu').forEach(sub => {
+                    if (sub !== submenu) {
+                        sub.classList.remove('active');
+                        sub.parentElement.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current submenu
+                parentLi.classList.toggle('active');
+                submenu.classList.toggle('active');
             });
         });
-    </script>
-</body>
-</html>
+        
+        // ... existing like button, comments toggle, etc. ...
+    });
+</script>
