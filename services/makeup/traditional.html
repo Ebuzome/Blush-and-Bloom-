@@ -1926,227 +1926,198 @@
             </div>
         </div>
     </section>
-     
-    <!-- JavaScript -->
-     document.addEventListener("DOMContentLoaded", function () {
-    // Custom Cursor with Trail Effect
-    const cursor = document.getElementById('custom-cursor');
-    const trails = [];
-    const trailCount = 10;
-    
-    // Create trail elements
-    for (let i = 0; i < trailCount; i++) {
-        const trail = document.createElement('div');
-        trail.className = 'cursor-trail';
-        trail.style.opacity = 0;
-        document.body.appendChild(trail);
-        trails.push({
-            element: trail,
-            position: { x: -100, y: -100 },
-            target: { x: -100, y: -100 },
-            delay: (i + 1) * 30 // Staggered delay
-        });
-    }
-    
-    let mouseX = -100;
-    let mouseY = -100;
-    
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // Animation loop for smooth cursor trail
-    function animateCursor() {
-        // Update main cursor position
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-        
-        // Update trail positions
-        trails.forEach((trail, index) => {
-            if (index === 0) {
-                // First trail follows cursor directly
-                trail.target.x = mouseX;
-                trail.target.y = mouseY;
-            } else {
-                // Subsequent trails follow the previous trail
-                trail.target.x = trails[index-1].position.x;
-                trail.target.y = trails[index-1].position.y;
-            }
-            
-            // Smooth movement
-            trail.position.x += (trail.target.x - trail.position.x) * 0.2;
-            trail.position.y += (trail.target.y - trail.position.y) * 0.2;
-            
-            // Update element position
-            trail.element.style.left = trail.position.x + 'px';
-            trail.element.style.top = trail.position.y + 'px';
-            
-            // Adjust size and opacity based on position in trail
-            const size = 10 - (index * 0.8);
-            trail.element.style.width = size + 'px';
-            trail.element.style.height = size + 'px';
-            trail.element.style.opacity = 1 - (index * 0.1);
-        });
-        
-        requestAnimationFrame(animateCursor);
-    }
-    
-    animateCursor();
-    
-    // Cursor hover effects
-    const hoverElements = document.querySelectorAll('a, button, .like-btn, .comments-toggle');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.width = '30px';
-            cursor.style.height = '30px';
-            cursor.style.background = 'rgba(212, 175, 55, 0.3)';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.style.width = '20px';
-            cursor.style.height = '20px';
-            cursor.style.background = 'rgba(212, 175, 55, 0.2)';
-        });
-    });
-    
-    // Scroll Reveal Animation
-    function revealOnScroll() {
-        const revealElements = document.querySelectorAll('.traditional-hero h1, .traditional-hero p, .section-header, .section-intro, .image-card');
-        
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight * 0.85) {
-                element.classList.add('reveal');
-            }
-        });
-    }
-    
-    // Initial reveal check
-    revealOnScroll();
-    
-    // Check on scroll
-    window.addEventListener('scroll', revealOnScroll);
-    
-    // Page Load Animation
-    setTimeout(() => {
-        document.querySelector('.traditional-hero h1').classList.add('reveal');
-        document.querySelector('.traditional-hero p').classList.add('reveal');
-    }, 500);
-    
-    // Page Transition - Modified to exclude dropdown menu links
-    const pageTransition = document.getElementById('page-transition');
-    
-    document.querySelectorAll('a').forEach(link => {
-        // Skip dropdown menu links and submenu links
-        if (link.closest('.dropdown-menu') || link.closest('.submenu')) {
-            return;
-        }
-        
-        if (link.href && !link.hash && link.target !== '_blank') {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const destination = this.href;
-                
-                pageTransition.style.height = '100%';
-                
-                setTimeout(() => {
-                    window.location.href = destination;
-                }, 800);
-            });
-        }
-    });
-    
-    // Night mode toggle
-    const nightModeBtn = document.querySelector('.night-mode');
-    if (nightModeBtn) {
-        nightModeBtn.addEventListener('click', function () {
-            document.body.classList.toggle('dark-mode');
-            const icon = nightModeBtn.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-moon');
-                icon.classList.toggle('fa-sun');
-            }
-        });
-    }
-    
-    // Like button functionality
-    document.querySelectorAll('.like-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const likeCount = this.querySelector('.like-count');
-            let count = parseInt(likeCount.textContent);
-            
-            if (!this.classList.contains('liked')) {
-                count++;
-                this.classList.add('liked');
-                this.querySelector('i').classList.remove('far');
-                this.querySelector('i').classList.add('fas');
-            } else {
-                count--;
-                this.classList.remove('liked');
-                this.querySelector('i').classList.remove('fas');
-                this.querySelector('i').classList.add('far');
-            }
-            
-            likeCount.textContent = count;
-        });
-    });
-    
-    // Comments toggle functionality
-    document.querySelectorAll('.comments-toggle').forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const comments = document.getElementById(targetId);
-            this.classList.toggle('active');
-            comments.classList.toggle('active');
-        });
-    });
-    
-    // Menu toggle functionality - Improved
-    const menuBtn = document.querySelector('.menu-btn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    menuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle('show');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!dropdownMenu.contains(e.target) && e.target !== menuBtn) {
-            dropdownMenu.classList.remove('show');
-        }
-    });
 
-    // Submenu toggle functionality - Fixed
-    document.querySelectorAll('.has-submenu > a').forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Only prevent default if it's a submenu toggle (href="#")
-            if (this.getAttribute('href') === '#') {
-                e.preventDefault();
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Custom Cursor with Trail Effect
+            const cursor = document.getElementById('custom-cursor');
+            const trails = [];
+            const trailCount = 10;
+            
+            // Create trail elements
+            for (let i = 0; i < trailCount; i++) {
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.opacity = 0;
+                document.body.appendChild(trail);
+                trails.push({
+                    element: trail,
+                    position: { x: -100, y: -100 },
+                    target: { x: -100, y: -100 },
+                    delay: (i + 1) * 30 // Staggered delay
+                });
             }
-            e.stopPropagation();
             
-            const submenu = this.nextElementSibling;
-            const parentLi = this.parentElement;
+            let mouseX = -100;
+            let mouseY = -100;
             
-            // Close other submenus
-            document.querySelectorAll('.submenu').forEach(sub => {
-                if (sub !== submenu) {
-                    sub.classList.remove('active');
-                    sub.parentElement.classList.remove('active');
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            // Animation loop for smooth cursor trail
+            function animateCursor() {
+                // Update main cursor position
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+                
+                // Update trail positions
+                trails.forEach((trail, index) => {
+                    if (index === 0) {
+                        // First trail follows cursor directly
+                        trail.target.x = mouseX;
+                        trail.target.y = mouseY;
+                    } else {
+                        // Subsequent trails follow the previous trail
+                        trail.target.x = trails[index-1].position.x;
+                        trail.target.y = trails[index-1].position.y;
+                    }
+                    
+                    // Smooth movement
+                    trail.position.x += (trail.target.x - trail.position.x) * 0.2;
+                    trail.position.y += (trail.target.y - trail.position.y) * 0.2;
+                    
+                    // Update element position
+                    trail.element.style.left = trail.position.x + 'px';
+                    trail.element.style.top = trail.position.y + 'px';
+                    
+                    // Adjust size and opacity based on position in trail
+                    const size = 10 - (index * 0.8);
+                    trail.element.style.width = size + 'px';
+                    trail.element.style.height = size + 'px';
+                    trail.element.style.opacity = 1 - (index * 0.1);
+                });
+                
+                requestAnimationFrame(animateCursor);
+            }
+            
+            animateCursor();
+            
+            // Cursor hover effects
+            const hoverElements = document.querySelectorAll('a, button, .like-btn, .comments-toggle');
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '30px';
+                    cursor.style.height = '30px';
+                    cursor.style.background = 'rgba(212, 175, 55, 0.3)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '20px';
+                    cursor.style.height = '20px';
+                    cursor.style.background = 'rgba(212, 175, 55, 0.2)';
+                });
+            });
+            
+            // Scroll Reveal Animation
+            function revealOnScroll() {
+                const revealElements = document.querySelectorAll('.traditional-hero h1, .traditional-hero p, .section-header, .section-intro, .image-card');
+                
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.85) {
+                        element.classList.add('reveal');
+                    }
+                });
+            }
+            
+            // Initial reveal check
+            revealOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', revealOnScroll);
+            
+            // Page Load Animation
+            setTimeout(() => {
+                document.querySelector('.traditional-hero h1').classList.add('reveal');
+                document.querySelector('.traditional-hero p').classList.add('reveal');
+            }, 500);
+            
+            // Page Transition
+            const pageTransition = document.getElementById('page-transition');
+            
+            document.querySelectorAll('a').forEach(link => {
+                if (link.href && !link.hash && link.target !== '_blank') {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const destination = this.href;
+                        
+                        pageTransition.style.height = '100%';
+                        
+                        setTimeout(() => {
+                            window.location.href = destination;
+                        }, 800);
+                    });
                 }
             });
             
-            // Toggle current submenu
-            parentLi.classList.toggle('active');
-            submenu.classList.toggle('active');
+            // Night mode toggle
+            const nightModeBtn = document.querySelector('.night-mode');
+            if (nightModeBtn) {
+                nightModeBtn.addEventListener('click', function () {
+                    document.body.classList.toggle('dark-mode');
+                    const icon = nightModeBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-moon');
+                        icon.classList.toggle('fa-sun');
+                    }
+                });
+            }
+            
+            // Like button functionality
+            document.querySelectorAll('.like-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const likeCount = this.querySelector('.like-count');
+                    let count = parseInt(likeCount.textContent);
+                    
+                    if (!this.classList.contains('liked')) {
+                        count++;
+                        this.classList.add('liked');
+                        this.querySelector('i').classList.remove('far');
+                        this.querySelector('i').classList.add('fas');
+                    } else {
+                        count--;
+                        this.classList.remove('liked');
+                        this.querySelector('i').classList.remove('fas');
+                        this.querySelector('i').classList.add('far');
+                    }
+                    
+                    likeCount.textContent = count;
+                });
+            });
+            
+            // Comments toggle functionality
+            document.querySelectorAll('.comments-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const comments = document.getElementById(targetId);
+                    this.classList.toggle('active');
+                    comments.classList.toggle('active');
+                });
+            });
+            
+            // Menu toggle functionality
+            const menuBtn = document.querySelector('.menu-btn');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            menuBtn.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('show');
+            });
+            
+            // Submenu toggle functionality
+            document.querySelectorAll('.has-submenu > a').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const submenu = this.nextElementSibling;
+                    this.parentElement.classList.toggle('active');
+                    submenu.classList.toggle('active');
+                });
+            });
         });
-    });
-});
     </script>
 </body>
 </html>
-    
