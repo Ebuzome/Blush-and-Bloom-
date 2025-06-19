@@ -1,1 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Coloring | Crown Weavers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Color Scheme with reduced gold intensity */
+        :root {
+            --deep-black: #0b0b0b;
+            --soft-gold: #e6c46c;
+            --rose-gold: #d4a798;
+            --gold-light: #f5e1a4;
+            --light-text: #ffffff;
+            --dark-text: #e0e0e0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.5);
+            --transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--dark-text);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--soft-gold);
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Menu Styles */
+        header {
+            background: rgba(11, 11, 11, 0.95);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: var(--soft-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .dropdown-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: rgba(30, 30, 30, 0.98);
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 99;
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0;
+            transition: opacity 0.3s, max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            max-height: 80vh;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .dropdown-menu li {
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid rgba(230, 196, 108, 0.2);
+            transition: background 0.3s;
+        }
+
+        .dropdown-menu li:hover {
+            background: rgba(230, 196, 108, 0.05);
+        }
+
+        .dropdown-menu a {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--soft-gold);
+            transform: translateX(5px);
+        }
+
+        .dropdown-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--soft-gold);
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(40, 40, 40, 0.9);
+            transition: max-height 0.4s ease-out;
+            padding-left: 1rem;
+        }
+
+        .submenu.active {
+            max-height: 500px;
+        }
+
+        .submenu li {
+            padding-left: 1rem !important;
+            border-bottom: none !important;
+        }
+
+        .submenu a {
+            font-size: 0.9rem;
+        }
+
+        .has-submenu > a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+
+        .has-submenu.active > a::after {
+            transform: rotate(180deg);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .night-mode {
+            background: transparent;
+            border: none;
+            color: var(--soft-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .night-mode:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9)), 
+                        radial-gradient(circle at center, var(--soft-gold) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeDown 1.2s ease-out;
+        }
+
+        @keyframes fadeDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--soft-gold), var(--rose-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background: var(--deep-black);
+            padding: 6rem 0;
+        }
+
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--soft-gold);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--dark-text);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9));
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--soft-gold);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .image-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(230, 196, 108, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(230, 196, 108, 0.1);
+        }
+
+        .image-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 196, 108, 0.1), rgba(212, 167, 152, 0.1));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-card:hover::before {
+            opacity: 1;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-content {
+            padding: 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-content h3 {
+            color: var(--soft-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: rgba(230, 196, 108, 0.1);
+            color: var(--gold-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .rose-tag {
+            background: rgba(212, 167, 152, 0.1);
+        }
+
+        .interaction-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(230, 196, 108, 0.1);
+        }
+
+        .like-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #aaa;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .like-btn:hover {
+            color: var(--soft-gold);
+        }
+
+        .like-btn.liked {
+            color: var(--soft-gold);
+        }
+
+        .like-btn i {
+            margin-right: 8px;
+            transition: transform 0.3s;
+        }
+
+        .like-btn.liked i {
+            transform: scale(1.2);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #aaa;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--soft-gold);
+            transform: translateY(-3px);
+        }
+
+        .comments-toggle {
+            background: transparent;
+            border: none;
+            color: var(--soft-gold);
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            margin-top: 1.2rem;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .comments-toggle i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .comments-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        .comments-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(40, 40, 40, 0.5);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            overflow-y: auto;
+        }
+
+        .comments-container.active {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .comment {
+            margin: 1.2rem 0;
+            padding: 1.2rem;
+            background: rgba(50, 50, 50, 0.5);
+            border-radius: 8px;
+            border-left: 2px solid var(--soft-gold);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .comment-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--soft-gold);
+            color: var(--deep-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        .comment-text {
+            line-height: 1.7;
+            color: var(--dark-text);
+            padding-left: 10px;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9));
+            padding: 6rem 0;
+        }
+
+        .tips-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(230, 196, 108, 0.2);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--soft-gold);
+        }
+
+        .tip-card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .tip-card h3 i {
+            margin-right: 10px;
+            color: var(--soft-gold);
+        }
+
+        .tip-card p {
+            line-height: 1.8;
+            color: var(--dark-text);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--deep-black);
+            padding: 6rem 0;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(230, 196, 108, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--soft-gold);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(30, 30, 30, 0.7);
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 1.5rem;
+            line-height: 1.8;
+            color: var(--dark-text);
+        }
+
+        /* Discussion Section */
+        .discussion-section {
+            background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9));
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .discussion-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .discussion-box {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(230, 196, 108, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .discussion-box textarea {
+            width: 100%;
+            height: 150px;
+            background: transparent;
+            border: 1px solid rgba(230, 196, 108, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--dark-text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            resize: none;
+            transition: border-color 0.3s;
+        }
+
+        .discussion-box textarea:focus {
+            outline: none;
+            border-color: var(--soft-gold);
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background: var(--soft-gold);
+            color: var(--deep-black);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--soft-gold);
+            border-color: var(--soft-gold);
+            transform: translateY(-3px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--soft-gold), var(--rose-gold));
+            padding: 6rem 0;
+            text-align: center;
+            color: var(--deep-black);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--deep-black);
+            color: var(--soft-gold);
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-size: 1.2rem;
+            border: 2px solid transparent;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            background: transparent;
+            color: var(--deep-black);
+            border-color: var(--deep-black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-black);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(230, 196, 108, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--gold-light);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--soft-gold);
+            transform: translateY(-5px);
+            text-shadow: 0 0 10px rgba(230, 196, 108, 0.5);
+        }
+
+        .copyright {
+            color: var(--dark-text);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Orb Trail Animation */
+        .orb-trail {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--soft-gold);
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--soft-gold), 0 0 20px var(--soft-gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tips-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container nav-container">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <a href="../../index.html" class="logo">Crown Weavers</a>
+            
+            <button class="night-mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <!-- Dropdown Menu -->
+        <div class="dropdown-menu">
+            <ul>
+                <!-- Home Link -->
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                
+                <!-- Makeup Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-paint-brush"></i> Makeup Services</a>
+                    <ul class="submenu">
+                        <li><a href="../makeup/bridal.html"><i class="fas fa-heart"></i> Bridal Packages</a></li>
+                        <li><a href="../makeup/evening-glam.html"><i class="fas fa-star"></i> Evening Glam</a></li>
+                        <li><a href="../makeup/traditional-glam.html"><i class="fas fa-palette"></i> Traditional Styles</a></li>
+                        <li><a href="../makeup/makeup-lessons.html"><i class="fas fa-graduation-cap"></i> Makeup Lessons</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Hair Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-cut"></i> Hair Services</a>
+                    <ul class="submenu">
+                        <li><a href="../braid.html"><i class="fas fa-spa"></i> Braiding & Extensions</a></li>
+                        <li><a href="../styling.html"><i class="fas fa-wind"></i> Styling & Updos</a></li>
+                        <li><a href="../treatments.html"><i class="fas fa-leaf"></i> Hair Treatments</a></li>
+                        <li><a href="color.html"><i class="fas fa-fill-drip"></i> Coloring</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Skincare Services Submenu -->
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-spa"></i> Skincare Consultations</a>
+                    <ul class="submenu">
+                        <li><a href="../skincare/anti-aging.html"><i class="fas fa-clock"></i> Anti-Aging</a></li>
+                        <li><a href="../skincare/acne.html"><i class="fas fa-allergies"></i> Acne Treatment</a></li>
+                        <li><a href="../skincare/pigmentation.html"><i class="fas fa-circle"></i> Hyperpigmentation</a></li>
+                        <li><a href="../skincare/products.html"><i class="fas fa-shopping-basket"></i> Product Recommendations</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Blog -->
+                <li><a href="../../blog/index.html"><i class="fas fa-blog"></i> Beauty Blog</a></li>
+                
+                <!-- Other Menu Items -->
+                <li><a href="../../about.html"><i class="fas fa-address-card"></i> About Us</a></li>
+                <li><a href="../../contact.html"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Hair Coloring</h1>
+            <p class="hero-subtitle">Transform Your Crown with Artistry and Precision</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <h2>The Art of Color Transformation</h2>
+                <div class="intro-text">
+                    <p>At Crown Weavers, we believe hair coloring is more than a cosmetic change—it's a form of self-expression, a rebirth of identity, and an artistic journey. Our master colorists approach each strand as a canvas, blending science and artistry to create hues that not only complement your skin tone and features but also resonate with your personality and spirit. From subtle highlights that catch the sun to bold transformations that command attention, we craft colors that tell your unique story.</p>
+                    
+                    <p>Our coloring process begins with a comprehensive consultation where we listen to your vision, assess your hair's health, and recommend the perfect approach. Using premium, ethically-sourced products that nourish while they color, we ensure your hair emerges vibrant, healthy, and full of life. Whether you seek a complete transformation or a subtle enhancement, our colorists blend technical expertise with artistic intuition to achieve results that exceed expectations.</p>
+                    
+                    <p>We specialize in a range of coloring techniques including balayage, ombré, full color, and creative fantasy hues. Each service includes a personalized aftercare regimen to maintain your color's brilliance and your hair's health. At Crown Weavers, we don't just color hair—we create masterpieces that evolve with you, reflecting the beautiful complexity of your identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Color Transformations</h2>
+                <p>Explore our signature coloring techniques</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Color style 1 -->
+                <div class="image-card">
+                    <img src="assets/images/color/color-02.jpg" alt="Bold Honey Blonde">
+                    <div class="image-content">
+                        <h3>Bold Honey Blonde</h3>
+                        <div class="tag-container">
+                            <span class="tag">#Blonde</span>
+                            <span class="tag">#WarmTones</span>
+                            <span class="tag">#Dimensional</span>
+                        </div>
+                        <p>Rich honey tones with caramel accents create a multi-dimensional blonde that illuminates your features. Perfect for adding warmth and depth to any complexion.</p>
+                        
+                        <button class="comments-toggle" data-target="comments1">
+                            💬 View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments1">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">S</div>
+                                    <div class="comment-author">Simi A.</div>
+                                </div>
+                                <div class="comment-text">
+                                    This color completely transformed my look! The honey tones complement my skin perfectly.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">T</div>
+                                    <div class="comment-author">Temi D.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The dimensional coloring looks amazing in sunlight. I get compliments everywhere I go!
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">A</div>
+                                    <div class="comment-author">Amina K.</div>
+                                </div>
+                                <div class="comment-text">
+                                    My hair feels healthier after coloring than before. The conditioning treatment made all the difference.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">142</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Color style 2 -->
+                <div class="image-card">
+                    <img src="assets/images/color/color-03.jpg" alt="Vibrant Highlights">
+                    <div class="image-content">
+                        <h3>Vibrant Highlights</h3>
+                        <div class="tag-container">
+                            <span class="tag">#Highlights</span>
+                            <span class="tag">#FaceFraming</span>
+                            <span class="tag rose-tag">#RoseGold</span>
+                        </div>
+                        <p>Artfully placed rose-gold highlights that frame the face and add movement. This technique brightens your natural color with a modern, luminous effect.</p>
+                        
+                        <button class="comments-toggle" data-target="comments2">
+                            💬 View Comments <i class="fas fa-chevron-down"></i>
+                        </button>
+                        
+                        <div class="comments-container" id="comments2">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">Z</div>
+                                    <div class="comment-author">Zara M.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The rose gold highlights are everything! They give my hair such dimension.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">L</div>
+                                    <div class="comment-author">Lola B.</div>
+                                </div>
+                                <div class="comment-text">
+                                    Perfect for summer - catches the light beautifully without being too dramatic.
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <div class="comment-avatar">K</div>
+                                    <div class="comment-author">Kemi W.</div>
+                                </div>
+                                <div class="comment-text">
+                                    The colorist took the time to customize the placement for my face shape. Amazing results!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-bar">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i> <span class="like-count">98</span> Likes
+                            </button>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional color styles... -->
+                
+            </div>
+            
+            <!-- Social Media Icons -->
+            <div class="social-links" style="margin-top: 4rem; justify-content: center;">
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#"><i class="fab fa-whatsapp fa-2x"></i></a>
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top 5 Hair Coloring Tips</h2>
+                <p>Maintain your vibrant color with our expert advice</p>
+            </div>
+            
+            <div class="tips-container">
+                <div class="tip-card">
+                    <h3><i class="fas fa-tint"></i> Moisturize Regularly</h3>
+                    <p>Colored hair needs extra hydration. Use sulfate-free shampoos and deep conditioning treatments weekly to maintain moisture balance and prevent fading.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-sun"></i> Protect from UV Rays</h3>
+                    <p>Sun exposure can cause color to fade. Use UV-protectant sprays and wear hats when spending extended time outdoors to preserve your color's vibrancy.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-shower"></i> Wash Less Frequently</h3>
+                    <p>Limit washing to 2-3 times per week with cool water. This helps maintain your color's intensity and prevents premature fading.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-flask"></i> Use Color-Safe Products</h3>
+                    <p>Invest in professional color-safe shampoos and conditioners. These products are pH-balanced to protect your color and prevent brassiness.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Schedule Regular Touch-Ups</h3>
+                    <p>Maintain your color with regular salon visits. Touch-ups every 4-6 weeks keep your roots fresh and your color looking its best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our coloring services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is hair coloring safe for natural hair?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! At Crown Weavers, we use premium, ammonia-free color products that are gentle on your hair while delivering vibrant results. Our colorists are trained to assess your hair's condition and use techniques that minimize damage. We always begin with a strand test and recommend treatments to maintain your hair's health throughout the coloring process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long will the color last?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our professional color typically lasts 6-8 weeks with proper care. Vibrant fashion colors may fade slightly faster, while traditional shades maintain their richness longer. We provide personalized aftercare instructions and recommend touch-ups every 4-6 weeks to maintain optimal color. Factors like hair porosity, washing frequency, and sun exposure can affect longevity.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I customize my own color blend?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our master colorists specialize in creating custom color blends tailored to your unique vision. During your consultation, we'll discuss your desired outcome, assess your skin tone, and create a personalized formula. We can blend multiple shades to achieve everything from subtle dimension to bold, head-turning color transformations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discussion Section -->
+    <section class="discussion-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Share Your Hair Color Story</h2>
+                <p>Join our community of color enthusiasts</p>
+            </div>
+            
+            <div class="discussion-content">
+                <p>Every color transformation tells a story. Share your journey, your inspiration, or how a new hair color changed your perspective. We celebrate every shade of expression at Crown Weavers.</p>
+                
+                <div class="discussion-box">
+                    <textarea placeholder="Tell us about your hair color journey..."></textarea>
+                    <button class="submit-btn">Share Your Story</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready for a Color Transformation?</h2>
+                <p>Book a consultation with our master colorists today</p>
+                <a href="https://wa.me/2348062774342" class="cta-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="../../index.html" class="logo">Crown Weavers</a>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Crown Weavers | Part of Blush & Bloom Beauty Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Menu toggle functionality
+            const menuBtn = document.querySelector('.menu-btn');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdownMenu.contains(e.target) && e.target !== menuBtn) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+            
+            // Submenu toggle functionality
+            document.querySelectorAll('.has-submenu > a').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                    e.stopPropagation();
+                    
+                    const submenu = this.nextElementSibling;
+                    const parentLi = this.parentElement;
+                    
+                    // Close other submenus
+                    document.querySelectorAll('.submenu').forEach(sub => {
+                        if (sub !== submenu) {
+                            sub.classList.remove('active');
+                            sub.parentElement.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current submenu
+                    parentLi.classList.toggle('active');
+                    submenu.classList.toggle('active');
+                });
+            });
+            
+            // Night mode toggle
+            const nightModeBtn = document.querySelector('.night-mode');
+            if (nightModeBtn) {
+                nightModeBtn.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    const icon = nightModeBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-moon');
+                        icon.classList.toggle('fa-sun');
+                    }
+                });
+            }
+            
+            // Like button functionality
+            document.querySelectorAll('.like-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const likeCount = this.querySelector('.like-count');
+                    let count = parseInt(likeCount.textContent);
+                    
+                    if (!this.classList.contains('liked')) {
+                        count++;
+                        this.classList.add('liked');
+                        this.querySelector('i').classList.remove('far');
+                        this.querySelector('i').classList.add('fas');
+                    } else {
+                        count--;
+                        this.classList.remove('liked');
+                        this.querySelector('i').classList.remove('fas');
+                        this.querySelector('i').classList.add('far');
+                    }
+                    
+                    likeCount.textContent = count;
+                });
+            });
+            
+            // Comments toggle functionality
+            document.querySelectorAll('.comments-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const comments = document.getElementById(targetId);
+                    this.classList.toggle('active');
+                    comments.classList.toggle('active');
+                });
+            });
+            
+            // FAQ toggle functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    this.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+            
+            // Scroll reveal animation
+            function revealOnScroll() {
+                const revealElements = document.querySelectorAll('.image-card, .tip-card, .discussion-content, .quote-content');
+                
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.85) {
+                        element.classList.add('reveal');
+                    }
+                });
+            }
+            
+            // Initial reveal check
+            revealOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', revealOnScroll);
+            
+            // Orb trail animation
+            const orbs = [];
+            const orbCount = 12;
+            
+            // Create orbs
+            for (let i = 0; i < orbCount; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb-trail');
+                orb.style.opacity = 0;
+                document.body.appendChild(orb);
+                orbs.push({
+                    element: orb,
+                    size: Math.random() * 10 + 5,
+                    delay: i * 0.05
+                });
+            }
+            
+            // Position orbs
+            window.addEventListener('mousemove', (e) => {
+                orbs.forEach((orb, index) => {
+                    setTimeout(() => {
+                        orb.element.style.left = `${e.pageX}px`;
+                        orb.element.style.top = `${e.pageY}px`;
+                        orb.element.style.width = `${orb.size}px`;
+                        orb.element.style.height = `${orb.size}px`;
+                        orb.element.style.opacity = '0.7';
+                        
+                        // Fade out
+                        setTimeout(() => {
+                            orb.element.style.opacity = '0';
+                        }, 300);
+                    }, index * 30);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
